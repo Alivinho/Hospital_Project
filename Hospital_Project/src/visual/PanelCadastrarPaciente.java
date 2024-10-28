@@ -3,18 +3,21 @@ package visual;
 import java.awt.Color;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class PanelCadastrarPaciente extends JPanel {
 	
 	private JTextField nome;
 	private JTextField dataNascimento;
 	private JTextField telefone;
-	private JTextField tipoSangue;
+	//private JTextField tipoSangue;
+	private JComboBox<String> tipoSangue; 
 	private JTextField altura;
 	private JTextField peso;
 	private JTextField convenio;
@@ -55,13 +58,24 @@ public class PanelCadastrarPaciente extends JPanel {
 		add(PanelEndereco());
 		add(getbtnCadastrar());
 		add(getbtnLimpar());
+		
+		 JLabel tituloDadosPessoais = new JLabel("Dados Pessoais:");
+		 tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
+		 tituloDadosPessoais.setSize(325, 25);
+	     tituloDadosPessoais.setLocation(50, 31); 
+	     add(tituloDadosPessoais);
+	     
+	     JLabel tituloEndereco = new JLabel("Endereço: ");
+	     tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
+	     tituloEndereco.setBounds(50, 345, 325, 25);
+	     add(tituloEndereco);
 	}
 	
 	public JPanel PanelDadosPessoais() {
 		JPanel panelDadosPessoais = new JPanel();
 		panelDadosPessoais.setLayout(null);
 		panelDadosPessoais.setSize(800, 250);
-		panelDadosPessoais.setLocation(50, 30);
+		panelDadosPessoais.setLocation(50, 58);
 
 		panelDadosPessoais.add(getLabelNome());
 		panelDadosPessoais.add(getTextfFieldNome());
@@ -70,7 +84,8 @@ public class PanelCadastrarPaciente extends JPanel {
 		panelDadosPessoais.add(getLabelTelefone());
 		panelDadosPessoais.add(getTextFieldTelefone());
 		panelDadosPessoais.add(getLabelTipoSangue());
-		panelDadosPessoais.add(getTextFieldTipoSangue());
+	    panelDadosPessoais.add(getComboBoxTipoSangue()); 
+
 		panelDadosPessoais.add(getLabelAltura());
 		panelDadosPessoais.add(getTextFieldAltura());
 		panelDadosPessoais.add(getLabelPeso());
@@ -87,7 +102,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		JPanel panelEndereco = new JPanel();
 		panelEndereco.setLayout(null);
 		panelEndereco.setSize(800, 224);
-		panelEndereco.setLocation(50, 296);
+		panelEndereco.setLocation(50, 370);
 
 		panelEndereco.add(getLabelLogradouro());
 		panelEndereco.add(getTextFieldLogradouro());
@@ -133,14 +148,15 @@ public class PanelCadastrarPaciente extends JPanel {
 	    }
 	    return telefone;
 	}
-
-	public JTextField getTextFieldTipoSangue() {
-	    if (tipoSangue == null) {
-	        tipoSangue = new JTextField();
-	        tipoSangue.setSize(150, 19);
-	        tipoSangue.setLocation(62, 160); 
-	    }
-	    return tipoSangue;
+	
+	public JComboBox<String> getComboBoxTipoSangue(){
+		 if (tipoSangue == null) {
+		        String[] tiposSanguineos = { " ", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" };
+		        tipoSangue = new JComboBox<>(tiposSanguineos);
+		        tipoSangue.setSize(150, 19);
+		        tipoSangue.setLocation(62, 160); 
+		    }
+		    return tipoSangue;
 	}
 
 	public JTextField getTextFieldAltura() {
@@ -378,12 +394,14 @@ public class PanelCadastrarPaciente extends JPanel {
 	    return labelEstado;
 	}
 	
+	/********************************** BOTÕES **********************************/
+	
 	public JButton getbtnCadastrar() {
 		if(btnCadastrar == null) {
 			btnCadastrar = new JButton();
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setSize(147,40);
-			btnCadastrar.setLocation(113,561);
+			btnCadastrar.setLocation(109,605);
 			btnCadastrar.setText("CADASTRAR");
 		}
 		return btnCadastrar; 
@@ -392,19 +410,13 @@ public class PanelCadastrarPaciente extends JPanel {
 	public JButton getbtnLimpar() {
 		if(btnLimpar == null) {
 			btnLimpar = new JButton();
-			btnLimpar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setSize(156,40);
-			btnLimpar.setLocation(524,561);
+			btnLimpar.setLocation(527,605);
 			btnLimpar.setText("LIMPAR");
 
 			
 		}
 		return btnLimpar; 
 	}
-
-	
 }
