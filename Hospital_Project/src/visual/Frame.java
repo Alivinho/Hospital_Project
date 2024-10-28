@@ -9,6 +9,8 @@ public class Frame extends JFrame{
 	
 	JMenuBar barraMenu;
 	JMenu menuCadastrar;
+	JMenu menuAgendamentos;
+	JMenu menuRelatorios; 
 	
 	JMenuItem itemCadastrarPaciente;
 	JMenuItem itemCadastrarMedico;
@@ -23,11 +25,15 @@ public class Frame extends JFrame{
 		this.setJMenuBar(getBarraMenu());
 
 	}
-
+	
+	/****************************** COMPONENTES DA BARRA DE MENU ******************************/ 
+	
 	public JMenuBar getBarraMenu() {
 		if(barraMenu == null) {
 			barraMenu = new JMenuBar();
 			barraMenu.add(getCadastrar());
+			barraMenu.add(getAgendamentos());
+			barraMenu.add(getRelatorios());
 		}
 		return barraMenu;
 	}
@@ -43,6 +49,26 @@ public class Frame extends JFrame{
 		}
 		return menuCadastrar;
 	}
+	
+	public JMenu getAgendamentos() {
+		if(menuAgendamentos == null) {
+			menuAgendamentos = new JMenu();
+			menuAgendamentos.setText("Agendamentos");
+		}
+		return menuAgendamentos;
+	}
+	
+	public JMenu getRelatorios() {
+		if(menuRelatorios == null) {
+			menuRelatorios = new JMenu();
+			menuRelatorios.setText("Relatórios");
+		}
+		return menuRelatorios;
+	}
+	
+	
+	/****************************** ITENS DOS COMPONENTES DO MENU ******************************/ 
+	
 	
 	public JMenuItem getCadastrarPaciente() {
 		if(itemCadastrarPaciente == null) {
