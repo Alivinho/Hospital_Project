@@ -11,6 +11,8 @@ public class Frame extends JFrame{
 	JMenu menuCadastrar;
 	
 	JMenuItem itemCadastrarPaciente;
+	JMenuItem itemCadastrarMedico;
+	JMenuItem itemCadastrarMaterial;
 	
 	public Frame() {
 		super();
@@ -35,8 +37,9 @@ public class Frame extends JFrame{
 			menuCadastrar = new JMenu();
 			menuCadastrar.setText("Cadastrar");
 			menuCadastrar.add(getCadastrarPaciente());
-			
-			
+			menuCadastrar.add(getCadastrarMedico());
+			menuCadastrar.add(getCadastrarMaterial());
+
 		}
 		return menuCadastrar;
 	}
@@ -49,6 +52,19 @@ public class Frame extends JFrame{
 		return itemCadastrarPaciente;
 	}
 	
-
-
+	public JMenuItem getCadastrarMedico() {
+		if(itemCadastrarMedico == null) {
+			itemCadastrarMedico = new JMenuItem();
+			itemCadastrarMedico.setText("Médico");
+		}
+		return itemCadastrarMedico;
+	}
+	
+	public JMenuItem getCadastrarMaterial() {
+		if(itemCadastrarMaterial == null) {
+			itemCadastrarMaterial = new JMenuItem();
+			itemCadastrarMaterial.setText("Material");
+		}
+		return itemCadastrarMaterial;
+	}
 }
