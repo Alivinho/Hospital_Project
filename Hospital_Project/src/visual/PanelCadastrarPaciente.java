@@ -53,21 +53,21 @@ public class PanelCadastrarPaciente extends JPanel {
 
 	public PanelCadastrarPaciente() {
 		this.setLayout(null);
-		this.setSize(1200, 720);
+		this.setSize(940, 720);
 		add(PanelDadosPessoais());
 		add(PanelEndereco());
 		add(getbtnCadastrar());
 		add(getbtnLimpar());
 		
-		 JLabel tituloDadosPessoais = new JLabel("Dados Pessoais:");
+		 JLabel tituloDadosPessoais = new JLabel("Dados Pessoais");
 		 tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
 		 tituloDadosPessoais.setSize(325, 25);
-	     tituloDadosPessoais.setLocation(50, 31); 
+	     tituloDadosPessoais.setLocation(70, 24); 
 	     add(tituloDadosPessoais);
 	     
-	     JLabel tituloEndereco = new JLabel("Endereço: ");
+	     JLabel tituloEndereco = new JLabel("Endereço");
 	     tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
-	     tituloEndereco.setBounds(50, 345, 325, 25);
+	     tituloEndereco.setBounds(70, 335, 325, 25);
 	     add(tituloEndereco);
 	}
 	
@@ -75,7 +75,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		JPanel panelDadosPessoais = new JPanel();
 		panelDadosPessoais.setLayout(null);
 		panelDadosPessoais.setSize(800, 250);
-		panelDadosPessoais.setLocation(50, 58);
+		panelDadosPessoais.setLocation(70, 58);
 
 		panelDadosPessoais.add(getLabelNome());
 		panelDadosPessoais.add(getTextfFieldNome());
@@ -102,7 +102,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		JPanel panelEndereco = new JPanel();
 		panelEndereco.setLayout(null);
 		panelEndereco.setSize(800, 224);
-		panelEndereco.setLocation(50, 370);
+		panelEndereco.setLocation(70, 370);
 
 		panelEndereco.add(getLabelLogradouro());
 		panelEndereco.add(getTextFieldLogradouro());
@@ -401,7 +401,7 @@ public class PanelCadastrarPaciente extends JPanel {
 			btnCadastrar = new JButton();
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setSize(147,40);
-			btnCadastrar.setLocation(109,605);
+			btnCadastrar.setLocation(307,604);
 			btnCadastrar.setText("CADASTRAR");
 		}
 		return btnCadastrar; 
@@ -412,7 +412,7 @@ public class PanelCadastrarPaciente extends JPanel {
 			btnLimpar = new JButton();
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setSize(156,40);
-			btnLimpar.setLocation(527,605);
+			btnLimpar.setLocation(480,604);
 			btnLimpar.setText("LIMPAR");
 
 			

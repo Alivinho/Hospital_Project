@@ -33,7 +33,7 @@ public class PanelCadastrarMedico extends JPanel{
 		
 		JLabel titlePanelCadastrarMedico = new JLabel("Cadastro dos Médicos");
 		titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
-		titlePanelCadastrarMedico.setSize(325, 25);
+		titlePanelCadastrarMedico.setSize(359, 25);
 		titlePanelCadastrarMedico.setLocation(50, 31); 
 	    add(titlePanelCadastrarMedico);
 
