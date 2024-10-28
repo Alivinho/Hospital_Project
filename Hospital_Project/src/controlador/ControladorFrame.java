@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import visual.Frame;
+import visual.PanelCadastrarMaterial;
+import visual.PanelCadastrarMedico;
 import visual.PanelCadastrarPaciente;
 
 public class ControladorFrame implements ActionListener{
@@ -13,7 +15,11 @@ public class ControladorFrame implements ActionListener{
 	PanelCadastrarPaciente panelCadastrarPaciente;
 	ControladorCadastrarPaciente controladorCadastrarPaciente; 
 	
+	PanelCadastrarMedico panelCadastrarMedico;
+	ControladorCadastrarMedico controladorCadastrarMedico; 
 	
+	PanelCadastrarMaterial panelCadastrarMaterial;
+	ControladorCadastrarMaterial controladorCadastrarMaterial;
 	
 	
 	public ControladorFrame() {
@@ -22,7 +28,11 @@ public class ControladorFrame implements ActionListener{
 	}
 	
 	private void addEventos() {
-		frame.getCadastrarPaciente().addActionListener(this);		
+		frame.getCadastrarPaciente().addActionListener(this);
+		frame.getCadastrarMedico().addActionListener(this);	
+		frame.getCadastrarMaterial().addActionListener(this);	
+
+
 	}
 	
 	
@@ -31,6 +41,22 @@ public class ControladorFrame implements ActionListener{
 			panelCadastrarPaciente = new PanelCadastrarPaciente();
 			controladorCadastrarPaciente = new ControladorCadastrarPaciente(panelCadastrarPaciente);
 			frame.setContentPane(panelCadastrarPaciente);
+	        frame.revalidate(); 
+	        frame.repaint(); 
+		}
+		else if(e.getSource() == frame.getCadastrarMedico()) {
+			panelCadastrarMedico = new PanelCadastrarMedico();
+			controladorCadastrarMedico = new ControladorCadastrarMedico(panelCadastrarMedico);
+			frame.setContentPane(panelCadastrarMedico); 
+	        frame.revalidate(); 
+	        frame.repaint();
+			
+		}else if(e.getSource() == frame.getCadastrarMaterial()) {
+			panelCadastrarMaterial = new PanelCadastrarMaterial();
+			controladorCadastrarMaterial = new ControladorCadastrarMaterial(panelCadastrarMaterial);
+			frame.setContentPane(panelCadastrarMaterial); 
+	        frame.revalidate(); 
+	        frame.repaint();
 		}
 		
 	}
