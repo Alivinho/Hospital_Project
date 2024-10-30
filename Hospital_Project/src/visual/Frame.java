@@ -19,7 +19,7 @@ public class Frame extends JFrame{
 	public Frame() {
 		super();
 		this.setVisible(true);
-		this.setSize(1200, 720);
+		this.setSize(920, 720);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setJMenuBar(getBarraMenu());

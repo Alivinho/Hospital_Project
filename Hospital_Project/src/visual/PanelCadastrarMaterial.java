@@ -7,59 +7,58 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 
 public class PanelCadastrarMaterial extends JPanel{
 	
 	private JTextField nomeMaterial;
-	private JTextField quantEstoque;
-	private JTextField quantMinimaEstoque;
-	private JTextField fornecedor;
-	private JTextField preco;
 	
 	private JLabel labelNomeMaterial;
-	private JLabel labelQuantEstoque;
-	private JLabel labelQuantMinimaEstoque;
-	private JLabel labelFornecedor;
-	private JLabel labelPreco;
-	
+	private JTextField textField;
+	private JLabel lblQuantidadeEmEstoque;
+	private JTextField textField_1;
+	private JLabel lblQuantidadeMnimaEm;
+	private JTextField textField_2;
+	private JLabel lblFornecedor;
+	private JTextField textField_3;
+	private JLabel lblPreo;
+	private JButton btnLimpar;
 	private JButton btnCadastrar;
-	private JButton btnLimpar; 
 	
 	public PanelCadastrarMaterial() {
 		this.setLayout(null);
-		this.setSize(1200, 720);
+		this.setSize(900, 675);
 		add(PanelInformacoesMateriais());
 		
 		
 		JLabel titlePanelCadastrarMateriais = new JLabel("Cadastro dos Materiais");
 		titlePanelCadastrarMateriais.setFont(new Font("Tahoma", Font.BOLD, 30));
 		titlePanelCadastrarMateriais.setSize(393, 25);
-		titlePanelCadastrarMateriais.setLocation(50, 31); 
+		titlePanelCadastrarMateriais.setLocation(253, 31); 
 	    add(titlePanelCadastrarMateriais);
-
-		
-		add(getbtnCadastrar());
-		add(getbtnLimpar());
+	    add(getBtnLimpar());
+	    add(getBtnCadastrar());
 	}
 	
 	public JPanel PanelInformacoesMateriais() {
 		JPanel PanelInformacoesMateriais = new JPanel();
+		PanelInformacoesMateriais.setBorder(new LineBorder(new Color(192, 192, 192)));
 		PanelInformacoesMateriais.setLayout(null);
-		PanelInformacoesMateriais.setSize(800, 367);
+		PanelInformacoesMateriais.setSize(800, 379);
 		PanelInformacoesMateriais.setLocation(50, 82);
 
 		
 		PanelInformacoesMateriais.add(getTextFieldNomeMaterial());
-		PanelInformacoesMateriais.add(getTextFieldQuantEstoque());
-		PanelInformacoesMateriais.add(getTextFieldQuantMinimaEstoque());
-		PanelInformacoesMateriais.add(getTextFieldFornecedor());
-		PanelInformacoesMateriais.add(getTextFieldPreco());
 
 		PanelInformacoesMateriais.add(getLabelNomeMaterial());
-		PanelInformacoesMateriais.add(getLabelQuantEstoque());
-		PanelInformacoesMateriais.add(getLabelQuantMinimaEstoque());
-		PanelInformacoesMateriais.add(getLabelFornecedor());
-		PanelInformacoesMateriais.add(getLabelPreco());
+		PanelInformacoesMateriais.add(getTextField());
+		PanelInformacoesMateriais.add(getLblQuantidadeEmEstoque());
+		PanelInformacoesMateriais.add(getTextField_1());
+		PanelInformacoesMateriais.add(getLblQuantidadeMnimaEm());
+		PanelInformacoesMateriais.add(getTextField_2());
+		PanelInformacoesMateriais.add(getLblFornecedor());
+		PanelInformacoesMateriais.add(getTextField_3());
+		PanelInformacoesMateriais.add(getLblPreo());
 		
 		return PanelInformacoesMateriais;
 	}
@@ -67,123 +66,99 @@ public class PanelCadastrarMaterial extends JPanel{
 	public JTextField getTextFieldNomeMaterial() {
 	    if (nomeMaterial == null) {
 	        nomeMaterial = new JTextField();
-	        nomeMaterial.setSize(564, 32);
-	        nomeMaterial.setLocation(60, 36); 
+	        nomeMaterial.setSize(574, 32);
+	        nomeMaterial.setLocation(113, 40); 
 	    }
 	    return nomeMaterial;
-	}
-
-	public JTextField getTextFieldQuantEstoque() {
-	    if (quantEstoque == null) {
-	        quantEstoque = new JTextField();
-	        quantEstoque.setSize(564, 32);
-	        quantEstoque.setLocation(60, 92); 
-	    }
-	    return quantEstoque;
-	}
-
-	public JTextField getTextFieldQuantMinimaEstoque() {
-	    if (quantMinimaEstoque == null) {
-	        quantMinimaEstoque = new JTextField();
-	        quantMinimaEstoque.setSize(564, 32);
-	        quantMinimaEstoque.setLocation(60, 161); 
-	    }
-	    return quantMinimaEstoque;
-	}
-
-	public JTextField getTextFieldFornecedor() {
-	    if (fornecedor == null) {
-	        fornecedor = new JTextField();
-	        fornecedor.setSize(564, 32);
-	        fornecedor.setLocation(60, 227); 
-	    }
-	    return fornecedor;
-	}
-
-	public JTextField getTextFieldPreco() {
-	    if (preco == null) {
-	        preco = new JTextField();
-	        preco.setSize(564, 32);
-	        preco.setLocation(60, 295); 
-	    }
-	    return preco;
 	}
 
 	public JLabel getLabelNomeMaterial() {
 	    if (labelNomeMaterial == null) {
 	        labelNomeMaterial = new JLabel("Nome do Material:");
+	        labelNomeMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	        labelNomeMaterial.setSize(200, 32);
-	        labelNomeMaterial.setLocation(60, 11); 
+	        labelNomeMaterial.setLocation(113, 10); 
 	    }
 	    return labelNomeMaterial;
 	}
-
-	public JLabel getLabelQuantEstoque() {
-	    if (labelQuantEstoque == null) {
-	        labelQuantEstoque = new JLabel("Quantidade em Estoque:");
-	        labelQuantEstoque.setSize(200, 32);
-	        labelQuantEstoque.setLocation(60, 67); 
-	    }
-	    return labelQuantEstoque;
-	}
-
-	public JLabel getLabelQuantMinimaEstoque() {
-	    if (labelQuantMinimaEstoque == null) {
-	        labelQuantMinimaEstoque = new JLabel("Quantidade Mínima em Estoque:");
-	        labelQuantMinimaEstoque.setSize(200, 32);
-	        labelQuantMinimaEstoque.setLocation(60, 136); 
-	    }
-	    return labelQuantMinimaEstoque;
-	}
-
-	public JLabel getLabelFornecedor() {
-	    if (labelFornecedor == null) {
-	        labelFornecedor = new JLabel("Fornecedor:");
-	        labelFornecedor.setSize(200, 32);
-	        labelFornecedor.setLocation(60, 202); 
-	    }
-	    return labelFornecedor;
-	}
-
-	public JLabel getLabelPreco() {
-	    if (labelPreco == null) {
-	        labelPreco = new JLabel("Preço:");
-	        labelPreco.setSize(200, 32);
-	        labelPreco.setLocation(60, 270); 
-	    }
-	    return labelPreco;
-	}
-	
-	
-/********************************** BOTÕES **********************************/
-	
-	public JButton getbtnCadastrar() {
-		if(btnCadastrar == null) {
-			btnCadastrar = new JButton();
-			btnCadastrar.setForeground(new Color(0, 0, 205));
-			btnCadastrar.setSize(147,40);
-			btnCadastrar.setLocation(109,605);
-			btnCadastrar.setText("CADASTRAR");
+	private JTextField getTextField() {
+		if (textField == null) {
+			textField = new JTextField();
+			textField.setBounds(113, 112, 574, 32);
 		}
-		return btnCadastrar; 
+		return textField;
 	}
-	
-	public JButton getbtnLimpar() {
-		if(btnLimpar == null) {
+	private JLabel getLblQuantidadeEmEstoque() {
+		if (lblQuantidadeEmEstoque == null) {
+			lblQuantidadeEmEstoque = new JLabel("Quantidade em Estoque:");
+			lblQuantidadeEmEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblQuantidadeEmEstoque.setBounds(113, 82, 200, 32);
+		}
+		return lblQuantidadeEmEstoque;
+	}
+	private JTextField getTextField_1() {
+		if (textField_1 == null) {
+			textField_1 = new JTextField();
+			textField_1.setBounds(113, 184, 574, 32);
+		}
+		return textField_1;
+	}
+	private JLabel getLblQuantidadeMnimaEm() {
+		if (lblQuantidadeMnimaEm == null) {
+			lblQuantidadeMnimaEm = new JLabel("Quantidade Mínima em Estoque:");
+			lblQuantidadeMnimaEm.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblQuantidadeMnimaEm.setBounds(113, 154, 220, 32);
+		}
+		return lblQuantidadeMnimaEm;
+	}
+	private JTextField getTextField_2() {
+		if (textField_2 == null) {
+			textField_2 = new JTextField();
+			textField_2.setBounds(113, 256, 574, 32);
+		}
+		return textField_2;
+	}
+	private JLabel getLblFornecedor() {
+		if (lblFornecedor == null) {
+			lblFornecedor = new JLabel("Fornecedor:");
+			lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblFornecedor.setBounds(113, 226, 220, 32);
+		}
+		return lblFornecedor;
+	}
+	private JTextField getTextField_3() {
+		if (textField_3 == null) {
+			textField_3 = new JTextField();
+			textField_3.setBounds(113, 328, 574, 32);
+		}
+		return textField_3;
+	}
+	private JLabel getLblPreo() {
+		if (lblPreo == null) {
+			lblPreo = new JLabel("Preço:");
+			lblPreo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblPreo.setBounds(113, 298, 220, 32);
+		}
+		return lblPreo;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
 			btnLimpar = new JButton();
-			btnLimpar.setForeground(new Color(0, 0, 205));
-			btnLimpar.setSize(156,40);
-			btnLimpar.setLocation(527,605);
 			btnLimpar.setText("LIMPAR");
-
-			
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(512, 471, 156, 40);
 		}
-		return btnLimpar; 
+		return btnLimpar;
 	}
-	
-	
-	
-
-
-
+	private JButton getBtnCadastrar() {
+		if (btnCadastrar == null) {
+			btnCadastrar = new JButton();
+			btnCadastrar.setText("CADASTRAR");
+			btnCadastrar.setForeground(new Color(0, 0, 205));
+			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnCadastrar.setBounds(703, 471, 147, 40);
+		}
+		return btnCadastrar;
+	}
 }
