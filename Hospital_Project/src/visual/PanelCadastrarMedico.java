@@ -25,17 +25,20 @@ public class PanelCadastrarMedico extends JPanel{
 	private JLabel lblHorriosDeAtendimento;
 	private JTextField textField_4;
 	private JLabel lblValorConsultaParticular;
+	private JLabel lblHorriosDeAtendimento_1;
 	
 	public PanelCadastrarMedico() {
+		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
 		this.setSize(900, 625);
 		add(PanelInformacoes());
 		
 		
 		JLabel titlePanelCadastrarMedico = new JLabel("Cadastro dos Médicos");
+		titlePanelCadastrarMedico.setForeground(new Color(255, 255, 255));
 		titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
 		titlePanelCadastrarMedico.setSize(359, 25);
-		titlePanelCadastrarMedico.setLocation(320, 31); 
+		titlePanelCadastrarMedico.setLocation(270, 31); 
 	    add(titlePanelCadastrarMedico);
 
 		
@@ -59,6 +62,7 @@ public class PanelCadastrarMedico extends JPanel{
 		PanelInformacoes.add(getLblHorriosDeAtendimento());
 		PanelInformacoes.add(getTextField_4());
 		PanelInformacoes.add(getLblValorConsultaParticular());
+		PanelInformacoes.add(getLblHorriosDeAtendimento_1());
 		
 		return PanelInformacoes;
 	}
@@ -170,5 +174,13 @@ public class PanelCadastrarMedico extends JPanel{
 			lblValorConsultaParticular.setBounds(323, 182, 200, 32);
 		}
 		return lblValorConsultaParticular;
+	}
+	private JLabel getLblHorriosDeAtendimento_1() {
+		if (lblHorriosDeAtendimento_1 == null) {
+			lblHorriosDeAtendimento_1 = new JLabel("Horários de Atendimento:");
+			lblHorriosDeAtendimento_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblHorriosDeAtendimento_1.setBounds(113, 254, 200, 32);
+		}
+		return lblHorriosDeAtendimento_1;
 	}
 }

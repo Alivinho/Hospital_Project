@@ -4,6 +4,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import java.awt.Color;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import java.awt.Font;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class Frame extends JFrame{
 	
@@ -15,11 +22,30 @@ public class Frame extends JFrame{
 	JMenuItem itemCadastrarPaciente;
 	JMenuItem itemCadastrarMedico;
 	JMenuItem itemCadastrarMaterial;
+	private JLabel lblNewLabel;
 	
 	public Frame() {
 		super();
+		getContentPane().setBackground(new Color(83, 169, 255));
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(421, Short.MAX_VALUE)
+					.addComponent(getLblNewLabel())
+					.addGap(389))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+					.addContainerGap(316, Short.MAX_VALUE)
+					.addComponent(getLblNewLabel())
+					.addGap(283))
+		);
+		getContentPane().setLayout(groupLayout);
+		setBackground(new Color(0, 128, 255));
 		this.setVisible(true);
-		this.setSize(920, 720);
+		this.setSize(960, 790);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setJMenuBar(getBarraMenu());
@@ -92,5 +118,13 @@ public class Frame extends JFrame{
 			itemCadastrarMaterial.setText("Material");
 		}
 		return itemCadastrarMaterial;
+	}
+	private JLabel getLblNewLabel() {
+		if (lblNewLabel == null) {
+			lblNewLabel = new JLabel("Home");
+			lblNewLabel.setForeground(new Color(255, 255, 255));
+			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 60));
+		}
+		return lblNewLabel;
 	}
 }

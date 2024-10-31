@@ -11,26 +11,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
 
 public class PanelCadastrarPaciente extends JPanel {
 	//private JTextField tipoSangue;
 	private JComboBox<String> tipoSangue; 
-
-	private JTextField logradouro;
-	private JTextField numero;
-	private JTextField complemento;
-	private JTextField bairro;
-	private JTextField cep;
-	private JTextField cidade;
-	private JTextField estado;
-	
-	private JLabel labelLogradouro;
-	private JLabel labelNumero;
-	private JLabel labelComplemento;
-	private JLabel labelBairro;
-	private JLabel labelCep;
-	private JLabel labelCidade;
-	private JLabel labelEstado;
 	private JLabel labelNomeMaterial;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -48,33 +34,52 @@ public class PanelCadastrarPaciente extends JPanel {
 	private JLabel lblTelefone_1_1_1;
 	private JButton btnCadastrar;
 	private JButton btnLimpar;
+	private JTextField textField_7;
+	private JLabel lblLogradouro;
+	private JTextField textField_8;
+	private JLabel lblNmero;
+	private JTextField textField_9;
+	private JLabel lblComplemento;
+	private JTextField textField_10;
+	private JLabel lblBairro;
+	private JTextField textField_11;
+	private JLabel lblCidade;
+	private JTextField textField_12;
+	private JLabel lblCep;
+	private JLabel lblEstado;
+	private JTextField textField_13;
+	private JLabel titlePanelCadastrarMedico;
 
 	public PanelCadastrarPaciente() {
+		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
-		this.setSize(940, 705);
+		this.setSize(940, 770);
 		add(PanelDadosPessoais());
 		add(PanelEndereco());
 		
 		 JLabel tituloDadosPessoais = new JLabel("Dados Pessoais");
+		 tituloDadosPessoais.setForeground(new Color(255, 255, 255));
 		 tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
-		 tituloDadosPessoais.setSize(325, 25);
-	     tituloDadosPessoais.setLocation(70, 24); 
+		 tituloDadosPessoais.setSize(198, 31);
+	     tituloDadosPessoais.setLocation(70, 104); 
 	     add(tituloDadosPessoais);
 	     
 	     JLabel tituloEndereco = new JLabel("Endereço");
+	     tituloEndereco.setForeground(new Color(255, 255, 255));
 	     tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
-	     tituloEndereco.setBounds(70, 335, 325, 25);
+	     tituloEndereco.setBounds(70, 383, 119, 31);
 	     add(tituloEndereco);
 	     add(getBtnCadastrar());
 	     add(getBtnLimpar());
+	     add(getTitlePanelCadastrarMedico());
 	}
 	
 	public JPanel PanelDadosPessoais() {
 		JPanel panelDadosPessoais = new JPanel();
 		panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 		panelDadosPessoais.setLayout(null);
-		panelDadosPessoais.setSize(800, 243);
-		panelDadosPessoais.setLocation(70, 58);
+		panelDadosPessoais.setSize(800, 235);
+		panelDadosPessoais.setLocation(70, 138);
 	    panelDadosPessoais.add(getComboBoxTipoSangue());
 		panelDadosPessoais.add(getTextField());
 		panelDadosPessoais.add(getLabelNomeMaterial());
@@ -99,23 +104,22 @@ public class PanelCadastrarPaciente extends JPanel {
 		JPanel panelEndereco = new JPanel();
 		panelEndereco.setBorder(new LineBorder(new Color(192, 192, 192)));
 		panelEndereco.setLayout(null);
-		panelEndereco.setSize(800, 224);
-		panelEndereco.setLocation(70, 370);
-
-		panelEndereco.add(getLabelLogradouro());
-		panelEndereco.add(getTextFieldLogradouro());
-		panelEndereco.add(getLabelNumero());
-		panelEndereco.add(getTextFieldNumero());
-		panelEndereco.add(getLabelComplemento());
-		panelEndereco.add(getTextFieldComplemento());
-		panelEndereco.add(getLabelBairro());
-		panelEndereco.add(getTextFieldBairro());
-		panelEndereco.add(getLabelCep());
-		panelEndereco.add(getTextFieldCep());
-		panelEndereco.add(getLabelCidade());
-		panelEndereco.add(getTextFieldCidade());
-		panelEndereco.add(getLabelEstado());
-		panelEndereco.add(getTextFieldEstado());
+		panelEndereco.setSize(800, 235);
+		panelEndereco.setLocation(70, 418);
+		panelEndereco.add(getTextField_7());
+		panelEndereco.add(getLblLogradouro());
+		panelEndereco.add(getTextField_8());
+		panelEndereco.add(getLblNmero());
+		panelEndereco.add(getTextField_9());
+		panelEndereco.add(getLblComplemento());
+		panelEndereco.add(getTextField_10());
+		panelEndereco.add(getLblBairro());
+		panelEndereco.add(getTextField_11());
+		panelEndereco.add(getLblCidade());
+		panelEndereco.add(getTextField_12());
+		panelEndereco.add(getLblCep());
+		panelEndereco.add(getLblEstado());
+		panelEndereco.add(getTextField_13());
 
 		return panelEndereco;
 	}
@@ -124,137 +128,12 @@ public class PanelCadastrarPaciente extends JPanel {
 		 if (tipoSangue == null) {
 		        String[] tiposSanguineos = { " ", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" };
 		        tipoSangue = new JComboBox<>(tiposSanguineos);
+		        tipoSangue.setBackground(new Color(255, 255, 255));
+		        tipoSangue.setModel(new DefaultComboBoxModel(new String[] {" ", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"}));
 		        tipoSangue.setSize(150, 32);
 		        tipoSangue.setLocation(10, 112); 
 		    }
 		    return tipoSangue;
-	}
-	
-	public JTextField getTextFieldLogradouro() {
-	    if (logradouro == null) {
-	        logradouro = new JTextField();
-	        logradouro.setSize(564, 32);
-	        logradouro.setLocation(62, 39); 
-	    }
-	    return logradouro;
-	}
-
-	public JTextField getTextFieldNumero() {
-	    if (numero == null) {
-	        numero = new JTextField();
-	        numero.setSize(150, 19);
-	        numero.setLocation(62, 99); 
-	    }
-	    return numero;
-	}
-
-	public JTextField getTextFieldComplemento() {
-	    if (complemento == null) {
-	        complemento = new JTextField();
-	        complemento.setSize(150, 19);
-	        complemento.setLocation(264, 99); 
-	    }
-	    return complemento;
-	}
-
-	public JTextField getTextFieldBairro() {
-	    if (bairro == null) {
-	        bairro = new JTextField();
-	        bairro.setSize(150, 19);
-	        bairro.setLocation(476, 99); 
-	    }
-	    return bairro;
-	}
-
-	public JTextField getTextFieldCep() {
-	    if (cep == null) {
-	        cep = new JTextField();
-	        cep.setSize(150, 19);
-	        cep.setLocation(264, 157); 
-	    }
-	    return cep;
-	}
-
-	public JTextField getTextFieldCidade() {
-	    if (cidade == null) {
-	        cidade = new JTextField();
-	        cidade.setSize(150, 19);
-	        cidade.setLocation(62, 157); 
-	    }
-	    return cidade;
-	}
-
-	public JTextField getTextFieldEstado() {
-	    if (estado == null) {
-	        estado = new JTextField();
-	        estado.setSize(150, 19);
-	        estado.setLocation(476, 157); 
-	    }
-	    return estado;
-	}
-	
-
-	public JLabel getLabelLogradouro() {
-	    if (labelLogradouro == null) {
-	        labelLogradouro = new JLabel("Logradouro:");
-	        labelLogradouro.setSize(100, 19);
-	        labelLogradouro.setLocation(62, 22);
-	    }
-	    return labelLogradouro;
-	}
-
-	public JLabel getLabelNumero() {
-	    if (labelNumero == null) {
-	        labelNumero = new JLabel("Número:");
-	        labelNumero.setSize(100, 19);
-	        labelNumero.setLocation(62, 81);
-	    }
-	    return labelNumero;
-	}
-
-	public JLabel getLabelComplemento() {
-	    if (labelComplemento == null) {
-	        labelComplemento = new JLabel("Complemento:");
-	        labelComplemento.setSize(100, 19);
-	        labelComplemento.setLocation(264, 81);
-	    }
-	    return labelComplemento;
-	}
-
-	public JLabel getLabelBairro() {
-	    if (labelBairro == null) {
-	        labelBairro = new JLabel("Bairro:");
-	        labelBairro.setSize(100, 19);
-	        labelBairro.setLocation(476, 81);
-	    }
-	    return labelBairro;
-	}
-
-	public JLabel getLabelCep() {
-	    if (labelCep == null) {
-	        labelCep = new JLabel("CEP:");
-	        labelCep.setSize(100, 19);
-	        labelCep.setLocation(264, 139);
-	    }
-	    return labelCep;
-	}
-
-	public JLabel getLabelCidade() {
-	    if (labelCidade == null) {
-	        labelCidade = new JLabel("Cidade:");
-	        labelCidade.setSize(100, 19);
-	        labelCidade.setLocation(62, 139);
-	    }
-	    return labelCidade;
-	}
-
-	public JLabel getLabelEstado() {
-	    if (labelEstado == null) {
-	        labelEstado = new JLabel("Estado:");
-	        labelEstado.setSize(100, 19);
-	        labelEstado.setLocation(476, 139);
-	    }
-	    return labelEstado;
 	}
 	private JLabel getLabelNomeMaterial() {
 		if (labelNomeMaterial == null) {
@@ -375,7 +254,7 @@ public class PanelCadastrarPaciente extends JPanel {
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnCadastrar.setBounds(723, 604, 147, 40);
+			btnCadastrar.setBounds(723, 668, 147, 40);
 		}
 		return btnCadastrar;
 	}
@@ -385,8 +264,122 @@ public class PanelCadastrarPaciente extends JPanel {
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnLimpar.setBounds(532, 604, 156, 40);
+			btnLimpar.setBounds(532, 668, 156, 40);
 		}
 		return btnLimpar;
+	}
+	private JTextField getTextField_7() {
+		if (textField_7 == null) {
+			textField_7 = new JTextField();
+			textField_7.setBounds(23, 39, 553, 32);
+		}
+		return textField_7;
+	}
+	private JLabel getLblLogradouro() {
+		if (lblLogradouro == null) {
+			lblLogradouro = new JLabel("Logradouro:");
+			lblLogradouro.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblLogradouro.setBounds(23, 9, 200, 32);
+		}
+		return lblLogradouro;
+	}
+	private JTextField getTextField_8() {
+		if (textField_8 == null) {
+			textField_8 = new JTextField();
+			textField_8.setBounds(586, 39, 201, 32);
+		}
+		return textField_8;
+	}
+	private JLabel getLblNmero() {
+		if (lblNmero == null) {
+			lblNmero = new JLabel("Número:");
+			lblNmero.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblNmero.setBounds(586, 9, 201, 32);
+		}
+		return lblNmero;
+	}
+	private JTextField getTextField_9() {
+		if (textField_9 == null) {
+			textField_9 = new JTextField();
+			textField_9.setBounds(451, 111, 336, 32);
+		}
+		return textField_9;
+	}
+	private JLabel getLblComplemento() {
+		if (lblComplemento == null) {
+			lblComplemento = new JLabel("Complemento:");
+			lblComplemento.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblComplemento.setBounds(451, 81, 201, 32);
+		}
+		return lblComplemento;
+	}
+	private JTextField getTextField_10() {
+		if (textField_10 == null) {
+			textField_10 = new JTextField();
+			textField_10.setBounds(23, 111, 418, 32);
+		}
+		return textField_10;
+	}
+	private JLabel getLblBairro() {
+		if (lblBairro == null) {
+			lblBairro = new JLabel("Bairro:");
+			lblBairro.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblBairro.setBounds(23, 81, 201, 32);
+		}
+		return lblBairro;
+	}
+	private JTextField getTextField_11() {
+		if (textField_11 == null) {
+			textField_11 = new JTextField();
+			textField_11.setBounds(23, 182, 286, 32);
+		}
+		return textField_11;
+	}
+	private JLabel getLblCidade() {
+		if (lblCidade == null) {
+			lblCidade = new JLabel("Cidade:");
+			lblCidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblCidade.setBounds(23, 152, 201, 32);
+		}
+		return lblCidade;
+	}
+	private JTextField getTextField_12() {
+		if (textField_12 == null) {
+			textField_12 = new JTextField();
+			textField_12.setBounds(319, 182, 189, 32);
+		}
+		return textField_12;
+	}
+	private JLabel getLblCep() {
+		if (lblCep == null) {
+			lblCep = new JLabel("CEP:");
+			lblCep.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblCep.setBounds(319, 152, 189, 32);
+		}
+		return lblCep;
+	}
+	private JLabel getLblEstado() {
+		if (lblEstado == null) {
+			lblEstado = new JLabel("Estado:");
+			lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblEstado.setBounds(517, 152, 189, 32);
+		}
+		return lblEstado;
+	}
+	private JTextField getTextField_13() {
+		if (textField_13 == null) {
+			textField_13 = new JTextField();
+			textField_13.setBounds(517, 182, 270, 32);
+		}
+		return textField_13;
+	}
+	private JLabel getTitlePanelCadastrarMedico() {
+		if (titlePanelCadastrarMedico == null) {
+			titlePanelCadastrarMedico = new JLabel("Cadastro dos Médicos");
+			titlePanelCadastrarMedico.setForeground(Color.WHITE);
+			titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
+			titlePanelCadastrarMedico.setBounds(304, 39, 331, 25);
+		}
+		return titlePanelCadastrarMedico;
 	}
 }
