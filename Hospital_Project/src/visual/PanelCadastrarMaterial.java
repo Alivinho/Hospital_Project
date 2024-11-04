@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-public class PanelCadastrarMaterial extends JPanel{
+public class PanelCadastrarMaterial extends JPanel {
 	
 	private JTextField nomeMaterial;
 	

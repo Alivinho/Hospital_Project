@@ -4,6 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JScrollPane;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.BorderLayout;
@@ -11,6 +13,7 @@ import javax.swing.BoxLayout;
 import java.awt.Font;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class Frame extends JFrame{
 	
@@ -29,16 +32,16 @@ public class Frame extends JFrame{
 		getContentPane().setBackground(new Color(83, 169, 255));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap(421, Short.MAX_VALUE)
 					.addComponent(getLblNewLabel())
 					.addGap(389))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(316, Short.MAX_VALUE)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(375, Short.MAX_VALUE)
 					.addComponent(getLblNewLabel())
 					.addGap(283))
 		);
@@ -49,7 +52,6 @@ public class Frame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setJMenuBar(getBarraMenu());
-
 	}
 	
 	/****************************** COMPONENTES DA BARRA DE MENU ******************************/ 
