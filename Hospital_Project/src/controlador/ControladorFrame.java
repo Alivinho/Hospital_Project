@@ -4,9 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import visual.Frame;
+import visual.PanelAgendamento;
 import visual.PanelCadastrarMaterial;
 import visual.PanelCadastrarMedico;
 import visual.PanelCadastrarPaciente;
+import visual.PanelRelatorio;
 
 public class ControladorFrame implements ActionListener{
 	
@@ -21,6 +23,12 @@ public class ControladorFrame implements ActionListener{
 	PanelCadastrarMaterial panelCadastrarMaterial;
 	ControladorCadastrarMaterial controladorCadastrarMaterial;
 	
+	PanelAgendamento panelAgendamento;
+	ControladorAgendamento controladorAgendamento;
+	
+	PanelRelatorio panelRelatorio;
+	ControladorRelatorio controladorRelatorio;
+	
 	
 	public ControladorFrame() {
 		frame = new Frame();
@@ -31,7 +39,6 @@ public class ControladorFrame implements ActionListener{
 		frame.getCadastrarPaciente().addActionListener(this);
 		frame.getCadastrarMedico().addActionListener(this);	
 		frame.getCadastrarMaterial().addActionListener(this);	
-
 
 	}
 	
@@ -57,8 +64,19 @@ public class ControladorFrame implements ActionListener{
 			frame.setContentPane(panelCadastrarMaterial); 
 	        frame.revalidate(); 
 	        frame.repaint();
+		} else if(e.getSource() == frame.getAgendamento()) {
+			panelAgendamento = new PanelAgendamento();
+			controladorAgendamento = new ControladorAgendamento(panelAgendamento);
+			frame.setContentPane(panelAgendamento); 
+	        frame.revalidate(); 
+	        frame.repaint();
+		} else if(e.getSource() == frame.getRelatorio()) {
+			panelRelatorio = new PanelRelatorio();
+			controladorRelatorio = new ControladorRelatorio(panelRelatorio);
+			frame.setContentPane(panelRelatorio); 
+	        frame.revalidate(); 
+	        frame.repaint();
 		}
-		
 	}
 
 	

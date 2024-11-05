@@ -15,6 +15,8 @@ import javax.swing.SpinnerDateModel;
 import java.util.Date;
 import java.util.Calendar;
 import javax.swing.JTextArea;
+import java.awt.Component;
+import javax.swing.Box;
 
 public class PanelCadastrarMedico extends JPanel {
 	
@@ -53,15 +55,15 @@ public class PanelCadastrarMedico extends JPanel {
 	public PanelCadastrarMedico() {
 		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
-		this.setSize(900, 777);
+		this.setSize(940, 920);
 		add(PanelInformacoes());
 		
 		
 		JLabel titlePanelCadastrarMedico = new JLabel("Cadastro dos Médicos");
 		titlePanelCadastrarMedico.setForeground(new Color(255, 255, 255));
 		titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
-		titlePanelCadastrarMedico.setSize(359, 25);
-		titlePanelCadastrarMedico.setLocation(270, 31); 
+		titlePanelCadastrarMedico.setSize(331, 33);
+		titlePanelCadastrarMedico.setLocation(304, 31); 
 	    add(titlePanelCadastrarMedico);
 
 		
@@ -77,7 +79,7 @@ public class PanelCadastrarMedico extends JPanel {
 		PanelInformacoes.setBorder(new LineBorder(new Color(192, 192, 192)));
 		PanelInformacoes.setLayout(null);
 		PanelInformacoes.setSize(800, 254);
-		PanelInformacoes.setLocation(50, 146);
+		PanelInformacoes.setLocation(70, 146);
 		PanelInformacoes.add(getLabelNomeMaterial());
 		PanelInformacoes.add(getTextField_1());
 		PanelInformacoes.add(getTextField());
@@ -104,7 +106,7 @@ public class PanelCadastrarMedico extends JPanel {
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setSize(147,40);
-			btnCadastrar.setLocation(703,690);
+			btnCadastrar.setLocation(723,690);
 			btnCadastrar.setText("CADASTRAR");
 		}
 		return btnCadastrar; 
@@ -120,7 +122,7 @@ public class PanelCadastrarMedico extends JPanel {
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setSize(156,40);
-			btnLimpar.setLocation(512,690);
+			btnLimpar.setLocation(532,690);
 			btnLimpar.setText("LIMPAR");
 
 			
@@ -224,7 +226,7 @@ public class PanelCadastrarMedico extends JPanel {
 			panelEndereco = new JPanel();
 			panelEndereco.setLayout(null);
 			panelEndereco.setBorder(new LineBorder(new Color(192, 192, 192)));
-			panelEndereco.setBounds(50, 445, 800, 235);
+			panelEndereco.setBounds(70, 445, 800, 235);
 			panelEndereco.add(getTextField_3());
 			panelEndereco.add(getLblLogradouro());
 			panelEndereco.add(getTextField_5());
@@ -352,7 +354,7 @@ public class PanelCadastrarMedico extends JPanel {
 			tituloEndereco = new JLabel("Endereço");
 			tituloEndereco.setForeground(Color.WHITE);
 			tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
-			tituloEndereco.setBounds(50, 410, 119, 31);
+			tituloEndereco.setBounds(70, 410, 119, 31);
 		}
 		return tituloEndereco;
 	}
@@ -361,7 +363,7 @@ public class PanelCadastrarMedico extends JPanel {
 			tituloDadosPessoais = new JLabel("Dados Pessoais");
 			tituloDadosPessoais.setForeground(Color.WHITE);
 			tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
-			tituloDadosPessoais.setBounds(50, 112, 198, 31);
+			tituloDadosPessoais.setBounds(70, 114, 198, 31);
 		}
 		return tituloDadosPessoais;
 	}

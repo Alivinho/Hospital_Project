@@ -19,33 +19,21 @@ public class Frame extends JFrame{
 	
 	JMenuBar barraMenu;
 	JMenu menuCadastrar;
-	JMenu menuAgendamentos;
-	JMenu menuRelatorios; 
+	JMenu menuAgendamento;
+	JMenu menuRelatorio; 
 	
 	JMenuItem itemCadastrarPaciente;
 	JMenuItem itemCadastrarMedico;
 	JMenuItem itemCadastrarMaterial;
 	private JLabel lblNewLabel;
+	private JMenu mnExame;
+	private JMenu mnConsulta;
 	
 	public Frame() {
 		super();
 		getContentPane().setBackground(new Color(83, 169, 255));
-		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(421, Short.MAX_VALUE)
-					.addComponent(getLblNewLabel())
-					.addGap(389))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(375, Short.MAX_VALUE)
-					.addComponent(getLblNewLabel())
-					.addGap(283))
-		);
-		getContentPane().setLayout(groupLayout);
+		getContentPane().setLayout(null);
+		getContentPane().add(getLblNewLabel());
 		setBackground(new Color(0, 128, 255));
 		this.setVisible(true);
 		this.setSize(960, 790);
@@ -60,8 +48,10 @@ public class Frame extends JFrame{
 		if(barraMenu == null) {
 			barraMenu = new JMenuBar();
 			barraMenu.add(getCadastrar());
-			barraMenu.add(getAgendamentos());
-			barraMenu.add(getRelatorios());
+			barraMenu.add(getAgendamento());
+			barraMenu.add(getRelatorio());
+			barraMenu.add(getMnExame());
+			barraMenu.add(getMnConsulta());
 		}
 		return barraMenu;
 	}
@@ -78,20 +68,20 @@ public class Frame extends JFrame{
 		return menuCadastrar;
 	}
 	
-	public JMenu getAgendamentos() {
-		if(menuAgendamentos == null) {
-			menuAgendamentos = new JMenu();
-			menuAgendamentos.setText("Agendamentos");
+	public JMenu getAgendamento() {
+		if(menuAgendamento == null) {
+			menuAgendamento = new JMenu();
+			menuAgendamento.setText("Agendamentos");
 		}
-		return menuAgendamentos;
+		return menuAgendamento;
 	}
 	
-	public JMenu getRelatorios() {
-		if(menuRelatorios == null) {
-			menuRelatorios = new JMenu();
-			menuRelatorios.setText("Relatórios");
+	public JMenu getRelatorio() {
+		if(menuRelatorio == null) {
+			menuRelatorio = new JMenu();
+			menuRelatorio.setText("Relatórios");
 		}
-		return menuRelatorios;
+		return menuRelatorio;
 	}
 	
 	
@@ -124,9 +114,24 @@ public class Frame extends JFrame{
 	private JLabel getLblNewLabel() {
 		if (lblNewLabel == null) {
 			lblNewLabel = new JLabel("Home");
+			lblNewLabel.setBounds(395, 329, 155, 73);
 			lblNewLabel.setForeground(new Color(255, 255, 255));
 			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 60));
 		}
 		return lblNewLabel;
+	}
+	private JMenu getMnExame() {
+		if (mnExame == null) {
+			mnExame = new JMenu();
+			mnExame.setText("Exames");
+		}
+		return mnExame;
+	}
+	private JMenu getMnConsulta() {
+		if (mnConsulta == null) {
+			mnConsulta = new JMenu();
+			mnConsulta.setText("Consultas");
+		}
+		return mnConsulta;
 	}
 }

@@ -28,15 +28,15 @@ public class PanelCadastrarMaterial extends JPanel {
 	public PanelCadastrarMaterial() {
 		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
-		this.setSize(900, 675);
+		this.setSize(940, 920);
 		add(PanelInformacoesMateriais());
 		
 		
 		JLabel titlePanelCadastrarMateriais = new JLabel("Cadastro dos Materiais");
 		titlePanelCadastrarMateriais.setForeground(new Color(255, 255, 255));
 		titlePanelCadastrarMateriais.setFont(new Font("Tahoma", Font.BOLD, 30));
-		titlePanelCadastrarMateriais.setSize(349, 37);
-		titlePanelCadastrarMateriais.setLocation(275, 31); 
+		titlePanelCadastrarMateriais.setSize(349, 33);
+		titlePanelCadastrarMateriais.setLocation(295, 31); 
 	    add(titlePanelCadastrarMateriais);
 	    add(getBtnLimpar());
 	    add(getBtnCadastrar());
@@ -47,7 +47,7 @@ public class PanelCadastrarMaterial extends JPanel {
 		PanelInformacoesMateriais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 		PanelInformacoesMateriais.setLayout(null);
 		PanelInformacoesMateriais.setSize(696, 385);
-		PanelInformacoesMateriais.setLocation(102, 82);
+		PanelInformacoesMateriais.setLocation(122, 82);
 
 		
 		PanelInformacoesMateriais.add(getTextFieldNomeMaterial());
@@ -149,7 +149,7 @@ public class PanelCadastrarMaterial extends JPanel {
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnLimpar.setBounds(460, 477, 156, 40);
+			btnLimpar.setBounds(480, 477, 156, 40);
 		}
 		return btnLimpar;
 	}
@@ -159,7 +159,7 @@ public class PanelCadastrarMaterial extends JPanel {
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnCadastrar.setBounds(651, 477, 147, 40);
+			btnCadastrar.setBounds(671, 477, 147, 40);
 		}
 		return btnCadastrar;
 	}

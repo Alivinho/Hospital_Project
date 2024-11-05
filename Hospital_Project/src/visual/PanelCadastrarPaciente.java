@@ -366,10 +366,10 @@ public class PanelCadastrarPaciente extends JPanel {
 	}
 	private JLabel getTitlePanelCadastrarMedico() {
 		if (titlePanelCadastrarMedico == null) {
-			titlePanelCadastrarMedico = new JLabel("Cadastro dos Médicos");
+			titlePanelCadastrarMedico = new JLabel("Cadastro dos Pacientes");
 			titlePanelCadastrarMedico.setForeground(Color.WHITE);
 			titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
-			titlePanelCadastrarMedico.setBounds(304, 39, 331, 25);
+			titlePanelCadastrarMedico.setBounds(304, 33, 355, 37);
 		}
 		return titlePanelCadastrarMedico;
 	}
