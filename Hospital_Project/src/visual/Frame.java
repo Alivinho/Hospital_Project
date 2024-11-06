@@ -25,21 +25,42 @@ public class Frame extends JFrame{
 	JMenuItem itemCadastrarPaciente;
 	JMenuItem itemCadastrarMedico;
 	JMenuItem itemCadastrarMaterial;
-	private JLabel lblNewLabel;
-	private JMenu mnExame;
-	private JMenu mnConsulta;
+	private JLabel labelHome;
+	private JMenu menuExame;
+	private JMenu menuConsulta;
+	private JMenuItem itemRelatorioConsulta;
+	private JMenuItem itemAgendamentoConsulta;
+	private JMenuItem itemRelatorioExame;
+	private JMenuItem itemRelatorioFinanceiro;
+	private JMenuItem itemRelatorioMateriais;
+	private JMenuItem itemCadastrarExame;
+	private JMenuItem itemAgendamentoExame;
+	private JMenuItem itemVisualizacaoAgenda;
+	private JMenuItem itemPesquisaHorario;
+	private JMenuItem itemCancelamentoReagendamento;
+	private JMenuItem itemCadastrarConsulta;
 	
 	public Frame() {
 		super();
 		getContentPane().setBackground(new Color(83, 169, 255));
 		getContentPane().setLayout(null);
-		getContentPane().add(getLblNewLabel());
+		getContentPane().add(getLabelHome());
 		setBackground(new Color(0, 128, 255));
 		this.setVisible(true);
 		this.setSize(960, 790);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setJMenuBar(getBarraMenu());
+	}
+	
+	public JLabel getLabelHome() {
+		if (labelHome == null) {
+			labelHome = new JLabel("Home");
+			labelHome.setBounds(395, 329, 155, 73);
+			labelHome.setForeground(new Color(255, 255, 255));
+			labelHome.setFont(new Font("Tahoma", Font.PLAIN, 60));
+		}
+		return labelHome;
 	}
 	
 	/****************************** COMPONENTES DA BARRA DE MENU ******************************/ 
@@ -50,8 +71,8 @@ public class Frame extends JFrame{
 			barraMenu.add(getCadastrar());
 			barraMenu.add(getAgendamento());
 			barraMenu.add(getRelatorio());
-			barraMenu.add(getMnExame());
-			barraMenu.add(getMnConsulta());
+			barraMenu.add(getMenuExame());
+			barraMenu.add(getMenuConsulta());
 		}
 		return barraMenu;
 	}
@@ -72,6 +93,11 @@ public class Frame extends JFrame{
 		if(menuAgendamento == null) {
 			menuAgendamento = new JMenu();
 			menuAgendamento.setText("Agendamentos");
+			menuAgendamento.add(getItemAgendamentoConsulta());
+			menuAgendamento.add(getItemAgendamentoExame());
+			menuAgendamento.add(getItemVisualizacaoAgenda());
+			menuAgendamento.add(getItemPesquisaHorario());
+			menuAgendamento.add(getItemCancelamentoReagendamento());
 		}
 		return menuAgendamento;
 	}
@@ -80,8 +106,29 @@ public class Frame extends JFrame{
 		if(menuRelatorio == null) {
 			menuRelatorio = new JMenu();
 			menuRelatorio.setText("Relatórios");
+			menuRelatorio.add(getItemRelatorioConsulta());
+			menuRelatorio.add(getItemRelatorioExame());
+			menuRelatorio.add(getItemRelatorioFinanceiro());
+			menuRelatorio.add(getItemRelatorioMateriais());
 		}
 		return menuRelatorio;
+	}
+	
+	public JMenu getMenuExame() {
+		if (menuExame == null) {
+			menuExame = new JMenu();
+			menuExame.setText("Exames");
+			menuExame.add(getItemCadastrarExame());
+		}
+		return menuExame;
+	}
+	public JMenu getMenuConsulta() {
+		if (menuConsulta == null) {
+			menuConsulta = new JMenu();
+			menuConsulta.setText("Consultas");
+			menuConsulta.add(getItemCadastrarConsulta());
+		}
+		return menuConsulta;
 	}
 	
 	
@@ -111,27 +158,72 @@ public class Frame extends JFrame{
 		}
 		return itemCadastrarMaterial;
 	}
-	private JLabel getLblNewLabel() {
-		if (lblNewLabel == null) {
-			lblNewLabel = new JLabel("Home");
-			lblNewLabel.setBounds(395, 329, 155, 73);
-			lblNewLabel.setForeground(new Color(255, 255, 255));
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 60));
+	
+	public JMenuItem getItemRelatorioConsulta() {
+		if (itemRelatorioConsulta == null) {
+			itemRelatorioConsulta = new JMenuItem();
+			itemRelatorioConsulta.setText("Relatório de Consulta");
 		}
-		return lblNewLabel;
+		return itemRelatorioConsulta;
 	}
-	private JMenu getMnExame() {
-		if (mnExame == null) {
-			mnExame = new JMenu();
-			mnExame.setText("Exames");
+	public JMenuItem getItemAgendamentoConsulta() {
+		if (itemAgendamentoConsulta == null) {
+			itemAgendamentoConsulta = new JMenuItem("Agendamento de Consultas");
 		}
-		return mnExame;
+		return itemAgendamentoConsulta;
 	}
-	private JMenu getMnConsulta() {
-		if (mnConsulta == null) {
-			mnConsulta = new JMenu();
-			mnConsulta.setText("Consultas");
+	public JMenuItem getItemRelatorioExame() {
+		if (itemRelatorioExame == null) {
+			itemRelatorioExame = new JMenuItem("Relatório de Exame");
 		}
-		return mnConsulta;
+		return itemRelatorioExame;
+	}
+	public JMenuItem getItemRelatorioFinanceiro() {
+		if (itemRelatorioFinanceiro == null) {
+			itemRelatorioFinanceiro = new JMenuItem("Relatório Financeiro");
+		}
+		return itemRelatorioFinanceiro;
+	}
+	public JMenuItem getItemRelatorioMateriais() {
+		if (itemRelatorioMateriais == null) {
+			itemRelatorioMateriais = new JMenuItem("Relatório de Materiais");
+		}
+		return itemRelatorioMateriais;
+	}
+	public JMenuItem getItemCadastrarExame() {
+		if (itemCadastrarExame == null) {
+			itemCadastrarExame = new JMenuItem("Cadastrar Exame");
+		}
+		return itemCadastrarExame;
+	}
+	public JMenuItem getItemAgendamentoExame() {
+		if (itemAgendamentoExame == null) {
+			itemAgendamentoExame = new JMenuItem("Agendamento de Exames");
+		}
+		return itemAgendamentoExame;
+	}
+	public JMenuItem getItemVisualizacaoAgenda() {
+		if (itemVisualizacaoAgenda == null) {
+			itemVisualizacaoAgenda = new JMenuItem("Visualização de Agenda");
+		}
+		return itemVisualizacaoAgenda;
+	}
+	public JMenuItem getItemPesquisaHorario() {
+		if (itemPesquisaHorario == null) {
+			itemPesquisaHorario = new JMenuItem("Pesquisa de Horários");
+		}
+		return itemPesquisaHorario;
+	}
+	public JMenuItem getItemCancelamentoReagendamento() {
+		if (itemCancelamentoReagendamento == null) {
+			itemCancelamentoReagendamento = new JMenuItem("Cancelamento e Reagendamento");
+		}
+		return itemCancelamentoReagendamento;
+	}
+	public JMenuItem getItemCadastrarConsulta() {
+		if (itemCadastrarConsulta == null) {
+			itemCadastrarConsulta = new JMenuItem("Cadastrar Consulta");
+		}
+		return itemCadastrarConsulta;
 	}
 }
