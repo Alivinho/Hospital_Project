@@ -6,6 +6,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import java.awt.event.ActionListener;
@@ -16,6 +17,8 @@ import java.util.Date;
 import java.util.Calendar;
 import javax.swing.JTextArea;
 import java.awt.Component;
+import java.awt.Dimension;
+
 import javax.swing.Box;
 
 public class PanelCadastrarMedico extends JPanel {
@@ -52,11 +55,33 @@ public class PanelCadastrarMedico extends JPanel {
 	private JLabel tituloEndereco;
 	private JLabel tituloDadosPessoais;
 	
+	private JScrollPane scrollPane;
+    private JPanel innerPanel;
+	
 	public PanelCadastrarMedico() {
 		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
 		this.setSize(940, 920);
-		add(PanelInformacoes());
+		//add(PanelInformacoes());
+		
+		innerPanel = new JPanel();
+		innerPanel.setLayout(null);
+		innerPanel.setBackground(new Color(83, 169, 255));
+		innerPanel.setPreferredSize(new Dimension(getWidth(), 1200));//innerPanel.setPreferredSize(getSize()); 
+	    
+	    innerPanel.add(PanelInformacoes());
+	    innerPanel.add(getbtnCadastrar());
+		innerPanel.add(getbtnLimpar());
+		innerPanel.add(getPanelEndereco());
+		innerPanel.add(getTituloDadosPessoais());
+		innerPanel.add(getTituloEndereco());
+	   
+	    
+	    
+	    //Criação do ScrollPanee adicionando o "innerPanel"
+	    scrollPane = new JScrollPane(innerPanel);
+        scrollPane.setBounds(0, 0, 940, 932);
+        add(scrollPane);
 		
 		
 		JLabel titlePanelCadastrarMedico = new JLabel("Cadastro dos Médicos");
@@ -64,14 +89,12 @@ public class PanelCadastrarMedico extends JPanel {
 		titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
 		titlePanelCadastrarMedico.setSize(331, 33);
 		titlePanelCadastrarMedico.setLocation(304, 31); 
-	    add(titlePanelCadastrarMedico);
+	    //add(titlePanelCadastrarMedico);
+		
+		innerPanel.add(titlePanelCadastrarMedico);
 
 		
-		add(getbtnCadastrar());
-		add(getbtnLimpar());
-		add(getPanelEndereco());
-		add(getTituloEndereco());
-		add(getTituloDadosPessoais());
+		
 	}
 	
 	public JPanel PanelInformacoes() {

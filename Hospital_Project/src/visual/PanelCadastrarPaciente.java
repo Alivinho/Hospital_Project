@@ -1,6 +1,7 @@
 package visual;
 
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -48,34 +49,58 @@ public class PanelCadastrarPaciente extends JPanel {
 	private JLabel lblCep;
 	private JLabel lblEstado;
 	private JTextField textField_13;
-	private JLabel titlePanelCadastrarMedico;
+	private JLabel titlePanelCadastrarPaciente;
 	private JTextArea textArea;
 	private JComboBox<String> comboBox;
 	private JScrollPane scrollPane;
+	
+    private JPanel innerPanel;
 
+    
 	public PanelCadastrarPaciente() {
 		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
 		this.setSize(940, 920);
-		add(PanelDadosPessoais());
-		add(PanelEndereco());
+		//add(PanelDadosPessoais());
+		//add(PanelEndereco());
+		
+		innerPanel = new JPanel();
+		innerPanel.setLayout(null);
+		innerPanel.setBackground(new Color(83, 169, 255));
+		innerPanel.setPreferredSize(new Dimension(getWidth(), 1200));//innerPanel.setPreferredSize(getSize()); 
+	    
+	    innerPanel.add(getTitlePanelCadastrarPaciente());
+	    innerPanel.add(PanelDadosPessoais());
+	    innerPanel.add(PanelEndereco());
+	   
+	    
+	    
+	    //Criação do ScrollPanee adicionando o "innerPanel"
+	    scrollPane = new JScrollPane(innerPanel);
+        scrollPane.setBounds(0, 0, 940, 932);
+        add(scrollPane);
 		
 		 JLabel tituloDadosPessoais = new JLabel("Dados Pessoais");
 		 tituloDadosPessoais.setForeground(new Color(255, 255, 255));
 		 tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
 		 tituloDadosPessoais.setSize(198, 31);
 	     tituloDadosPessoais.setLocation(70, 104); 
-	     add(tituloDadosPessoais);
+	     //add(tituloDadosPessoais);
 	     
 	     JLabel tituloEndereco = new JLabel("Endereço");
 	     tituloEndereco.setForeground(new Color(255, 255, 255));
 	     tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
 	     tituloEndereco.setBounds(70, 577, 119, 31);
-	     add(tituloEndereco);
-	     add(getBtnCadastrar());
-	     add(getBtnLimpar());
-	     add(getTitlePanelCadastrarMedico());
+	     //add(tituloEndereco);
+	     //add(getBtnCadastrar());
+	     //add(getBtnLimpar());
+	     //add(getTitlePanelCadastrarPaciente());
 	     add(getScrollPane());
+	     innerPanel.add(tituloDadosPessoais);
+		 innerPanel.add(tituloEndereco);
+
+		 innerPanel.add(getBtnCadastrar());
+		 innerPanel.add(getBtnLimpar());
 	}
 	
 	public JPanel PanelDadosPessoais() {
@@ -364,14 +389,14 @@ public class PanelCadastrarPaciente extends JPanel {
 		}
 		return textField_13;
 	}
-	private JLabel getTitlePanelCadastrarMedico() {
-		if (titlePanelCadastrarMedico == null) {
-			titlePanelCadastrarMedico = new JLabel("Cadastro dos Pacientes");
-			titlePanelCadastrarMedico.setForeground(Color.WHITE);
-			titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
-			titlePanelCadastrarMedico.setBounds(304, 33, 355, 37);
+	private JLabel getTitlePanelCadastrarPaciente() {
+		if (titlePanelCadastrarPaciente == null) {
+			titlePanelCadastrarPaciente = new JLabel("Cadastro dos Pacientes");
+			titlePanelCadastrarPaciente.setForeground(Color.WHITE);
+			titlePanelCadastrarPaciente.setFont(new Font("Tahoma", Font.BOLD, 30));
+			titlePanelCadastrarPaciente.setBounds(304, 33, 355, 37);
 		}
-		return titlePanelCadastrarMedico;
+		return titlePanelCadastrarPaciente;
 	}
 	private JTextArea getTextArea() {
 		if (textArea == null) {
