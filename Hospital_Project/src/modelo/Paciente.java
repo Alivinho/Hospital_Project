@@ -13,9 +13,7 @@ public class Paciente {
 	private String historicoMedico;
 	private String convenio;
 	
-	public Paciente() {
-		
-	}
+	public Paciente() {}
 	
 	public Paciente(String nome, String dataNascimento, Endereco endereco, String telefone, 
 					String tipoSangue, float altura, float peso, String historicoMedico, String convenio) {
@@ -101,6 +99,5 @@ public class Paciente {
 	public void setConvenio(String convenio) {
 		this.convenio = convenio;
 	}
-	
-	
+		
 }

@@ -15,7 +15,7 @@ public class PanelAgendamento extends JPanel {
 	public PanelAgendamento() {
 		setBackground(new Color(83, 169, 255));
 		setLayout(null);
-		this.setSize(940, 920);
+		this.setSize(940, 790);
 		add(getTitlePanelCadastrarMedico());
 	}
 

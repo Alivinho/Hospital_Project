@@ -9,14 +9,12 @@ public class ControladorAgendamento implements ActionListener {
 	PanelAgendamento panelAgendamento;
 
 	public ControladorAgendamento(PanelAgendamento panelAgendamento) {
-		// TODO Auto-generated constructor stub
 		this.panelAgendamento = panelAgendamento;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 }

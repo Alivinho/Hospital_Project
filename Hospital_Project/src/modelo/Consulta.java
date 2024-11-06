@@ -12,9 +12,7 @@ public class Consulta {
 	private String observacoes;
 	private Material materiais;
 	
-	public Consulta() {
-		
-	}
+	public Consulta() {}
 	
 	public Consulta(String data, String hora, Medico medico, Paciente paciente, String queixaPaciente,
 					String tipoConsulta, String convenio, String observacoes, Material materiais) {
@@ -100,6 +98,4 @@ public class Consulta {
 		this.materiais = materiais;
 	}
 	
-	
-
 }

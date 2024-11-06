@@ -8,12 +8,8 @@ public class Exame {
 	private float valorParticular;
 	private Material materiais;
 	private Medico medico;
-	
-	
-	
-	public Exame() {
 		
-	}
+	public Exame() {}
 	
 	public Exame(String nomeExame, String descricao, String tipoExame, float valorParticular, Material materiais, Medico medico) {
 		this.nomeExame = nomeExame;
@@ -21,9 +17,7 @@ public class Exame {
 		this.tipoExame = tipoExame;
 		this.valorParticular = valorParticular;
 		this.materiais = materiais;
-		this.medico = medico;
-		
-		
+		this.medico = medico;				
 	}
 
 	public String getNomeExame() {
@@ -72,8 +66,6 @@ public class Exame {
 
 	public void setMedico(Medico medico) {
 		this.medico = medico;
-	}
-	
-	
+	}		
 
 }

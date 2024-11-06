@@ -6,9 +6,7 @@ import java.awt.event.ActionListener;
 import visual.PanelCadastrarMaterial;
 
 public class ControladorCadastrarMaterial implements ActionListener {
-	
 	PanelCadastrarMaterial panelCadastrarMaterial;
-	
 	
 	public ControladorCadastrarMaterial(PanelCadastrarMaterial panelCadastrarMaterial) {
 		this.panelCadastrarMaterial = panelCadastrarMaterial;
@@ -16,9 +14,7 @@ public class ControladorCadastrarMaterial implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 	
-
 }

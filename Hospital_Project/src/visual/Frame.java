@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
 
 public class Frame extends JFrame{
 	
@@ -39,12 +40,17 @@ public class Frame extends JFrame{
 	private JMenuItem itemPesquisaHorario;
 	private JMenuItem itemCancelamentoReagendamento;
 	private JMenuItem itemCadastrarConsulta;
+	private JLabel lblNewLabel_1;
+	private JLabel lblBemvindoa;
+	private JMenu menuHome;
 	
 	public Frame() {
 		super();
 		getContentPane().setBackground(new Color(83, 169, 255));
 		getContentPane().setLayout(null);
 		getContentPane().add(getLabelHome());
+		getContentPane().add(getLblNewLabel_1());
+		getContentPane().add(getLblBemvindoa());
 		setBackground(new Color(0, 128, 255));
 		this.setVisible(true);
 		this.setSize(960, 790);
@@ -55,10 +61,10 @@ public class Frame extends JFrame{
 	
 	public JLabel getLabelHome() {
 		if (labelHome == null) {
-			labelHome = new JLabel("Home");
-			labelHome.setBounds(395, 329, 155, 73);
+			labelHome = new JLabel("Clínica Mais Saúde");
+			labelHome.setBounds(161, 307, 623, 85);
 			labelHome.setForeground(new Color(255, 255, 255));
-			labelHome.setFont(new Font("Tahoma", Font.PLAIN, 60));
+			labelHome.setFont(new Font("Arial Black", Font.PLAIN, 60));
 		}
 		return labelHome;
 	}
@@ -68,6 +74,7 @@ public class Frame extends JFrame{
 	public JMenuBar getBarraMenu() {
 		if(barraMenu == null) {
 			barraMenu = new JMenuBar();
+			barraMenu.add(getMenuHome());
 			barraMenu.add(getCadastrar());
 			barraMenu.add(getAgendamento());
 			barraMenu.add(getRelatorio());
@@ -225,5 +232,29 @@ public class Frame extends JFrame{
 			itemCadastrarConsulta = new JMenuItem("Cadastrar Consulta");
 		}
 		return itemCadastrarConsulta;
+	}
+	public JLabel getLblNewLabel_1() {
+		if (lblNewLabel_1 == null) {
+			lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\mateu\\Downloads\\cuidados-de-saude.png"));
+			lblNewLabel_1.setBounds(409, 390, 128, 128);
+		}
+		return lblNewLabel_1;
+	}
+	public JLabel getLblBemvindoa() {
+		if (lblBemvindoa == null) {
+			lblBemvindoa = new JLabel("Bem-Vindo(a)!");
+			lblBemvindoa.setForeground(Color.WHITE);
+			lblBemvindoa.setFont(new Font("Dialog", Font.PLAIN, 40));
+			lblBemvindoa.setBounds(343, 48, 260, 52);
+		}
+		return lblBemvindoa;
+	}
+	public JMenu getMenuHome() {
+		if (menuHome == null) {
+			menuHome = new JMenu();
+			menuHome.setText("Home");
+		}
+		return menuHome;
 	}
 }

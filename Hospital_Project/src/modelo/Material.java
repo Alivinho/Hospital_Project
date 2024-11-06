@@ -60,6 +60,4 @@ public class Material {
 		this.preco = preco;
 	}
 	
-	
-
 }

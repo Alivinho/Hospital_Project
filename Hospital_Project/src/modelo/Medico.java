@@ -9,9 +9,7 @@ public class Medico {
 	private String horariosAtendimento;
 	private float valorConsultaParticular;
 	
-	public Medico() {
-		
-	}
+	public Medico() {}
 	
 	public Medico(String nome, String especialidade, String crm, String contato, 
 				  String horariosAtendimento, float valorConsultaParticular) {
@@ -71,6 +69,4 @@ public class Medico {
 		this.valorConsultaParticular = valorConsultaParticular;
 	}
 	
-	
-
 }

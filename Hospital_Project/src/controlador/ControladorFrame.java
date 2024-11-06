@@ -9,10 +9,10 @@ import visual.PanelCadastrarMaterial;
 import visual.PanelCadastrarMedico;
 import visual.PanelCadastrarPaciente;
 import visual.PanelConsulta;
+import visual.PanelExame;
 import visual.PanelRelatorio;
 
 public class ControladorFrame implements ActionListener{
-	
 	Frame frame; 
 	
 	PanelCadastrarPaciente panelCadastrarPaciente;
@@ -27,6 +27,9 @@ public class ControladorFrame implements ActionListener{
 	PanelConsulta panelConsulta;
 	ControladorConsulta controladorConsulta;
 	
+	PanelExame panelExame;
+	ControladorExame controladorExame;
+	
 	
 	public ControladorFrame() {
 		frame = new Frame();
@@ -34,9 +37,12 @@ public class ControladorFrame implements ActionListener{
 	}
 	
 	private void addEventos() {
+		frame.getMenuHome().addActionListener(this);
 		frame.getCadastrarPaciente().addActionListener(this);
 		frame.getCadastrarMedico().addActionListener(this);	
 		frame.getCadastrarMaterial().addActionListener(this);	
+		frame.getItemCadastrarConsulta().addActionListener(this);
+		frame.getItemCadastrarExame().addActionListener(this);
 
 	}
 	
@@ -48,8 +54,7 @@ public class ControladorFrame implements ActionListener{
 			frame.setContentPane(panelCadastrarPaciente);
 	        frame.revalidate(); 
 	        frame.repaint(); 
-		}
-		else if(e.getSource() == frame.getCadastrarMedico()) {
+		} else if(e.getSource() == frame.getCadastrarMedico()) {
 			panelCadastrarMedico = new PanelCadastrarMedico();
 			controladorCadastrarMedico = new ControladorCadastrarMedico(panelCadastrarMedico);
 			frame.setContentPane(panelCadastrarMedico); 
@@ -68,7 +73,13 @@ public class ControladorFrame implements ActionListener{
 			frame.setContentPane(panelConsulta); 
 	        frame.revalidate(); 
 	        frame.repaint();
-		} 
+		} else if(e.getSource() == frame.getItemCadastrarExame()) {
+			panelExame = new PanelExame();
+			controladorExame = new ControladorExame(panelExame);
+			frame.setContentPane(panelExame); 
+	        frame.revalidate(); 
+	        frame.repaint();
+		}
 	}
 
 	public static void main(String[] args) {

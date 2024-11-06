@@ -6,9 +6,7 @@ import java.awt.event.ActionListener;
 import visual.PanelCadastrarPaciente;
 
 public class ControladorCadastrarPaciente implements ActionListener{
-
 	PanelCadastrarPaciente panelCadastrarPaciente; 
-	
 	
 	public ControladorCadastrarPaciente(PanelCadastrarPaciente panelCadastrarPaciente) {
 		this.panelCadastrarPaciente = panelCadastrarPaciente; 
@@ -16,7 +14,6 @@ public class ControladorCadastrarPaciente implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }

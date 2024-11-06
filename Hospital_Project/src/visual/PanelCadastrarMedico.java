@@ -61,7 +61,7 @@ public class PanelCadastrarMedico extends JPanel {
 	public PanelCadastrarMedico() {
 		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
-		this.setSize(940, 920);
+		this.setSize(940, 790);
 		//add(PanelInformacoes());
 		
 		innerPanel = new JPanel();

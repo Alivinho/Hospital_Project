@@ -11,9 +11,7 @@ public class Endereco {
 	private String estado;
 	
 	
-	public Endereco(){
-		
-	}
+	public Endereco() {}
 	
 	public Endereco(String logradouro, String numero, String complemento, String bairro, String cep, String cidade, String estado) {
 		this.logradouro = logradouro;
@@ -80,8 +78,5 @@ public class Endereco {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
-	
-	
-	
+		
 }

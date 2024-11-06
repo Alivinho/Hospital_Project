@@ -29,7 +29,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	
 	public PanelCadastrarMaterial() {
 		setBackground(new Color(83, 169, 255));
-		this.setSize(940, 920);
+		this.setSize(940, 790);
 		setLayout(null);
 		add(PanelInformacoesMateriais());
 		
