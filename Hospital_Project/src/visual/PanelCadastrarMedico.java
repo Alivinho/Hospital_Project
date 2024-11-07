@@ -67,7 +67,7 @@ public class PanelCadastrarMedico extends JPanel {
 		innerPanel = new JPanel();
 		innerPanel.setLayout(null);
 		innerPanel.setBackground(new Color(83, 169, 255));
-		innerPanel.setPreferredSize(new Dimension(getWidth(), 1200));//innerPanel.setPreferredSize(getSize()); 
+		innerPanel.setPreferredSize(new Dimension(940, 1200));//innerPanel.setPreferredSize(getSize()); 
 	    
 	    innerPanel.add(PanelInformacoes());
 	    innerPanel.add(getbtnCadastrar());
@@ -101,7 +101,7 @@ public class PanelCadastrarMedico extends JPanel {
 		JPanel PanelInformacoes = new JPanel();
 		PanelInformacoes.setBorder(new LineBorder(new Color(192, 192, 192)));
 		PanelInformacoes.setLayout(null);
-		PanelInformacoes.setSize(800, 254);
+		PanelInformacoes.setSize(800, 235);
 		PanelInformacoes.setLocation(70, 146);
 		PanelInformacoes.add(getLabelNomeMaterial());
 		PanelInformacoes.add(getTextField_1());
@@ -129,7 +129,7 @@ public class PanelCadastrarMedico extends JPanel {
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setSize(147,40);
-			btnCadastrar.setLocation(723,690);
+			btnCadastrar.setLocation(723,671);
 			btnCadastrar.setText("CADASTRAR");
 		}
 		return btnCadastrar; 
@@ -145,7 +145,7 @@ public class PanelCadastrarMedico extends JPanel {
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setSize(156,40);
-			btnLimpar.setLocation(532,690);
+			btnLimpar.setLocation(532,671);
 			btnLimpar.setText("LIMPAR");
 
 			
@@ -156,21 +156,23 @@ public class PanelCadastrarMedico extends JPanel {
 		if (labelNomeMaterial == null) {
 			labelNomeMaterial = new JLabel("Nome");
 			labelNomeMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			labelNomeMaterial.setBounds(66, 24, 200, 32);
+			labelNomeMaterial.setBounds(10, 10, 200, 32);
 		}
 		return labelNomeMaterial;
 	}
 	private JTextField getTextField_1() {
 		if (textField_1 == null) {
 			textField_1 = new JTextField();
-			textField_1.setBounds(66, 54, 286, 32);
+			textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_1.setBounds(10, 40, 372, 32);
 		}
 		return textField_1;
 	}
 	private JTextField getTextField() {
 		if (textField == null) {
 			textField = new JTextField();
-			textField.setBounds(66, 126, 286, 32);
+			textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField.setBounds(10, 112, 372, 32);
 		}
 		return textField;
 	}
@@ -178,14 +180,15 @@ public class PanelCadastrarMedico extends JPanel {
 		if (lblCrm == null) {
 			lblCrm = new JLabel("CRM:");
 			lblCrm.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblCrm.setBounds(66, 96, 200, 32);
+			lblCrm.setBounds(10, 82, 200, 32);
 		}
 		return lblCrm;
 	}
 	private JTextField getTextField_2() {
 		if (textField_2 == null) {
 			textField_2 = new JTextField();
-			textField_2.setBounds(362, 54, 364, 32);
+			textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_2.setBounds(392, 40, 398, 32);
 		}
 		return textField_2;
 	}
@@ -193,7 +196,7 @@ public class PanelCadastrarMedico extends JPanel {
 		if (labelNomeMaterial_1 == null) {
 			labelNomeMaterial_1 = new JLabel("Especialidade");
 			labelNomeMaterial_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			labelNomeMaterial_1.setBounds(362, 24, 364, 32);
+			labelNomeMaterial_1.setBounds(392, 10, 364, 32);
 		}
 		return labelNomeMaterial_1;
 	}
@@ -201,14 +204,15 @@ public class PanelCadastrarMedico extends JPanel {
 		if (lblHorriosDeAtendimento == null) {
 			lblHorriosDeAtendimento = new JLabel("Horários de Atendimento:");
 			lblHorriosDeAtendimento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblHorriosDeAtendimento.setBounds(66, 168, 200, 32);
+			lblHorriosDeAtendimento.setBounds(10, 154, 200, 32);
 		}
 		return lblHorriosDeAtendimento;
 	}
 	private JTextField getTextField_4() {
 		if (textField_4 == null) {
 			textField_4 = new JTextField();
-			textField_4.setBounds(276, 198, 162, 32);
+			textField_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_4.setBounds(220, 184, 162, 32);
 		}
 		return textField_4;
 	}
@@ -216,7 +220,7 @@ public class PanelCadastrarMedico extends JPanel {
 		if (lblValorConsultaParticular == null) {
 			lblValorConsultaParticular = new JLabel("Valor Consulta Particular:");
 			lblValorConsultaParticular.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblValorConsultaParticular.setBounds(276, 168, 200, 32);
+			lblValorConsultaParticular.setBounds(220, 154, 200, 32);
 		}
 		return lblValorConsultaParticular;
 	}
@@ -225,14 +229,15 @@ public class PanelCadastrarMedico extends JPanel {
 			spinner_1 = new JSpinner();
 			spinner_1.setModel(new SpinnerDateModel(new Date(1730689200000L), null, null, Calendar.DAY_OF_YEAR));
 			spinner_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			spinner_1.setBounds(66, 198, 200, 32);
+			spinner_1.setBounds(10, 184, 200, 32);
 		}
 		return spinner_1;
 	}
 	private JTextArea getTextArea() {
 		if (textArea == null) {
 			textArea = new JTextArea();
-			textArea.setBounds(448, 129, 278, 101);
+			textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
+			textArea.setBounds(392, 115, 398, 102);
 		}
 		return textArea;
 	}
@@ -240,16 +245,16 @@ public class PanelCadastrarMedico extends JPanel {
 		if (lblValorConsultaParticular_2 == null) {
 			lblValorConsultaParticular_2 = new JLabel("Contato");
 			lblValorConsultaParticular_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblValorConsultaParticular_2.setBounds(448, 96, 200, 32);
+			lblValorConsultaParticular_2.setBounds(392, 82, 200, 32);
 		}
 		return lblValorConsultaParticular_2;
 	}
 	private JPanel getPanelEndereco() {
 		if (panelEndereco == null) {
 			panelEndereco = new JPanel();
-			panelEndereco.setLayout(null);
 			panelEndereco.setBorder(new LineBorder(new Color(192, 192, 192)));
-			panelEndereco.setBounds(70, 445, 800, 235);
+			panelEndereco.setBounds(70, 426, 800, 235);
+			panelEndereco.setLayout(null);
 			panelEndereco.add(getTextField_3());
 			panelEndereco.add(getLblLogradouro());
 			panelEndereco.add(getTextField_5());
@@ -270,105 +275,112 @@ public class PanelCadastrarMedico extends JPanel {
 	private JTextField getTextField_3() {
 		if (textField_3 == null) {
 			textField_3 = new JTextField();
-			textField_3.setBounds(23, 39, 553, 32);
+			textField_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_3.setBounds(10, 40, 553, 32);
 		}
 		return textField_3;
 	}
 	private JLabel getLblLogradouro() {
 		if (lblLogradouro == null) {
 			lblLogradouro = new JLabel("Logradouro:");
+			lblLogradouro.setBounds(10, 10, 200, 32);
 			lblLogradouro.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblLogradouro.setBounds(23, 9, 200, 32);
 		}
 		return lblLogradouro;
 	}
 	private JTextField getTextField_5() {
 		if (textField_5 == null) {
 			textField_5 = new JTextField();
-			textField_5.setBounds(586, 39, 201, 32);
+			textField_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_5.setBounds(573, 40, 217, 32);
 		}
 		return textField_5;
 	}
 	private JLabel getLblNmero() {
 		if (lblNmero == null) {
 			lblNmero = new JLabel("Número:");
+			lblNmero.setBounds(573, 10, 201, 32);
 			lblNmero.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblNmero.setBounds(586, 9, 201, 32);
 		}
 		return lblNmero;
 	}
 	private JTextField getTextField_6() {
 		if (textField_6 == null) {
 			textField_6 = new JTextField();
-			textField_6.setBounds(451, 111, 336, 32);
+			textField_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_6.setBounds(438, 112, 352, 32);
 		}
 		return textField_6;
 	}
 	private JLabel getLblComplemento() {
 		if (lblComplemento == null) {
 			lblComplemento = new JLabel("Complemento:");
+			lblComplemento.setBounds(438, 82, 201, 32);
 			lblComplemento.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblComplemento.setBounds(451, 81, 201, 32);
 		}
 		return lblComplemento;
 	}
 	private JTextField getTextField_7() {
 		if (textField_7 == null) {
 			textField_7 = new JTextField();
-			textField_7.setBounds(23, 111, 418, 32);
+			textField_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_7.setBounds(10, 112, 418, 32);
 		}
 		return textField_7;
 	}
 	private JLabel getLblBairro() {
 		if (lblBairro == null) {
 			lblBairro = new JLabel("Bairro:");
+			lblBairro.setBounds(10, 82, 201, 32);
 			lblBairro.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblBairro.setBounds(23, 81, 201, 32);
 		}
 		return lblBairro;
 	}
 	private JTextField getTextField_8() {
 		if (textField_8 == null) {
 			textField_8 = new JTextField();
-			textField_8.setBounds(23, 182, 286, 32);
+			textField_8.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_8.setBounds(10, 183, 286, 32);
 		}
 		return textField_8;
 	}
 	private JLabel getLblCidade() {
 		if (lblCidade == null) {
 			lblCidade = new JLabel("Cidade:");
+			lblCidade.setBounds(10, 153, 201, 32);
 			lblCidade.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblCidade.setBounds(23, 152, 201, 32);
 		}
 		return lblCidade;
 	}
 	private JTextField getTextField_9() {
 		if (textField_9 == null) {
 			textField_9 = new JTextField();
-			textField_9.setBounds(319, 182, 189, 32);
+			textField_9.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_9.setBounds(306, 183, 189, 32);
 		}
 		return textField_9;
 	}
 	private JLabel getLblCep() {
 		if (lblCep == null) {
 			lblCep = new JLabel("CEP:");
+			lblCep.setBounds(306, 153, 189, 32);
 			lblCep.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblCep.setBounds(319, 152, 189, 32);
 		}
 		return lblCep;
 	}
 	private JLabel getLblEstado() {
 		if (lblEstado == null) {
 			lblEstado = new JLabel("Estado:");
+			lblEstado.setBounds(504, 153, 189, 32);
 			lblEstado.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblEstado.setBounds(517, 152, 189, 32);
 		}
 		return lblEstado;
 	}
 	private JTextField getTextField_10() {
 		if (textField_10 == null) {
 			textField_10 = new JTextField();
-			textField_10.setBounds(517, 182, 270, 32);
+			textField_10.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textField_10.setBounds(504, 183, 286, 32);
 		}
 		return textField_10;
 	}
@@ -377,7 +389,7 @@ public class PanelCadastrarMedico extends JPanel {
 			tituloEndereco = new JLabel("Endereço");
 			tituloEndereco.setForeground(Color.WHITE);
 			tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
-			tituloEndereco.setBounds(70, 410, 119, 31);
+			tituloEndereco.setBounds(70, 391, 119, 31);
 		}
 		return tituloEndereco;
 	}

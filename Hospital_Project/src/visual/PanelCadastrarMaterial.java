@@ -47,60 +47,17 @@ public class PanelCadastrarMaterial extends JPanel {
 		JPanel PanelInformacoesMateriais = new JPanel();
 		PanelInformacoesMateriais.setBounds(122, 82, 696, 385);
 		PanelInformacoesMateriais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
-		GroupLayout gl_PanelInformacoesMateriais = new GroupLayout(PanelInformacoesMateriais);
-		gl_PanelInformacoesMateriais.setHorizontalGroup(
-			gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-					.addGap(57)
-					.addGroup(gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-						.addComponent(getLabelNomeMaterial(), GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getTextFieldNomeMaterial(), GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
-						.addComponent(getLblQuantidadeEmEstoque(), GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getTextField(), GroupLayout.PREFERRED_SIZE, 574, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getLblQuantidadeMnimaEm(), GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getTextField_1(), GroupLayout.PREFERRED_SIZE, 574, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getLblFornecedor(), GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getTextField_2(), GroupLayout.PREFERRED_SIZE, 574, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getLblPreo(), GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE)
-						.addComponent(getTextField_3(), GroupLayout.PREFERRED_SIZE, 574, GroupLayout.PREFERRED_SIZE))
-					.addGap(63))
-		);
-		gl_PanelInformacoesMateriais.setVerticalGroup(
-			gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-					.addGap(9)
-					.addGroup(gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-						.addComponent(getLabelNomeMaterial(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-							.addGap(30)
-							.addComponent(getTextFieldNomeMaterial(), GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)))
-					.addGap(10)
-					.addGroup(gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-						.addComponent(getLblQuantidadeEmEstoque(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-							.addGap(30)
-							.addComponent(getTextField(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)))
-					.addGap(10)
-					.addGroup(gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-						.addComponent(getLblQuantidadeMnimaEm(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-							.addGap(30)
-							.addComponent(getTextField_1(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)))
-					.addGap(10)
-					.addGroup(gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-						.addComponent(getLblFornecedor(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-							.addGap(30)
-							.addComponent(getTextField_2(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)))
-					.addGap(10)
-					.addGroup(gl_PanelInformacoesMateriais.createParallelGroup(Alignment.LEADING)
-						.addComponent(getLblPreo(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_PanelInformacoesMateriais.createSequentialGroup()
-							.addGap(30)
-							.addComponent(getTextField_3(), GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)))
-					.addGap(24))
-		);
-		PanelInformacoesMateriais.setLayout(gl_PanelInformacoesMateriais);
+		PanelInformacoesMateriais.setLayout(null);
+		PanelInformacoesMateriais.add(getLabelNomeMaterial());
+		PanelInformacoesMateriais.add(getTextFieldNomeMaterial());
+		PanelInformacoesMateriais.add(getLblQuantidadeEmEstoque());
+		PanelInformacoesMateriais.add(getTextField());
+		PanelInformacoesMateriais.add(getLblQuantidadeMnimaEm());
+		PanelInformacoesMateriais.add(getTextField_1());
+		PanelInformacoesMateriais.add(getLblFornecedor());
+		PanelInformacoesMateriais.add(getTextField_2());
+		PanelInformacoesMateriais.add(getLblPreo());
+		PanelInformacoesMateriais.add(getTextField_3());
 		
 		return PanelInformacoesMateriais;
 	}
@@ -108,6 +65,8 @@ public class PanelCadastrarMaterial extends JPanel {
 	public JTextField getTextFieldNomeMaterial() {
 	    if (nomeMaterial == null) {
 	        nomeMaterial = new JTextField();
+	        nomeMaterial.setBounds(11, 41, 675, 32);
+	        nomeMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	    }
 	    return nomeMaterial;
 	}
@@ -115,6 +74,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	public JLabel getLabelNomeMaterial() {
 	    if (labelNomeMaterial == null) {
 	        labelNomeMaterial = new JLabel("Nome do Material:");
+	        labelNomeMaterial.setBounds(11, 11, 200, 32);
 	        labelNomeMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	    }
 	    return labelNomeMaterial;
@@ -122,12 +82,15 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JTextField getTextField() {
 		if (textField == null) {
 			textField = new JTextField();
+			textField.setBounds(11, 113, 675, 32);
+			textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return textField;
 	}
 	private JLabel getLblQuantidadeEmEstoque() {
 		if (lblQuantidadeEmEstoque == null) {
 			lblQuantidadeEmEstoque = new JLabel("Quantidade em Estoque:");
+			lblQuantidadeEmEstoque.setBounds(11, 83, 200, 32);
 			lblQuantidadeEmEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return lblQuantidadeEmEstoque;
@@ -135,12 +98,15 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JTextField getTextField_1() {
 		if (textField_1 == null) {
 			textField_1 = new JTextField();
+			textField_1.setBounds(11, 185, 675, 32);
+			textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return textField_1;
 	}
 	private JLabel getLblQuantidadeMnimaEm() {
 		if (lblQuantidadeMnimaEm == null) {
 			lblQuantidadeMnimaEm = new JLabel("Quantidade Mínima em Estoque:");
+			lblQuantidadeMnimaEm.setBounds(11, 155, 220, 32);
 			lblQuantidadeMnimaEm.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return lblQuantidadeMnimaEm;
@@ -148,12 +114,15 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JTextField getTextField_2() {
 		if (textField_2 == null) {
 			textField_2 = new JTextField();
+			textField_2.setBounds(11, 257, 675, 32);
+			textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return textField_2;
 	}
 	private JLabel getLblFornecedor() {
 		if (lblFornecedor == null) {
 			lblFornecedor = new JLabel("Fornecedor:");
+			lblFornecedor.setBounds(11, 227, 220, 32);
 			lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return lblFornecedor;
@@ -161,12 +130,15 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JTextField getTextField_3() {
 		if (textField_3 == null) {
 			textField_3 = new JTextField();
+			textField_3.setBounds(11, 329, 675, 32);
+			textField_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return textField_3;
 	}
 	private JLabel getLblPreo() {
 		if (lblPreo == null) {
 			lblPreo = new JLabel("Preço:");
+			lblPreo.setBounds(11, 299, 220, 32);
 			lblPreo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return lblPreo;
