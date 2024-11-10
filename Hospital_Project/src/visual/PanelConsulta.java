@@ -54,7 +54,7 @@ public class PanelConsulta extends JPanel {
 			lblDadosDaConsulta = new JLabel("Dados da consulta");
 			lblDadosDaConsulta.setForeground(Color.WHITE);
 			lblDadosDaConsulta.setFont(new Font("Tahoma", Font.BOLD, 25));
-			lblDadosDaConsulta.setBounds(69, 119, 229, 31);
+			lblDadosDaConsulta.setBounds(69, 128, 229, 31);
 		}
 		return lblDadosDaConsulta;
 	}
@@ -63,7 +63,7 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
-			panelDadosPessoais.setBounds(70, 152, 800, 375);
+			panelDadosPessoais.setBounds(69, 169, 800, 375);
 			panelDadosPessoais.add(getTextField());
 			panelDadosPessoais.add(getLblMdico());
 			panelDadosPessoais.add(getLblTipoDeConsulta());
@@ -201,7 +201,7 @@ public class PanelConsulta extends JPanel {
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnLimpar.setBounds(532, 537, 156, 40);
+			btnLimpar.setBounds(531, 554, 156, 40);
 		}
 		return btnLimpar;
 	}
@@ -211,7 +211,7 @@ public class PanelConsulta extends JPanel {
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnCadastrar.setBounds(723, 537, 147, 40);
+			btnCadastrar.setBounds(722, 554, 147, 40);
 		}
 		return btnCadastrar;
 	}

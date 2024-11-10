@@ -60,14 +60,14 @@ public class PanelCadastrarPaciente extends JPanel {
 	public PanelCadastrarPaciente() {
 		setBackground(new Color(83, 169, 255));
 		this.setLayout(null);
-		this.setSize(940, 920);
+		this.setSize(940, 960);
 		//add(PanelDadosPessoais());
 		//add(PanelEndereco());
 		
 		innerPanel = new JPanel();
 		innerPanel.setLayout(null);
 		innerPanel.setBackground(new Color(83, 169, 255));
-		innerPanel.setPreferredSize(new Dimension(940, 1200));//innerPanel.setPreferredSize(getSize()); 
+		innerPanel.setPreferredSize(new Dimension(940, 1300));//innerPanel.setPreferredSize(getSize()); 
 	    
 	    innerPanel.add(getTitlePanelCadastrarPaciente());
 	    innerPanel.add(PanelDadosPessoais());
@@ -77,20 +77,20 @@ public class PanelCadastrarPaciente extends JPanel {
 	    
 	    //Criação do ScrollPanee adicionando o "innerPanel"
 	    scrollPane = new JScrollPane(innerPanel);
-        scrollPane.setBounds(0, 0, 940, 932);
+        scrollPane.setBounds(0, 0, 940, 1000);
         add(scrollPane);
 		
 		 JLabel tituloDadosPessoais = new JLabel("Dados Pessoais");
 		 tituloDadosPessoais.setForeground(new Color(255, 255, 255));
 		 tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
 		 tituloDadosPessoais.setSize(198, 31);
-	     tituloDadosPessoais.setLocation(70, 104); 
+	     tituloDadosPessoais.setLocation(70, 128); 
 	     //add(tituloDadosPessoais);
 	     
 	     JLabel tituloEndereco = new JLabel("Endereço");
 	     tituloEndereco.setForeground(new Color(255, 255, 255));
 	     tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
-	     tituloEndereco.setBounds(70, 577, 119, 31);
+	     tituloEndereco.setBounds(70, 608, 119, 31);
 	     //add(tituloEndereco);
 	     //add(getBtnCadastrar());
 	     //add(getBtnLimpar());
@@ -108,7 +108,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 		panelDadosPessoais.setLayout(null);
 		panelDadosPessoais.setSize(800, 429);
-		panelDadosPessoais.setLocation(70, 138);
+		panelDadosPessoais.setLocation(70, 169);
 	    panelDadosPessoais.add(getComboBoxTipoSangue());
 		panelDadosPessoais.add(getTextField());
 		panelDadosPessoais.add(getLabelNomeMaterial());
@@ -134,7 +134,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		panelEndereco.setBorder(new LineBorder(new Color(192, 192, 192)));
 		panelEndereco.setLayout(null);
 		panelEndereco.setSize(800, 235);
-		panelEndereco.setLocation(70, 612);
+		panelEndereco.setLocation(70, 649);
 		panelEndereco.add(getTextField_7());
 		panelEndereco.add(getLblLogradouro());
 		panelEndereco.add(getTextField_8());
@@ -275,17 +275,21 @@ public class PanelCadastrarPaciente extends JPanel {
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnCadastrar.setBounds(723, 857, 147, 40);
+			btnCadastrar.setBounds(723, 894, 147, 40);
 		}
 		return btnCadastrar;
 	}
 	private JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
+			btnLimpar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnLimpar.setBounds(532, 857, 156, 40);
+			btnLimpar.setBounds(532, 894, 156, 40);
 		}
 		return btnLimpar;
 	}

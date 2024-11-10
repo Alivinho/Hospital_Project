@@ -35,7 +35,7 @@ public class PanelCadastrarMaterial extends JPanel {
 		
 		
 		JLabel titlePanelCadastrarMateriais = new JLabel("Cadastro dos Materiais");
-		titlePanelCadastrarMateriais.setBounds(295, 31, 349, 33);
+		titlePanelCadastrarMateriais.setBounds(295, 33, 349, 33);
 		titlePanelCadastrarMateriais.setForeground(new Color(255, 255, 255));
 		titlePanelCadastrarMateriais.setFont(new Font("Tahoma", Font.BOLD, 30));
 	    add(titlePanelCadastrarMateriais);
@@ -45,7 +45,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	
 	public JPanel PanelInformacoesMateriais() {
 		JPanel PanelInformacoesMateriais = new JPanel();
-		PanelInformacoesMateriais.setBounds(122, 82, 696, 385);
+		PanelInformacoesMateriais.setBounds(134, 128, 696, 385);
 		PanelInformacoesMateriais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 		PanelInformacoesMateriais.setLayout(null);
 		PanelInformacoesMateriais.add(getLabelNomeMaterial());
@@ -146,7 +146,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
-			btnLimpar.setBounds(480, 477, 156, 40);
+			btnLimpar.setBounds(493, 523, 156, 40);
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -156,7 +156,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton();
-			btnCadastrar.setBounds(671, 477, 147, 40);
+			btnCadastrar.setBounds(684, 523, 147, 40);
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));

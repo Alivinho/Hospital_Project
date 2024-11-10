@@ -88,7 +88,7 @@ public class PanelCadastrarMedico extends JPanel {
 		titlePanelCadastrarMedico.setForeground(new Color(255, 255, 255));
 		titlePanelCadastrarMedico.setFont(new Font("Tahoma", Font.BOLD, 30));
 		titlePanelCadastrarMedico.setSize(331, 33);
-		titlePanelCadastrarMedico.setLocation(304, 31); 
+		titlePanelCadastrarMedico.setLocation(304, 33); 
 	    //add(titlePanelCadastrarMedico);
 		
 		innerPanel.add(titlePanelCadastrarMedico);
@@ -102,7 +102,7 @@ public class PanelCadastrarMedico extends JPanel {
 		PanelInformacoes.setBorder(new LineBorder(new Color(192, 192, 192)));
 		PanelInformacoes.setLayout(null);
 		PanelInformacoes.setSize(800, 235);
-		PanelInformacoes.setLocation(70, 146);
+		PanelInformacoes.setLocation(70, 169);
 		PanelInformacoes.add(getLabelNomeMaterial());
 		PanelInformacoes.add(getTextField_1());
 		PanelInformacoes.add(getTextField());
@@ -129,7 +129,7 @@ public class PanelCadastrarMedico extends JPanel {
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setSize(147,40);
-			btnCadastrar.setLocation(723,671);
+			btnCadastrar.setLocation(723,700);
 			btnCadastrar.setText("CADASTRAR");
 		}
 		return btnCadastrar; 
@@ -145,7 +145,7 @@ public class PanelCadastrarMedico extends JPanel {
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setSize(156,40);
-			btnLimpar.setLocation(532,671);
+			btnLimpar.setLocation(532,700);
 			btnLimpar.setText("LIMPAR");
 
 			
@@ -253,7 +253,7 @@ public class PanelCadastrarMedico extends JPanel {
 		if (panelEndereco == null) {
 			panelEndereco = new JPanel();
 			panelEndereco.setBorder(new LineBorder(new Color(192, 192, 192)));
-			panelEndereco.setBounds(70, 426, 800, 235);
+			panelEndereco.setBounds(70, 455, 800, 235);
 			panelEndereco.setLayout(null);
 			panelEndereco.add(getTextField_3());
 			panelEndereco.add(getLblLogradouro());
@@ -389,7 +389,7 @@ public class PanelCadastrarMedico extends JPanel {
 			tituloEndereco = new JLabel("Endereço");
 			tituloEndereco.setForeground(Color.WHITE);
 			tituloEndereco.setFont(new Font("Tahoma", Font.BOLD, 25));
-			tituloEndereco.setBounds(70, 391, 119, 31);
+			tituloEndereco.setBounds(70, 414, 119, 31);
 		}
 		return tituloEndereco;
 	}
@@ -398,7 +398,7 @@ public class PanelCadastrarMedico extends JPanel {
 			tituloDadosPessoais = new JLabel("Dados Pessoais");
 			tituloDadosPessoais.setForeground(Color.WHITE);
 			tituloDadosPessoais.setFont(new Font("Tahoma", Font.BOLD, 25));
-			tituloDadosPessoais.setBounds(70, 114, 198, 31);
+			tituloDadosPessoais.setBounds(70, 128, 198, 31);
 		}
 		return tituloDadosPessoais;
 	}
