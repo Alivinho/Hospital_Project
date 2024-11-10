@@ -43,6 +43,7 @@ public class Frame extends JFrame{
 	private JLabel lblNewLabel_1;
 	private JLabel lblBemvindoa;
 	private JMenu menuHome;
+	private JMenuItem itemHome;
 	
 	public Frame() {
 		super();
@@ -254,7 +255,14 @@ public class Frame extends JFrame{
 		if (menuHome == null) {
 			menuHome = new JMenu();
 			menuHome.setText("Home");
+			menuHome.add(getItemHome());
 		}
 		return menuHome;
+	}
+	public JMenuItem getItemHome() {
+		if (itemHome == null) {
+			itemHome = new JMenuItem("Home");
+		}
+		return itemHome;
 	}
 }
