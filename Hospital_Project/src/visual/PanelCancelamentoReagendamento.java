@@ -8,6 +8,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
+import javax.swing.JButton;
 
 public class PanelCancelamentoReagendamento extends JPanel {
 	private JLabel lblDados;
@@ -15,6 +16,8 @@ public class PanelCancelamentoReagendamento extends JPanel {
 	private JTextPane textPane;
 	private JLabel lblAgenda_1;
 	private JLabel lblCancelamentoEReagendamento;
+	private JButton btnLimpar;
+	private JButton btnConfirmar;
 	public PanelCancelamentoReagendamento() {
 		setBackground(new Color(89, 169, 255));
 		this.setSize(960, 790);
@@ -22,6 +25,8 @@ public class PanelCancelamentoReagendamento extends JPanel {
 		add(getLblDados());
 		add(getPanelDadosPessoais());
 		add(getLblCancelamentoEReagendamento());
+		add(getBtnLimpar());
+		add(getBtnConfirmar());
 	}
 
 	private JLabel getLblDados() {
@@ -68,5 +73,25 @@ public class PanelCancelamentoReagendamento extends JPanel {
 			lblCancelamentoEReagendamento.setBounds(228, 33, 504, 37);
 		}
 		return lblCancelamentoEReagendamento;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(542, 643, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnConfirmar() {
+		if (btnConfirmar == null) {
+			btnConfirmar = new JButton();
+			btnConfirmar.setText("CONFIRMAR");
+			btnConfirmar.setForeground(new Color(0, 0, 205));
+			btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnConfirmar.setBounds(733, 643, 147, 40);
+		}
+		return btnConfirmar;
 	}
 }

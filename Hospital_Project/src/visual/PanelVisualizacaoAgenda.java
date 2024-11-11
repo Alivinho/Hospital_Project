@@ -8,6 +8,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
+import javax.swing.JButton;
 
 public class PanelVisualizacaoAgenda extends JPanel {
 	private JLabel lblVisualizaoDeAgenda;
@@ -19,6 +20,8 @@ public class PanelVisualizacaoAgenda extends JPanel {
 	private JLabel lblAgenda;
 	private JTextField textField_3;
 	private JTextPane textPane;
+	private JButton btnLimpar;
+	private JButton btnVisualizar;
 	public PanelVisualizacaoAgenda() {
 		this.setSize(960, 790);
 		setBackground(new Color(89, 169, 255));
@@ -26,6 +29,8 @@ public class PanelVisualizacaoAgenda extends JPanel {
 		add(getLblVisualizaoDeAgenda());
 		add(getPanelDadosPessoais());
 		add(getLblAgenda());
+		add(getBtnLimpar());
+		add(getBtnVisualizar());
 	}
 
 	private JLabel getLblVisualizaoDeAgenda() {
@@ -107,5 +112,25 @@ public class PanelVisualizacaoAgenda extends JPanel {
 			textPane.setBounds(10, 113, 780, 344);
 		}
 		return textPane;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(542, 635, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnVisualizar() {
+		if (btnVisualizar == null) {
+			btnVisualizar = new JButton();
+			btnVisualizar.setText("VISUALIZAR");
+			btnVisualizar.setForeground(new Color(0, 0, 205));
+			btnVisualizar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnVisualizar.setBounds(733, 635, 147, 40);
+		}
+		return btnVisualizar;
 	}
 }

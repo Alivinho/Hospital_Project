@@ -26,6 +26,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JLabel lblPreo;
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
+	private JLabel lblDadosDoCadastro;
 	
 	public PanelCadastrarMaterial() {
 		setBackground(new Color(83, 169, 255));
@@ -41,11 +42,12 @@ public class PanelCadastrarMaterial extends JPanel {
 	    add(titlePanelCadastrarMateriais);
 	    add(getBtnLimpar());
 	    add(getBtnCadastrar());
+	    add(getLblDadosDoCadastro());
 	}
 	
 	public JPanel PanelInformacoesMateriais() {
 		JPanel PanelInformacoesMateriais = new JPanel();
-		PanelInformacoesMateriais.setBounds(134, 128, 696, 385);
+		PanelInformacoesMateriais.setBounds(134, 169, 696, 385);
 		PanelInformacoesMateriais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 		PanelInformacoesMateriais.setLayout(null);
 		PanelInformacoesMateriais.add(getLabelNomeMaterial());
@@ -146,7 +148,7 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
-			btnLimpar.setBounds(493, 523, 156, 40);
+			btnLimpar.setBounds(493, 564, 156, 40);
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -156,11 +158,20 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton();
-			btnCadastrar.setBounds(684, 523, 147, 40);
+			btnCadastrar.setBounds(684, 564, 147, 40);
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
 		return btnCadastrar;
+	}
+	private JLabel getLblDadosDoCadastro() {
+		if (lblDadosDoCadastro == null) {
+			lblDadosDoCadastro = new JLabel("Dados do cadastro");
+			lblDadosDoCadastro.setForeground(Color.WHITE);
+			lblDadosDoCadastro.setFont(new Font("Tahoma", Font.BOLD, 25));
+			lblDadosDoCadastro.setBounds(134, 128, 296, 31);
+		}
+		return lblDadosDoCadastro;
 	}
 }

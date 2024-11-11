@@ -8,6 +8,7 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class PanelAgendamentoConsulta extends JPanel {
 	private JPanel panelDadosPessoais;
@@ -21,6 +22,8 @@ public class PanelAgendamentoConsulta extends JPanel {
 	private JLabel lblAgendamentoDeConsultas;
 	private JLabel lblHora;
 	private JTextField textField_3;
+	private JButton btnLimpar;
+	private JButton btnAgendar;
 	public PanelAgendamentoConsulta() {
 		setBackground(new Color(89, 169, 255));
 		this.setSize(960, 790);
@@ -28,6 +31,8 @@ public class PanelAgendamentoConsulta extends JPanel {
 		add(getPanelDadosPessoais());
 		add(getLblDadosDoAgendamento());
 		add(getLblAgendamentoDeConsultas());
+		add(getBtnLimpar());
+		add(getBtnAgendar());
 	}
 	private JPanel getPanelDadosPessoais() {
 		if (panelDadosPessoais == null) {
@@ -127,5 +132,25 @@ public class PanelAgendamentoConsulta extends JPanel {
 			textField_3.setBounds(129, 112, 109, 32);
 		}
 		return textField_3;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(541, 346, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnAgendar() {
+		if (btnAgendar == null) {
+			btnAgendar = new JButton();
+			btnAgendar.setText("AGENDAR");
+			btnAgendar.setForeground(new Color(0, 0, 205));
+			btnAgendar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnAgendar.setBounds(732, 346, 147, 40);
+		}
+		return btnAgendar;
 	}
 }

@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextPane;
+import javax.swing.JButton;
 
 public class PanelPesquisaHorario extends JPanel {
 	private JLabel lblPesquisaDeHorrios;
@@ -22,6 +23,8 @@ public class PanelPesquisaHorario extends JPanel {
 	private JLabel lblDadosDaPesquisa;
 	private JTextPane textPane;
 	private JLabel lblAgenda_1;
+	private JButton btnLimpar;
+	private JButton btnPesquisar;
 	public PanelPesquisaHorario() {
 		this.setSize(960, 790);
 		setBackground(new Color(89, 169, 255));
@@ -29,6 +32,8 @@ public class PanelPesquisaHorario extends JPanel {
 		add(getLblPesquisaDeHorrios());
 		add(getPanelDadosPessoais());
 		add(getLblDadosDaPesquisa());
+		add(getBtnLimpar());
+		add(getBtnPesquisar());
 	}
 
 	private JLabel getLblPesquisaDeHorrios() {
@@ -130,5 +135,25 @@ public class PanelPesquisaHorario extends JPanel {
 			lblAgenda_1.setBounds(10, 82, 109, 32);
 		}
 		return lblAgenda_1;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(542, 640, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnPesquisar() {
+		if (btnPesquisar == null) {
+			btnPesquisar = new JButton();
+			btnPesquisar.setText("PESQUISAR");
+			btnPesquisar.setForeground(new Color(0, 0, 205));
+			btnPesquisar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnPesquisar.setBounds(733, 640, 147, 40);
+		}
+		return btnPesquisar;
 	}
 }

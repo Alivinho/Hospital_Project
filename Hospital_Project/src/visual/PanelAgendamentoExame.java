@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 
 public class PanelAgendamentoExame extends JPanel {
 	private JLabel lblAgendamentoDeExames;
@@ -22,6 +23,8 @@ public class PanelAgendamentoExame extends JPanel {
 	private JLabel lblData;
 	private JTextField textField_1;
 	private JLabel lblHorrio;
+	private JButton btnLimpar;
+	private JButton btnAgendar;
 	public PanelAgendamentoExame() {
 		setBackground(new Color(89, 169, 255));
 		this.setSize(960, 790);
@@ -29,6 +32,8 @@ public class PanelAgendamentoExame extends JPanel {
 		add(getLblAgendamentoDeExames());
 		add(getLblDadosDoAgendamento());
 		add(getPanelDadosPessoais());
+		add(getBtnLimpar());
+		add(getBtnAgendar());
 	}
 
 	private JLabel getLblAgendamentoDeExames() {
@@ -131,5 +136,25 @@ public class PanelAgendamentoExame extends JPanel {
 			lblHorrio.setBounds(129, 82, 109, 32);
 		}
 		return lblHorrio;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(542, 346, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnAgendar() {
+		if (btnAgendar == null) {
+			btnAgendar = new JButton();
+			btnAgendar.setText("AGENDAR");
+			btnAgendar.setForeground(new Color(0, 0, 205));
+			btnAgendar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnAgendar.setBounds(733, 346, 147, 40);
+		}
+		return btnAgendar;
 	}
 }

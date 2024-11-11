@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 
 public class PanelRelatorioFinanceiro extends JPanel {
 	private JLabel lblRelatrioFinanceiro;
@@ -22,6 +23,8 @@ public class PanelRelatorioFinanceiro extends JPanel {
 	private JLabel lblAgenda_1;
 	private JComboBox comboBox_1_1;
 	private JLabel lblFormato;
+	private JButton btnLimpar;
+	private JButton btnGerar;
 	public PanelRelatorioFinanceiro() {
 		this.setSize(960, 790);
 		setBackground(new Color(83, 169, 255));
@@ -29,6 +32,8 @@ public class PanelRelatorioFinanceiro extends JPanel {
 		add(getLblRelatrioFinanceiro());
 		add(getLblDadosDoRelatrio());
 		add(getPanelDadosPessoais());
+		add(getBtnLimpar());
+		add(getBtnGerar());
 	}
 
 	private JLabel getLblRelatrioFinanceiro() {
@@ -131,5 +136,25 @@ public class PanelRelatorioFinanceiro extends JPanel {
 			lblFormato.setBounds(438, 10, 103, 32);
 		}
 		return lblFormato;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(542, 640, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnGerar() {
+		if (btnGerar == null) {
+			btnGerar = new JButton();
+			btnGerar.setText("GERAR");
+			btnGerar.setForeground(new Color(0, 0, 205));
+			btnGerar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnGerar.setBounds(733, 640, 147, 40);
+		}
+		return btnGerar;
 	}
 }

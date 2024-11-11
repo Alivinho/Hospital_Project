@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 
 public class PanelRelatorioMaterial extends JPanel {
 	private JLabel lblRelatrioDeMaterial;
@@ -24,6 +25,8 @@ public class PanelRelatorioMaterial extends JPanel {
 	private JLabel lblData;
 	private JLabel lblFormato;
 	private JComboBox comboBox_1_1;
+	private JButton btnLimpar;
+	private JButton btnGerar;
 	public PanelRelatorioMaterial() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(960, 790);
@@ -31,6 +34,8 @@ public class PanelRelatorioMaterial extends JPanel {
 		add(getLblRelatrioDeMaterial());
 		add(getLblDadosDoRelatrio());
 		add(getPanelDadosPessoais());
+		add(getBtnLimpar());
+		add(getBtnGerar());
 	}
 
 	private JLabel getLblRelatrioDeMaterial() {
@@ -153,5 +158,25 @@ public class PanelRelatorioMaterial extends JPanel {
 			comboBox_1_1.setBounds(622, 40, 168, 32);
 		}
 		return comboBox_1_1;
+	}
+	private JButton getBtnLimpar() {
+		if (btnLimpar == null) {
+			btnLimpar = new JButton();
+			btnLimpar.setText("LIMPAR");
+			btnLimpar.setForeground(new Color(0, 0, 205));
+			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnLimpar.setBounds(542, 640, 156, 40);
+		}
+		return btnLimpar;
+	}
+	private JButton getBtnGerar() {
+		if (btnGerar == null) {
+			btnGerar = new JButton();
+			btnGerar.setText("GERAR");
+			btnGerar.setForeground(new Color(0, 0, 205));
+			btnGerar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnGerar.setBounds(733, 640, 147, 40);
+		}
+		return btnGerar;
 	}
 }
