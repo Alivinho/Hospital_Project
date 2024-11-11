@@ -43,31 +43,31 @@ public class ControladorFrame implements ActionListener{
 	ControladorExame controladorExame;
 	
 	PanelAgendamentoConsulta panelAgendamentoConsulta;
-//	ControladorAgendamentoConsulta controladorAgendamentoConsulta;
+	ControladorAgendamentoConsulta controladorAgendamentoConsulta;
 	
 	PanelAgendamentoExame panelAgendamentoExame;
-//	ControladorAgendamentoExame controladorAgendamentoExame;
+	ControladorAgendamentoExame controladorAgendamentoExame;
 	
 	PanelVisualizacaoAgenda panelVisualizacaoAgenda;
-//	ControladorExame controladorExame;
+	ControladorVisualizacaoAgenda controladorVisualizacaoAgenda;
 	
 	PanelPesquisaHorario panelPesquisaHorario;
-//	ControladorPesquisaHorario controladorPesquisaHorario;
+	ControladorPesquisaHorario controladorPesquisaHorario;
 	
 	PanelCancelamentoReagendamento panelCancelamentoReagendamento;
-//	ControladorExame controladorExame;
+	ControladorCancelamentoReagendamento controladorCancelamentoReagendamento;
 	
 	PanelRelatorioConsulta panelRelatorioConsulta;
-//	ControladorRelatorioConsulta controladorRelatorioConsulta;
+	ControladorRelatorioConsulta controladorRelatorioConsulta;
 	
 	PanelRelatorioExame panelRelatorioExame;
-//	ControladorRelatorioExame controladorRelatorioExame;
+	ControladorRelatorioExame controladorRelatorioExame;
 	
 	PanelRelatorioFinanceiro panelRelatorioFinanceiro;
-//	ControladorRelatorioFinanceiro controladorRelatorioFinanceiro;
+	ControladorRelatorioFinanceiro controladorRelatorioFinanceiro;
 	
 	PanelRelatorioMaterial panelRelatorioMaterial;
-//	ControladorlRelatorioMaterial controladorlRelatorioMaterial;
+	ControladorRelatorioMaterial controladorRelatorioMaterial;
 	
 	
 	public ControladorFrame() {
@@ -136,60 +136,59 @@ public class ControladorFrame implements ActionListener{
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemAgendamentoConsulta()) {
 			panelAgendamentoConsulta = new PanelAgendamentoConsulta();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelAgendamentoConsulta);
 			frame.setContentPane(panelAgendamentoConsulta); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemAgendamentoExame()) {
 			panelAgendamentoExame = new PanelAgendamentoExame();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorAgendamentoExame = new ControladorAgendamentoExame(panelAgendamentoExame);
 			frame.setContentPane(panelAgendamentoExame); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemVisualizacaoAgenda()) {
 			panelVisualizacaoAgenda = new PanelVisualizacaoAgenda();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorVisualizacaoAgenda = new ControladorVisualizacaoAgenda(panelVisualizacaoAgenda);
 			frame.setContentPane(panelVisualizacaoAgenda); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemPesquisaHorario()) {
 			panelPesquisaHorario = new PanelPesquisaHorario();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorPesquisaHorario = new ControladorPesquisaHorario(panelPesquisaHorario);
 			frame.setContentPane(panelPesquisaHorario); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemCancelamentoReagendamento()) {
 			panelCancelamentoReagendamento = new PanelCancelamentoReagendamento();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorCancelamentoReagendamento = new ControladorCancelamentoReagendamento(panelCancelamentoReagendamento);
 			frame.setContentPane(panelCancelamentoReagendamento); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemRelatorioConsulta()) {
 			panelRelatorioConsulta = new PanelRelatorioConsulta();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorRelatorioConsulta = new ControladorRelatorioConsulta(panelRelatorioConsulta);
 			frame.setContentPane(panelRelatorioConsulta); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemRelatorioExame()) {
 			panelRelatorioExame = new PanelRelatorioExame();
-//			controladorRelatorioExame = new ControladorRelatorioExame(panelExame);
+			controladorRelatorioExame = new ControladorRelatorioExame(panelRelatorioExame);
 			frame.setContentPane(panelRelatorioExame); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemRelatorioFinanceiro()) {
 			panelRelatorioFinanceiro = new PanelRelatorioFinanceiro();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorRelatorioFinanceiro = new ControladorRelatorioFinanceiro(panelRelatorioFinanceiro);
 			frame.setContentPane(panelRelatorioFinanceiro); 
 	        frame.revalidate(); 
 	        frame.repaint();
 		} else if(e.getSource() == frame.getItemRelatorioMaterial()) {
 			panelRelatorioMaterial = new PanelRelatorioMaterial();
-//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			controladorRelatorioMaterial = new ControladorRelatorioMaterial(panelRelatorioMaterial);
 			frame.setContentPane(panelRelatorioMaterial); 
 	        frame.revalidate(); 
 	        frame.repaint();
-		}
-			
+		}	
 	}
 
 	public static void main(String[] args) {
