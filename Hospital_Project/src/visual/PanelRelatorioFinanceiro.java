@@ -8,6 +8,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
+import javax.swing.DefaultComboBoxModel;
 
 public class PanelRelatorioFinanceiro extends JPanel {
 	private JLabel lblRelatrioFinanceiro;
@@ -116,9 +117,10 @@ public class PanelRelatorioFinanceiro extends JPanel {
 	private JComboBox getComboBox_1_1() {
 		if (comboBox_1_1 == null) {
 			comboBox_1_1 = new JComboBox();
+			comboBox_1_1.setModel(new DefaultComboBoxModel(new String[] {"Selelcione um formato", "PDF", "Excel"}));
 			comboBox_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBox_1_1.setBackground(Color.WHITE);
-			comboBox_1_1.setBounds(438, 40, 118, 32);
+			comboBox_1_1.setBounds(438, 40, 190, 32);
 		}
 		return comboBox_1_1;
 	}

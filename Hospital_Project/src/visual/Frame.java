@@ -33,7 +33,7 @@ public class Frame extends JFrame{
 	private JMenuItem itemAgendamentoConsulta;
 	private JMenuItem itemRelatorioExame;
 	private JMenuItem itemRelatorioFinanceiro;
-	private JMenuItem itemRelatorioMateriais;
+	private JMenuItem itemRelatorioMaterial;
 	private JMenuItem itemCadastrarExame;
 	private JMenuItem itemAgendamentoExame;
 	private JMenuItem itemVisualizacaoAgenda;
@@ -117,7 +117,7 @@ public class Frame extends JFrame{
 			menuRelatorio.add(getItemRelatorioConsulta());
 			menuRelatorio.add(getItemRelatorioExame());
 			menuRelatorio.add(getItemRelatorioFinanceiro());
-			menuRelatorio.add(getItemRelatorioMateriais());
+			menuRelatorio.add(getItemRelatorioMaterial());
 		}
 		return menuRelatorio;
 	}
@@ -192,11 +192,11 @@ public class Frame extends JFrame{
 		}
 		return itemRelatorioFinanceiro;
 	}
-	public JMenuItem getItemRelatorioMateriais() {
-		if (itemRelatorioMateriais == null) {
-			itemRelatorioMateriais = new JMenuItem("Relatório de Materiais");
+	public JMenuItem getItemRelatorioMaterial() {
+		if (itemRelatorioMaterial == null) {
+			itemRelatorioMaterial = new JMenuItem("Relatório de Materiais");
 		}
-		return itemRelatorioMateriais;
+		return itemRelatorioMaterial;
 	}
 	public JMenuItem getItemCadastrarExame() {
 		if (itemCadastrarExame == null) {

@@ -47,7 +47,7 @@ public class PanelRelatorioMaterial extends JPanel {
 			lblDadosDoRelatrio = new JLabel("Dados do relatório");
 			lblDadosDoRelatrio.setForeground(Color.WHITE);
 			lblDadosDoRelatrio.setFont(new Font("Tahoma", Font.BOLD, 25));
-			lblDadosDoRelatrio.setBounds(78, 128, 296, 31);
+			lblDadosDoRelatrio.setBounds(80, 128, 296, 31);
 		}
 		return lblDadosDoRelatrio;
 	}
@@ -56,7 +56,7 @@ public class PanelRelatorioMaterial extends JPanel {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
-			panelDadosPessoais.setBounds(78, 169, 800, 461);
+			panelDadosPessoais.setBounds(80, 169, 800, 461);
 			panelDadosPessoais.add(getTextPane());
 			panelDadosPessoais.add(getLblAgenda_1());
 			panelDadosPessoais.add(getTextField());
@@ -104,7 +104,7 @@ public class PanelRelatorioMaterial extends JPanel {
 	}
 	private JLabel getLblTipoDeConsulta() {
 		if (lblTipoDeConsulta == null) {
-			lblTipoDeConsulta = new JLabel("Tipo de Exame");
+			lblTipoDeConsulta = new JLabel("Tipo de Material");
 			lblTipoDeConsulta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			lblTipoDeConsulta.setBounds(269, 10, 128, 32);
 		}
@@ -113,6 +113,7 @@ public class PanelRelatorioMaterial extends JPanel {
 	private JComboBox getComboBox_1() {
 		if (comboBox_1 == null) {
 			comboBox_1 = new JComboBox();
+			comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de material", "\t"}));
 			comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBox_1.setBackground(Color.WHITE);
 			comboBox_1.setBounds(269, 40, 224, 32);

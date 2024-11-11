@@ -14,6 +14,10 @@ import visual.PanelConsulta;
 import visual.PanelExame;
 import visual.PanelHome;
 import visual.PanelPesquisaHorario;
+import visual.PanelRelatorioConsulta;
+import visual.PanelRelatorioExame;
+import visual.PanelRelatorioFinanceiro;
+import visual.PanelRelatorioMaterial;
 import visual.PanelVisualizacaoAgenda;
 
 
@@ -53,6 +57,18 @@ public class ControladorFrame implements ActionListener{
 	PanelCancelamentoReagendamento panelCancelamentoReagendamento;
 //	ControladorExame controladorExame;
 	
+	PanelRelatorioConsulta panelRelatorioConsulta;
+//	ControladorRelatorioConsulta controladorRelatorioConsulta;
+	
+	PanelRelatorioExame panelRelatorioExame;
+//	ControladorRelatorioExame controladorRelatorioExame;
+	
+	PanelRelatorioFinanceiro panelRelatorioFinanceiro;
+//	ControladorRelatorioFinanceiro controladorRelatorioFinanceiro;
+	
+	PanelRelatorioMaterial panelRelatorioMaterial;
+//	ControladorlRelatorioMaterial controladorlRelatorioMaterial;
+	
 	
 	public ControladorFrame() {
 		frame = new Frame();
@@ -72,6 +88,11 @@ public class ControladorFrame implements ActionListener{
 		frame.getItemVisualizacaoAgenda().addActionListener(this);
 		frame.getItemPesquisaHorario().addActionListener(this);
 		frame.getItemCancelamentoReagendamento().addActionListener(this);
+		
+		frame.getItemRelatorioConsulta().addActionListener(this);
+		frame.getItemRelatorioExame().addActionListener(this);
+		frame.getItemRelatorioFinanceiro().addActionListener(this);
+		frame.getItemRelatorioMaterial().addActionListener(this);
 	}
 	
 	
@@ -143,7 +164,32 @@ public class ControladorFrame implements ActionListener{
 			frame.setContentPane(panelCancelamentoReagendamento); 
 	        frame.revalidate(); 
 	        frame.repaint();
+		} else if(e.getSource() == frame.getItemRelatorioConsulta()) {
+			panelRelatorioConsulta = new PanelRelatorioConsulta();
+//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			frame.setContentPane(panelRelatorioConsulta); 
+	        frame.revalidate(); 
+	        frame.repaint();
+		} else if(e.getSource() == frame.getItemRelatorioExame()) {
+			panelRelatorioExame = new PanelRelatorioExame();
+//			controladorRelatorioExame = new ControladorRelatorioExame(panelExame);
+			frame.setContentPane(panelRelatorioExame); 
+	        frame.revalidate(); 
+	        frame.repaint();
+		} else if(e.getSource() == frame.getItemRelatorioFinanceiro()) {
+			panelRelatorioFinanceiro = new PanelRelatorioFinanceiro();
+//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			frame.setContentPane(panelRelatorioFinanceiro); 
+	        frame.revalidate(); 
+	        frame.repaint();
+		} else if(e.getSource() == frame.getItemRelatorioMaterial()) {
+			panelRelatorioMaterial = new PanelRelatorioMaterial();
+//			controladorAgendamentoConsulta = new ControladorAgendamentoConsulta(panelExame);
+			frame.setContentPane(panelRelatorioMaterial); 
+	        frame.revalidate(); 
+	        frame.repaint();
 		}
+			
 	}
 
 	public static void main(String[] args) {
