@@ -16,13 +16,13 @@ public class PanelCadastrarMaterial extends JPanel {
 	private JTextField nomeMaterial;
 	
 	private JLabel labelNomeMaterial;
-	private JTextField textField;
+	private JTextField quantEstoque;
 	private JLabel lblQuantidadeEmEstoque;
-	private JTextField textField_1;
+	private JTextField quantMimEstoque;
 	private JLabel lblQuantidadeMnimaEm;
-	private JTextField textField_2;
+	private JTextField nomeFornecedor;
 	private JLabel lblFornecedor;
-	private JTextField textField_3;
+	private JTextField preco;
 	private JLabel lblPreo;
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
@@ -53,13 +53,13 @@ public class PanelCadastrarMaterial extends JPanel {
 		PanelInformacoesMateriais.add(getLabelNomeMaterial());
 		PanelInformacoesMateriais.add(getTextFieldNomeMaterial());
 		PanelInformacoesMateriais.add(getLblQuantidadeEmEstoque());
-		PanelInformacoesMateriais.add(getTextField());
+		PanelInformacoesMateriais.add(getQuantEstoque());
 		PanelInformacoesMateriais.add(getLblQuantidadeMnimaEm());
-		PanelInformacoesMateriais.add(getTextField_1());
+		PanelInformacoesMateriais.add(getQuantMimEstoque());
 		PanelInformacoesMateriais.add(getLblFornecedor());
-		PanelInformacoesMateriais.add(getTextField_2());
+		PanelInformacoesMateriais.add(getNomeFornecedor());
 		PanelInformacoesMateriais.add(getLblPreo());
-		PanelInformacoesMateriais.add(getTextField_3());
+		PanelInformacoesMateriais.add(getPreco());
 		
 		return PanelInformacoesMateriais;
 	}
@@ -81,15 +81,15 @@ public class PanelCadastrarMaterial extends JPanel {
 	    }
 	    return labelNomeMaterial;
 	}
-	private JTextField getTextField() {
-		if (textField == null) {
-			textField = new JTextField();
-			textField.setBounds(11, 113, 675, 32);
-			textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JTextField getQuantEstoque() {
+		if (quantEstoque == null) {
+			quantEstoque = new JTextField();
+			quantEstoque.setBounds(11, 113, 675, 32);
+			quantEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return textField;
+		return quantEstoque;
 	}
-	private JLabel getLblQuantidadeEmEstoque() {
+	public JLabel getLblQuantidadeEmEstoque() {
 		if (lblQuantidadeEmEstoque == null) {
 			lblQuantidadeEmEstoque = new JLabel("Quantidade em Estoque:");
 			lblQuantidadeEmEstoque.setBounds(11, 83, 200, 32);
@@ -97,15 +97,15 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return lblQuantidadeEmEstoque;
 	}
-	private JTextField getTextField_1() {
-		if (textField_1 == null) {
-			textField_1 = new JTextField();
-			textField_1.setBounds(11, 185, 675, 32);
-			textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JTextField getQuantMimEstoque() {
+		if (quantMimEstoque == null) {
+			quantMimEstoque = new JTextField();
+			quantMimEstoque.setBounds(11, 185, 675, 32);
+			quantMimEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return textField_1;
+		return quantMimEstoque;
 	}
-	private JLabel getLblQuantidadeMnimaEm() {
+	public JLabel getLblQuantidadeMnimaEm() {
 		if (lblQuantidadeMnimaEm == null) {
 			lblQuantidadeMnimaEm = new JLabel("Quantidade Mínima em Estoque:");
 			lblQuantidadeMnimaEm.setBounds(11, 155, 220, 32);
@@ -113,15 +113,15 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return lblQuantidadeMnimaEm;
 	}
-	private JTextField getTextField_2() {
-		if (textField_2 == null) {
-			textField_2 = new JTextField();
-			textField_2.setBounds(11, 257, 675, 32);
-			textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JTextField getNomeFornecedor() {
+		if (nomeFornecedor == null) {
+			nomeFornecedor = new JTextField();
+			nomeFornecedor.setBounds(11, 257, 675, 32);
+			nomeFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return textField_2;
+		return nomeFornecedor;
 	}
-	private JLabel getLblFornecedor() {
+	public JLabel getLblFornecedor() {
 		if (lblFornecedor == null) {
 			lblFornecedor = new JLabel("Fornecedor:");
 			lblFornecedor.setBounds(11, 227, 220, 32);
@@ -129,15 +129,15 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return lblFornecedor;
 	}
-	private JTextField getTextField_3() {
-		if (textField_3 == null) {
-			textField_3 = new JTextField();
-			textField_3.setBounds(11, 329, 675, 32);
-			textField_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JTextField getPreco() {
+		if (preco == null) {
+			preco = new JTextField();
+			preco.setBounds(11, 329, 675, 32);
+			preco.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return textField_3;
+		return preco;
 	}
-	private JLabel getLblPreo() {
+	public JLabel getLblPreo() {
 		if (lblPreo == null) {
 			lblPreo = new JLabel("Preço:");
 			lblPreo.setBounds(11, 299, 220, 32);
@@ -145,7 +145,7 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return lblPreo;
 	}
-	private JButton getBtnLimpar() {
+	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
 			btnLimpar.setBounds(493, 564, 156, 40);
@@ -155,7 +155,7 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return btnLimpar;
 	}
-	private JButton getBtnCadastrar() {
+	public JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton();
 			btnCadastrar.setBounds(684, 564, 147, 40);
