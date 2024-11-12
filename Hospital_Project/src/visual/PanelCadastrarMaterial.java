@@ -15,18 +15,18 @@ public class PanelCadastrarMaterial extends JPanel {
 	
 	private JTextField nomeMaterial;
 	
-	private JLabel labelNomeMaterial;
+	private JLabel lblNomeMaterial;
 	private JTextField quantEstoque;
-	private JLabel lblQuantidadeEmEstoque;
+	private JLabel lblQuantidadeEstoque;
 	private JTextField quantMimEstoque;
-	private JLabel lblQuantidadeMnimaEm;
+	private JLabel lblQuantidadeMinimaEstoque;
 	private JTextField nomeFornecedor;
 	private JLabel lblFornecedor;
 	private JTextField preco;
-	private JLabel lblPreo;
+	private JLabel lblPreco;
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
-	private JLabel lblDadosDoCadastro;
+	private JLabel lblDadosCadastro;
 	
 	public PanelCadastrarMaterial() {
 		setBackground(new Color(83, 169, 255));
@@ -35,14 +35,14 @@ public class PanelCadastrarMaterial extends JPanel {
 		add(PanelInformacoesMateriais());
 		
 		
-		JLabel titlePanelCadastrarMateriais = new JLabel("Cadastro dos Materiais");
-		titlePanelCadastrarMateriais.setBounds(295, 33, 349, 33);
-		titlePanelCadastrarMateriais.setForeground(new Color(255, 255, 255));
-		titlePanelCadastrarMateriais.setFont(new Font("Tahoma", Font.BOLD, 30));
-	    add(titlePanelCadastrarMateriais);
+		JLabel lblPanelCadastrarMateriais = new JLabel("Cadastro dos Materiais");
+		lblPanelCadastrarMateriais.setBounds(295, 33, 349, 33);
+		lblPanelCadastrarMateriais.setForeground(new Color(255, 255, 255));
+		lblPanelCadastrarMateriais.setFont(new Font("Tahoma", Font.BOLD, 30));
+	    add(lblPanelCadastrarMateriais);
 	    add(getBtnLimpar());
 	    add(getBtnCadastrar());
-	    add(getLblDadosDoCadastro());
+	    add(getLblDadosCadastro());
 	}
 	
 	public JPanel PanelInformacoesMateriais() {
@@ -50,15 +50,15 @@ public class PanelCadastrarMaterial extends JPanel {
 		PanelInformacoesMateriais.setBounds(134, 169, 696, 385);
 		PanelInformacoesMateriais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 		PanelInformacoesMateriais.setLayout(null);
-		PanelInformacoesMateriais.add(getLabelNomeMaterial());
+		PanelInformacoesMateriais.add(getLblNomeMaterial());
 		PanelInformacoesMateriais.add(getTextFieldNomeMaterial());
-		PanelInformacoesMateriais.add(getLblQuantidadeEmEstoque());
+		PanelInformacoesMateriais.add(getLblQuantidadeEstoque());
 		PanelInformacoesMateriais.add(getQuantEstoque());
-		PanelInformacoesMateriais.add(getLblQuantidadeMnimaEm());
+		PanelInformacoesMateriais.add(getLblQuantidadeMinimaEstoque());
 		PanelInformacoesMateriais.add(getQuantMimEstoque());
 		PanelInformacoesMateriais.add(getLblFornecedor());
 		PanelInformacoesMateriais.add(getNomeFornecedor());
-		PanelInformacoesMateriais.add(getLblPreo());
+		PanelInformacoesMateriais.add(getLblPreco());
 		PanelInformacoesMateriais.add(getPreco());
 		
 		return PanelInformacoesMateriais;
@@ -73,13 +73,13 @@ public class PanelCadastrarMaterial extends JPanel {
 	    return nomeMaterial;
 	}
 
-	public JLabel getLabelNomeMaterial() {
-	    if (labelNomeMaterial == null) {
-	        labelNomeMaterial = new JLabel("Nome do Material:");
-	        labelNomeMaterial.setBounds(11, 11, 200, 32);
-	        labelNomeMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JLabel getLblNomeMaterial() {
+	    if (lblNomeMaterial == null) {
+	        lblNomeMaterial = new JLabel("Nome do Material:");
+	        lblNomeMaterial.setBounds(11, 11, 200, 32);
+	        lblNomeMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	    }
-	    return labelNomeMaterial;
+	    return lblNomeMaterial;
 	}
 	public JTextField getQuantEstoque() {
 		if (quantEstoque == null) {
@@ -89,13 +89,13 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return quantEstoque;
 	}
-	public JLabel getLblQuantidadeEmEstoque() {
-		if (lblQuantidadeEmEstoque == null) {
-			lblQuantidadeEmEstoque = new JLabel("Quantidade em Estoque:");
-			lblQuantidadeEmEstoque.setBounds(11, 83, 200, 32);
-			lblQuantidadeEmEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JLabel getLblQuantidadeEstoque() {
+		if (lblQuantidadeEstoque == null) {
+			lblQuantidadeEstoque = new JLabel("Quantidade em Estoque:");
+			lblQuantidadeEstoque.setBounds(11, 83, 200, 32);
+			lblQuantidadeEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return lblQuantidadeEmEstoque;
+		return lblQuantidadeEstoque;
 	}
 	public JTextField getQuantMimEstoque() {
 		if (quantMimEstoque == null) {
@@ -105,13 +105,13 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return quantMimEstoque;
 	}
-	public JLabel getLblQuantidadeMnimaEm() {
-		if (lblQuantidadeMnimaEm == null) {
-			lblQuantidadeMnimaEm = new JLabel("Quantidade Mínima em Estoque:");
-			lblQuantidadeMnimaEm.setBounds(11, 155, 220, 32);
-			lblQuantidadeMnimaEm.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JLabel getLblQuantidadeMinimaEstoque() {
+		if (lblQuantidadeMinimaEstoque == null) {
+			lblQuantidadeMinimaEstoque = new JLabel("Quantidade Mínima em Estoque:");
+			lblQuantidadeMinimaEstoque.setBounds(11, 155, 220, 32);
+			lblQuantidadeMinimaEstoque.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return lblQuantidadeMnimaEm;
+		return lblQuantidadeMinimaEstoque;
 	}
 	public JTextField getNomeFornecedor() {
 		if (nomeFornecedor == null) {
@@ -137,13 +137,13 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return preco;
 	}
-	public JLabel getLblPreo() {
-		if (lblPreo == null) {
-			lblPreo = new JLabel("Preço:");
-			lblPreo.setBounds(11, 299, 220, 32);
-			lblPreo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	public JLabel getLblPreco() {
+		if (lblPreco == null) {
+			lblPreco = new JLabel("Preço:");
+			lblPreco.setBounds(11, 299, 220, 32);
+			lblPreco.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		}
-		return lblPreo;
+		return lblPreco;
 	}
 	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
@@ -165,13 +165,13 @@ public class PanelCadastrarMaterial extends JPanel {
 		}
 		return btnCadastrar;
 	}
-	private JLabel getLblDadosDoCadastro() {
-		if (lblDadosDoCadastro == null) {
-			lblDadosDoCadastro = new JLabel("Dados do cadastro");
-			lblDadosDoCadastro.setForeground(Color.WHITE);
-			lblDadosDoCadastro.setFont(new Font("Tahoma", Font.BOLD, 25));
-			lblDadosDoCadastro.setBounds(134, 128, 296, 31);
+	public JLabel getLblDadosCadastro() {
+		if (lblDadosCadastro == null) {
+			lblDadosCadastro = new JLabel("Dados do cadastro");
+			lblDadosCadastro.setForeground(Color.WHITE);
+			lblDadosCadastro.setFont(new Font("Tahoma", Font.BOLD, 25));
+			lblDadosCadastro.setBounds(134, 128, 296, 31);
 		}
-		return lblDadosDoCadastro;
+		return lblDadosCadastro;
 	}
 }

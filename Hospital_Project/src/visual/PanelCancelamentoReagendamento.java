@@ -13,8 +13,8 @@ import javax.swing.JButton;
 public class PanelCancelamentoReagendamento extends JPanel {
 	private JLabel lblDados;
 	private JPanel panelDadosPessoais;
-	private JTextPane textPane;
-	private JLabel lblAgenda_1;
+	private JTextPane textPainelCancelamentoReagendamento;
+	private JLabel lblPainel;
 	private JLabel lblCancelamentoEReagendamento;
 	private JButton btnLimpar;
 	private JButton btnConfirmar;
@@ -29,7 +29,7 @@ public class PanelCancelamentoReagendamento extends JPanel {
 		add(getBtnConfirmar());
 	}
 
-	private JLabel getLblDados() {
+	public JLabel getLblDados() {
 		if (lblDados == null) {
 			lblDados = new JLabel("Dados");
 			lblDados.setForeground(Color.WHITE);
@@ -38,34 +38,34 @@ public class PanelCancelamentoReagendamento extends JPanel {
 		}
 		return lblDados;
 	}
-	private JPanel getPanelDadosPessoais() {
+	public JPanel getPanelDadosPessoais() {
 		if (panelDadosPessoais == null) {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(80, 169, 800, 464);
-			panelDadosPessoais.add(getTextPane());
-			panelDadosPessoais.add(getLblAgenda_1());
+			panelDadosPessoais.add(getTextPainelCancelamentoReagendamento());
+			panelDadosPessoais.add(getLblPainel());
 		}
 		return panelDadosPessoais;
 	}
-	private JTextPane getTextPane() {
-		if (textPane == null) {
-			textPane = new JTextPane();
-			textPane.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textPane.setBounds(10, 41, 780, 413);
+	public JTextPane getTextPainelCancelamentoReagendamento() {
+		if (textPainelCancelamentoReagendamento == null) {
+			textPainelCancelamentoReagendamento = new JTextPane();
+			textPainelCancelamentoReagendamento.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textPainelCancelamentoReagendamento.setBounds(10, 41, 780, 413);
 		}
-		return textPane;
+		return textPainelCancelamentoReagendamento;
 	}
-	private JLabel getLblAgenda_1() {
-		if (lblAgenda_1 == null) {
-			lblAgenda_1 = new JLabel("Painel");
-			lblAgenda_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblAgenda_1.setBounds(10, 10, 109, 32);
+	public JLabel getLblPainel() {
+		if (lblPainel == null) {
+			lblPainel = new JLabel("Painel");
+			lblPainel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblPainel.setBounds(10, 10, 109, 32);
 		}
-		return lblAgenda_1;
+		return lblPainel;
 	}
-	private JLabel getLblCancelamentoEReagendamento() {
+	public JLabel getLblCancelamentoEReagendamento() {
 		if (lblCancelamentoEReagendamento == null) {
 			lblCancelamentoEReagendamento = new JLabel("Cancelamento e Reagendamento");
 			lblCancelamentoEReagendamento.setForeground(Color.WHITE);
@@ -74,7 +74,7 @@ public class PanelCancelamentoReagendamento extends JPanel {
 		}
 		return lblCancelamentoEReagendamento;
 	}
-	private JButton getBtnLimpar() {
+	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
 			btnLimpar.setText("LIMPAR");
@@ -84,7 +84,7 @@ public class PanelCancelamentoReagendamento extends JPanel {
 		}
 		return btnLimpar;
 	}
-	private JButton getBtnConfirmar() {
+	public JButton getBtnConfirmar() {
 		if (btnConfirmar == null) {
 			btnConfirmar = new JButton();
 			btnConfirmar.setText("CONFIRMAR");

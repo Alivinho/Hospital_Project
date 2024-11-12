@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 public class PanelExame extends JPanel {
-	private JLabel titlePanelCadastrarExame;
+	private JLabel lblPanelCadastrarExame;
 	private JLabel lblNomeExame;
 	private JLabel lblDescricao;
 	private JLabel lblValorParticular;
@@ -24,13 +24,13 @@ public class PanelExame extends JPanel {
 	private JLabel lblDadosExame;
 	private JLabel lblTipoExame;
 	
-	private JComboBox<String> tipoExame;
+	private JComboBox<String> textFieldTipoExame;
 	
-	private JTextField nomeExame;
-	private JTextArea descricao;
-	private JTextField valParticular;
-	private JTextArea materiaisUtilizados;
-	private JTextField medico;
+	private JTextField textFieldNomeExame;
+	private JTextArea textAreaDescricao;
+	private JTextField textFieldValorParticular;
+	private JTextArea textAreaMateriaisUtilizados;
+	private JTextField textFieldMedico;
 	
 	private JPanel panelDadosExame;
 	
@@ -38,21 +38,18 @@ public class PanelExame extends JPanel {
 	private JButton btnCadastrar;
 	
 	
-
-	
 	public PanelExame() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(940, 920);
 		setLayout(null);
-		add(getTitlePanelCadastrarExame());
+		add(getLblPanelCadastrarExame());
 		add(getLblDadosExame());
 		add(getPanelDadosExame());
 		add(getBtnLimpar());
 		add(getBtnCadastrar());
 	}
-	
-	
-	private JPanel getPanelDadosExame() {
+		
+	public JPanel getPanelDadosExame() {
 	    if (panelDadosExame == null) {
 	        panelDadosExame = new JPanel();
 	        panelDadosExame.setLayout(null);
@@ -66,33 +63,28 @@ public class PanelExame extends JPanel {
 	        panelDadosExame.add(getLblMedico());
 	        panelDadosExame.add(getLblTipoExame());
 	       
-	        panelDadosExame.add(getTipoExame());
+	        panelDadosExame.add(getTextFieldTipoExame());
 	       
-	        panelDadosExame.add(getNomeExame());
-	        panelDadosExame.add(getDescricao());
-	        panelDadosExame.add(getValParticular());
-	        panelDadosExame.add(getMateriaisUtilizados());
-	        panelDadosExame.add(getMedico());
+	        panelDadosExame.add(getTextFieldNomeExame());
+	        panelDadosExame.add(getTextAreaDescricao());
+	        panelDadosExame.add(getTextFieldValorParticular());
+	        panelDadosExame.add(getTextAreaMateriaisUtilizados());
+	        panelDadosExame.add(getTextFieldMedico());
 	    }
 	    return panelDadosExame;
 	}
 
-
-
-	private JLabel getTitlePanelCadastrarExame() {
-		if (titlePanelCadastrarExame == null) {
-			titlePanelCadastrarExame = new JLabel("Cadastro de Exames");
-			titlePanelCadastrarExame.setBounds(411, 33, 314, 37);
-			titlePanelCadastrarExame.setForeground(Color.WHITE);
-			titlePanelCadastrarExame.setFont(new Font("Tahoma", Font.BOLD, 30));
+	public JLabel getLblPanelCadastrarExame() {
+		if (lblPanelCadastrarExame == null) {
+			lblPanelCadastrarExame = new JLabel("Cadastro de Exames");
+			lblPanelCadastrarExame.setBounds(313, 33, 314, 37);
+			lblPanelCadastrarExame.setForeground(Color.WHITE);
+			lblPanelCadastrarExame.setFont(new Font("Tahoma", Font.BOLD, 30));
 		}
-		return titlePanelCadastrarExame;
+		return lblPanelCadastrarExame;
 	}
 	
-	
-//***********************************  LABELS ***********************************//
-	
-	private JLabel getLblDadosExame() {
+	public JLabel getLblDadosExame() {
 		if (lblDadosExame == null) {
 			lblDadosExame = new JLabel("Dados do exame");
 			lblDadosExame.setForeground(Color.WHITE);
@@ -155,79 +147,71 @@ public class PanelExame extends JPanel {
 	    }
 	    return lblTipoExame;
 	}
-	
-	
-	
-	
-//***********************************  CAMPOS DE TEXTO  ***********************************//
 
-
-	public JTextField getNomeExame() {
-	    if (nomeExame == null) {
-	        nomeExame = new JTextField();
-	        nomeExame.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	        nomeExame.setBounds(420, 37, 370, 32);
+	public JTextField getTextFieldNomeExame() {
+	    if (textFieldNomeExame == null) {
+	        textFieldNomeExame = new JTextField();
+	        textFieldNomeExame.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	        textFieldNomeExame.setBounds(420, 37, 370, 32);
 	    }
-	    return nomeExame;
+	    return textFieldNomeExame;
 	}
 
-	public JTextArea getDescricao() {
-	    if (descricao == null) {
-	        descricao = new JTextArea();
-	        descricao.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	        descricao.setLineWrap(true);
-	        descricao.setWrapStyleWord(true);
-	        descricao.setBounds(10, 189, 370, 175);
-	        descricao.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+	public JTextArea getTextAreaDescricao() {
+	    if (textAreaDescricao == null) {
+	        textAreaDescricao = new JTextArea();
+	        textAreaDescricao.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	        textAreaDescricao.setLineWrap(true);
+	        textAreaDescricao.setWrapStyleWord(true);
+	        textAreaDescricao.setBounds(10, 189, 370, 175);
+	        textAreaDescricao.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 	    }
-	    return descricao;
+	    return textAreaDescricao;
 	}
 
-	public JTextField getValParticular() {
-	    if (valParticular == null) {
-	        valParticular = new JTextField();
-	        valParticular.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	        valParticular.setBounds(420, 116, 370, 32);
+	public JTextField getTextFieldValorParticular() {
+	    if (textFieldValorParticular == null) {
+	        textFieldValorParticular = new JTextField();
+	        textFieldValorParticular.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	        textFieldValorParticular.setBounds(420, 116, 370, 32);
 	    }
-	    return valParticular;
+	    return textFieldValorParticular;
 	}
 
-	public JTextArea getMateriaisUtilizados() {
-	    if (materiaisUtilizados == null) {
-	        materiaisUtilizados = new JTextArea();
-	        materiaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	        materiaisUtilizados.setLineWrap(true);
-	        materiaisUtilizados.setWrapStyleWord(true);
-	        materiaisUtilizados.setBounds(420, 189, 370, 175);
-	        materiaisUtilizados.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+	public JTextArea getTextAreaMateriaisUtilizados() {
+	    if (textAreaMateriaisUtilizados == null) {
+	        textAreaMateriaisUtilizados = new JTextArea();
+	        textAreaMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	        textAreaMateriaisUtilizados.setLineWrap(true);
+	        textAreaMateriaisUtilizados.setWrapStyleWord(true);
+	        textAreaMateriaisUtilizados.setBounds(420, 189, 370, 175);
+	        textAreaMateriaisUtilizados.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 	    }
-	    return materiaisUtilizados;
+	    return textAreaMateriaisUtilizados;
 	}
 
-	public JTextField getMedico() {
-	    if (medico == null) {
-	        medico = new JTextField();
-	        medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	        medico.setBounds(10, 37, 370, 32);
+	public JTextField getTextFieldMedico() {
+	    if (textFieldMedico == null) {
+	        textFieldMedico = new JTextField();
+	        textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	        textFieldMedico.setBounds(10, 37, 370, 32);
 	    }
-	    return medico;
+	    return textFieldMedico;
 	}
 	
-	public JComboBox<String> getTipoExame(){
-		if(tipoExame == null) {
-			tipoExame = new JComboBox();
-			tipoExame.setBackground(new Color(255, 255, 255));
-			tipoExame.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			tipoExame.setModel(new DefaultComboBoxModel(new String[] {" ", "Exames físicos", "Exames laboratoriais", "Imagens", "Biópsia", "Patologia e análise clínica"}));
-			tipoExame.setBounds(10, 116, 370, 32);
+	public JComboBox<String> getTextFieldTipoExame(){
+		if(textFieldTipoExame == null) {
+			textFieldTipoExame = new JComboBox();
+			textFieldTipoExame.setBackground(new Color(255, 255, 255));
+			textFieldTipoExame.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldTipoExame.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de exame", "Exames físicos", "Exames laboratoriais", "Imagens", "Biópsia", "Patologia e análise clínica"}));
+			textFieldTipoExame.setBounds(10, 117, 370, 32);
 		}
 	
-		return tipoExame;
+		return textFieldTipoExame;
 	}
-	
-//***********************************  BOTÕES  ***********************************//
 
-	private JButton getBtnLimpar() {
+	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
 			btnLimpar.setText("LIMPAR");
@@ -237,7 +221,7 @@ public class PanelExame extends JPanel {
 		}
 		return btnLimpar;
 	}
-	private JButton getBtnCadastrar() {
+	public JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton();
 			btnCadastrar.setText("CADASTRAR");

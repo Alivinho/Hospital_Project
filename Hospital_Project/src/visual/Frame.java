@@ -26,7 +26,7 @@ public class Frame extends JFrame{
 	JMenuItem itemCadastrarPaciente;
 	JMenuItem itemCadastrarMedico;
 	JMenuItem itemCadastrarMaterial;
-	private JLabel labelHome;
+	private JLabel lblClinicaMaisSaude;
 	private JMenu menuExame;
 	private JMenu menuConsulta;
 	private JMenuItem itemRelatorioConsulta;
@@ -40,8 +40,8 @@ public class Frame extends JFrame{
 	private JMenuItem itemPesquisaHorario;
 	private JMenuItem itemCancelamentoReagendamento;
 	private JMenuItem itemCadastrarConsulta;
-	private JLabel lblNewLabel_1;
-	private JLabel lblBemvindoa;
+	private JLabel lblImagem;
+	private JLabel lblBemVindo;
 	private JMenu menuHome;
 	private JMenuItem itemHome;
 	
@@ -49,9 +49,9 @@ public class Frame extends JFrame{
 		super();
 		getContentPane().setBackground(new Color(83, 169, 255));
 		getContentPane().setLayout(null);
-		getContentPane().add(getLabelHome());
-		getContentPane().add(getLblNewLabel_1());
-		getContentPane().add(getLblBemvindoa());
+		getContentPane().add(getLblClinicaMaisSaude());
+		getContentPane().add(getLblImagem());
+		getContentPane().add(getLblBemVindo());
 		setBackground(new Color(0, 128, 255));
 		this.setVisible(true);
 		this.setSize(960, 790);
@@ -60,17 +60,17 @@ public class Frame extends JFrame{
 		this.setJMenuBar(getBarraMenu());
 	}
 	
-	public JLabel getLabelHome() {
-		if (labelHome == null) {
-			labelHome = new JLabel("Clínica Mais Saúde");
-			labelHome.setBounds(161, 307, 623, 85);
-			labelHome.setForeground(new Color(255, 255, 255));
-			labelHome.setFont(new Font("Arial Black", Font.PLAIN, 60));
+	public JLabel getLblClinicaMaisSaude() {
+		if (lblClinicaMaisSaude == null) {
+			lblClinicaMaisSaude = new JLabel("Clínica Mais Saúde");
+			lblClinicaMaisSaude.setBounds(161, 307, 623, 85);
+			lblClinicaMaisSaude.setForeground(new Color(255, 255, 255));
+			lblClinicaMaisSaude.setFont(new Font("Arial Black", Font.PLAIN, 60));
 		}
-		return labelHome;
+		return lblClinicaMaisSaude;
 	}
 	
-	/****************************** COMPONENTES DA BARRA DE MENU ******************************/ 
+	/*===================================== COMPONENTES DA BARRA DE MENU =====================================*/ 
 	
 	public JMenuBar getBarraMenu() {
 		if(barraMenu == null) {
@@ -234,22 +234,22 @@ public class Frame extends JFrame{
 		}
 		return itemCadastrarConsulta;
 	}
-	public JLabel getLblNewLabel_1() {
-		if (lblNewLabel_1 == null) {
-			lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\mateu\\Downloads\\cuidados-de-saude.png"));
-			lblNewLabel_1.setBounds(409, 390, 128, 128);
+	public JLabel getLblImagem() {
+		if (lblImagem == null) {
+			lblImagem = new JLabel("");
+			lblImagem.setIcon(new ImageIcon("C:\\Users\\mateu\\Downloads\\cuidados-de-saude.png"));
+			lblImagem.setBounds(409, 390, 128, 128);
 		}
-		return lblNewLabel_1;
+		return lblImagem;
 	}
-	public JLabel getLblBemvindoa() {
-		if (lblBemvindoa == null) {
-			lblBemvindoa = new JLabel("Bem-Vindo(a)!");
-			lblBemvindoa.setForeground(Color.WHITE);
-			lblBemvindoa.setFont(new Font("Dialog", Font.PLAIN, 40));
-			lblBemvindoa.setBounds(343, 48, 260, 52);
+	public JLabel getLblBemVindo() {
+		if (lblBemVindo == null) {
+			lblBemVindo = new JLabel("Bem-Vindo(a)!");
+			lblBemVindo.setForeground(Color.WHITE);
+			lblBemVindo.setFont(new Font("Dialog", Font.PLAIN, 40));
+			lblBemVindo.setBounds(343, 48, 260, 52);
 		}
-		return lblBemvindoa;
+		return lblBemVindo;
 	}
 	public JMenu getMenuHome() {
 		if (menuHome == null) {

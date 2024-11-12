@@ -11,158 +11,158 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 
 public class PanelConsulta extends JPanel {
-	private JLabel lblCadastroDeConsultas;
-	private JLabel lblDadosDaConsulta;
+	private JLabel lblCadastroConsultas;
+	private JLabel lblDadosConsulta;
 	private JPanel panelDadosPessoais;
-	private JTextField textField;
-	private JLabel lblMdico;
-	private JLabel lblTipoDeConsulta;
-	private JTextField textField_2;
-	private JLabel lblQueixaDoPaciente;
-	private JLabel lblConvnio;
-	private JLabel lblTelefone_1_1_1;
-	private JTextArea textArea;
-	private JComboBox comboBox;
-	private JTextField textField_1;
+	private JTextField textFieldMedico;
+	private JLabel lblMedico;
+	private JLabel lblTipoConsulta;
+	private JTextField textFieldQueixaPaciente;
+	private JLabel lblQueixaPaciente;
+	private JLabel lblTipoConvenio;
+	private JLabel lblObservacoes;
+	private JTextArea textAreaObservacoes;
+	private JComboBox comboBoxTipoConvenio;
+	private JTextField textFieldPaciente;
 	private JLabel lblPaciente;
-	private JComboBox comboBox_1;
-	private JTextArea textArea_1;
-	private JLabel lblTelefone_1_1_1_1;
+	private JComboBox comboBoxTipoConsulta;
+	private JTextArea textAreaMateriaisUtilizados;
+	private JLabel lblMateriaisUtilizados;
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
 	public PanelConsulta() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(940, 920);
 		setLayout(null);
-		add(getLblCadastroDeConsultas());
-		add(getLblDadosDaConsulta());
+		add(getLblCadastroConsultas());
+		add(getLblDadosConsulta());
 		add(getPanelDadosPessoais());
 		add(getBtnLimpar());
 		add(getBtnCadastrar());
 	}
-	private JLabel getLblCadastroDeConsultas() {
-		if (lblCadastroDeConsultas == null) {
-			lblCadastroDeConsultas = new JLabel("Cadastro de Consultas");
-			lblCadastroDeConsultas.setForeground(Color.WHITE);
-			lblCadastroDeConsultas.setFont(new Font("Tahoma", Font.BOLD, 30));
-			lblCadastroDeConsultas.setBounds(300, 33, 340, 37);
+	public JLabel getLblCadastroConsultas() {
+		if (lblCadastroConsultas == null) {
+			lblCadastroConsultas = new JLabel("Cadastro de Consultas");
+			lblCadastroConsultas.setForeground(Color.WHITE);
+			lblCadastroConsultas.setFont(new Font("Tahoma", Font.BOLD, 30));
+			lblCadastroConsultas.setBounds(300, 33, 340, 37);
 		}
-		return lblCadastroDeConsultas;
+		return lblCadastroConsultas;
 	}
-	private JLabel getLblDadosDaConsulta() {
-		if (lblDadosDaConsulta == null) {
-			lblDadosDaConsulta = new JLabel("Dados da consulta");
-			lblDadosDaConsulta.setForeground(Color.WHITE);
-			lblDadosDaConsulta.setFont(new Font("Tahoma", Font.BOLD, 25));
-			lblDadosDaConsulta.setBounds(69, 128, 229, 31);
+	public JLabel getLblDadosConsulta() {
+		if (lblDadosConsulta == null) {
+			lblDadosConsulta = new JLabel("Dados da consulta");
+			lblDadosConsulta.setForeground(Color.WHITE);
+			lblDadosConsulta.setFont(new Font("Tahoma", Font.BOLD, 25));
+			lblDadosConsulta.setBounds(69, 128, 229, 31);
 		}
-		return lblDadosDaConsulta;
+		return lblDadosConsulta;
 	}
-	private JPanel getPanelDadosPessoais() {
+	public JPanel getPanelDadosPessoais() {
 		if (panelDadosPessoais == null) {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(69, 169, 800, 375);
-			panelDadosPessoais.add(getTextField());
-			panelDadosPessoais.add(getLblMdico());
-			panelDadosPessoais.add(getLblTipoDeConsulta());
-			panelDadosPessoais.add(getTextField_2());
-			panelDadosPessoais.add(getLblQueixaDoPaciente());
-			panelDadosPessoais.add(getLblConvnio());
-			panelDadosPessoais.add(getLblTelefone_1_1_1());
-			panelDadosPessoais.add(getTextArea());
-			panelDadosPessoais.add(getComboBox());
-			panelDadosPessoais.add(getTextField_1());
+			panelDadosPessoais.add(getTextFieldMedico());
+			panelDadosPessoais.add(getLblMedico());
+			panelDadosPessoais.add(getLblTipoConsulta());
+			panelDadosPessoais.add(getTextFieldQueixaPaciente());
+			panelDadosPessoais.add(getLblQueixaPaciente());
+			panelDadosPessoais.add(getLblTipoConvenio());
+			panelDadosPessoais.add(getLblObservacoes());
+			panelDadosPessoais.add(getTextAreaObservacoes());
+			panelDadosPessoais.add(getComboBoxTipoConvenio());
+			panelDadosPessoais.add(getTextFieldPaciente());
 			panelDadosPessoais.add(getLblPaciente());
-			panelDadosPessoais.add(getComboBox_1());
-			panelDadosPessoais.add(getTextArea_1());
-			panelDadosPessoais.add(getLblTelefone_1_1_1_1());
+			panelDadosPessoais.add(getComboBoxTipoConsulta());
+			panelDadosPessoais.add(getTextAreaMateriaisUtilizados());
+			panelDadosPessoais.add(getLblMateriaisUtilizados());
 		}
 		return panelDadosPessoais;
 	}
-	private JTextField getTextField() {
-		if (textField == null) {
-			textField = new JTextField();
-			textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField.setBounds(10, 40, 373, 32);
+	public JTextField getTextFieldMedico() {
+		if (textFieldMedico == null) {
+			textFieldMedico = new JTextField();
+			textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldMedico.setBounds(10, 40, 373, 32);
 		}
-		return textField;
+		return textFieldMedico;
 	}
-	private JLabel getLblMdico() {
-		if (lblMdico == null) {
-			lblMdico = new JLabel("Médico:");
-			lblMdico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblMdico.setBounds(10, 10, 200, 32);
+	public JLabel getLblMedico() {
+		if (lblMedico == null) {
+			lblMedico = new JLabel("Médico:");
+			lblMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblMedico.setBounds(10, 10, 200, 32);
 		}
-		return lblMdico;
+		return lblMedico;
 	}
-	private JLabel getLblTipoDeConsulta() {
-		if (lblTipoDeConsulta == null) {
-			lblTipoDeConsulta = new JLabel("Tipo de Consulta");
-			lblTipoDeConsulta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblTipoDeConsulta.setBounds(10, 82, 128, 32);
+	public JLabel getLblTipoConsulta() {
+		if (lblTipoConsulta == null) {
+			lblTipoConsulta = new JLabel("Tipo de Consulta");
+			lblTipoConsulta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblTipoConsulta.setBounds(10, 82, 128, 32);
 		}
-		return lblTipoDeConsulta;
+		return lblTipoConsulta;
 	}
-	private JTextField getTextField_2() {
-		if (textField_2 == null) {
-			textField_2 = new JTextField();
-			textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField_2.setBounds(198, 112, 371, 32);
+	public JTextField getTextFieldQueixaPaciente() {
+		if (textFieldQueixaPaciente == null) {
+			textFieldQueixaPaciente = new JTextField();
+			textFieldQueixaPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldQueixaPaciente.setBounds(198, 112, 371, 32);
 		}
-		return textField_2;
+		return textFieldQueixaPaciente;
 	}
-	private JLabel getLblQueixaDoPaciente() {
-		if (lblQueixaDoPaciente == null) {
-			lblQueixaDoPaciente = new JLabel("Queixa do paciente");
-			lblQueixaDoPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblQueixaDoPaciente.setBounds(198, 82, 200, 32);
+	public JLabel getLblQueixaPaciente() {
+		if (lblQueixaPaciente == null) {
+			lblQueixaPaciente = new JLabel("Queixa do paciente");
+			lblQueixaPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblQueixaPaciente.setBounds(198, 82, 200, 32);
 		}
-		return lblQueixaDoPaciente;
+		return lblQueixaPaciente;
 	}
-	private JLabel getLblConvnio() {
-		if (lblConvnio == null) {
-			lblConvnio = new JLabel("Convênio:");
-			lblConvnio.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblConvnio.setBounds(579, 82, 211, 32);
+	public JLabel getLblTipoConvenio() {
+		if (lblTipoConvenio == null) {
+			lblTipoConvenio = new JLabel("Convênio:");
+			lblTipoConvenio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblTipoConvenio.setBounds(579, 82, 211, 32);
 		}
-		return lblConvnio;
+		return lblTipoConvenio;
 	}
-	private JLabel getLblTelefone_1_1_1() {
-		if (lblTelefone_1_1_1 == null) {
-			lblTelefone_1_1_1 = new JLabel("Observações");
-			lblTelefone_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblTelefone_1_1_1.setBounds(10, 154, 150, 32);
+	public JLabel getLblObservacoes() {
+		if (lblObservacoes == null) {
+			lblObservacoes = new JLabel("Observações");
+			lblObservacoes.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblObservacoes.setBounds(10, 154, 150, 32);
 		}
-		return lblTelefone_1_1_1;
+		return lblObservacoes;
 	}
-	private JTextArea getTextArea() {
-		if (textArea == null) {
-			textArea = new JTextArea();
-			textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
-			textArea.setBounds(10, 186, 373, 163);
+	public JTextArea getTextAreaObservacoes() {
+		if (textAreaObservacoes == null) {
+			textAreaObservacoes = new JTextArea();
+			textAreaObservacoes.setFont(new Font("Monospaced", Font.PLAIN, 15));
+			textAreaObservacoes.setBounds(10, 186, 373, 163);
 		}
-		return textArea;
+		return textAreaObservacoes;
 	}
-	private JComboBox getComboBox() {
-		if (comboBox == null) {
-			comboBox = new JComboBox();
-			comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			comboBox.setBackground(Color.WHITE);
-			comboBox.setBounds(579, 112, 211, 32);
+	public JComboBox getComboBoxTipoConvenio() {
+		if (comboBoxTipoConvenio == null) {
+			comboBoxTipoConvenio = new JComboBox();
+			comboBoxTipoConvenio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxTipoConvenio.setBackground(Color.WHITE);
+			comboBoxTipoConvenio.setBounds(579, 112, 211, 32);
 		}
-		return comboBox;
+		return comboBoxTipoConvenio;
 	}
-	private JTextField getTextField_1() {
-		if (textField_1 == null) {
-			textField_1 = new JTextField();
-			textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField_1.setBounds(393, 40, 397, 32);
+	public JTextField getTextFieldPaciente() {
+		if (textFieldPaciente == null) {
+			textFieldPaciente = new JTextField();
+			textFieldPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldPaciente.setBounds(393, 40, 397, 32);
 		}
-		return textField_1;
+		return textFieldPaciente;
 	}
-	private JLabel getLblPaciente() {
+	public JLabel getLblPaciente() {
 		if (lblPaciente == null) {
 			lblPaciente = new JLabel("Paciente:");
 			lblPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -170,32 +170,32 @@ public class PanelConsulta extends JPanel {
 		}
 		return lblPaciente;
 	}
-	private JComboBox getComboBox_1() {
-		if (comboBox_1 == null) {
-			comboBox_1 = new JComboBox();
-			comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			comboBox_1.setBackground(Color.WHITE);
-			comboBox_1.setBounds(10, 112, 178, 32);
+	public JComboBox getComboBoxTipoConsulta() {
+		if (comboBoxTipoConsulta == null) {
+			comboBoxTipoConsulta = new JComboBox();
+			comboBoxTipoConsulta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxTipoConsulta.setBackground(Color.WHITE);
+			comboBoxTipoConsulta.setBounds(10, 112, 178, 32);
 		}
-		return comboBox_1;
+		return comboBoxTipoConsulta;
 	}
-	private JTextArea getTextArea_1() {
-		if (textArea_1 == null) {
-			textArea_1 = new JTextArea();
-			textArea_1.setFont(new Font("Monospaced", Font.PLAIN, 15));
-			textArea_1.setBounds(396, 186, 394, 163);
+	public JTextArea getTextAreaMateriaisUtilizados() {
+		if (textAreaMateriaisUtilizados == null) {
+			textAreaMateriaisUtilizados = new JTextArea();
+			textAreaMateriaisUtilizados.setFont(new Font("Monospaced", Font.PLAIN, 15));
+			textAreaMateriaisUtilizados.setBounds(396, 186, 394, 163);
 		}
-		return textArea_1;
+		return textAreaMateriaisUtilizados;
 	}
-	private JLabel getLblTelefone_1_1_1_1() {
-		if (lblTelefone_1_1_1_1 == null) {
-			lblTelefone_1_1_1_1 = new JLabel("Materiais utilizados");
-			lblTelefone_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblTelefone_1_1_1_1.setBounds(396, 154, 150, 32);
+	public JLabel getLblMateriaisUtilizados() {
+		if (lblMateriaisUtilizados == null) {
+			lblMateriaisUtilizados = new JLabel("Materiais utilizados");
+			lblMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblMateriaisUtilizados.setBounds(396, 154, 150, 32);
 		}
-		return lblTelefone_1_1_1_1;
+		return lblMateriaisUtilizados;
 	}
-	private JButton getBtnLimpar() {
+	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
 			btnLimpar.setText("LIMPAR");
@@ -205,7 +205,7 @@ public class PanelConsulta extends JPanel {
 		}
 		return btnLimpar;
 	}
-	private JButton getBtnCadastrar() {
+	public JButton getBtnCadastrar() {
 		if (btnCadastrar == null) {
 			btnCadastrar = new JButton();
 			btnCadastrar.setText("CADASTRAR");

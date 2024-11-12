@@ -27,11 +27,11 @@ public class ControladorCadastrarMedico implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		  if (e.getSource() == panelCadastrarMedico.getbtnCadastrar()) {
-	            cadastrarMedico();
-	        }else if(e.getSource() == panelCadastrarMedico.getbtnLimpar()) {
-	        	limparCampos();
-	        }
+	  if (e.getSource() == panelCadastrarMedico.getbtnCadastrar()) {
+            cadastrarMedico();
+        }else if(e.getSource() == panelCadastrarMedico.getbtnLimpar()) {
+        	limparCampos();
+        }
 	}
 	
 	public void cadastrarMedico() {
@@ -51,8 +51,9 @@ public class ControladorCadastrarMedico implements ActionListener{
 			String cidade = panelCadastrarMedico.getTextFieldCidade().getText();
 			String estado = panelCadastrarMedico.getTextFieldEstado().getText();
             
-            if (nome.isEmpty() || especialidade.isEmpty() || crm.isEmpty() || contato.isEmpty() || textValorConsulta.isEmpty() || horarioAtendimento.isEmpty() ||
-            		logradouro.isEmpty() || numero.isEmpty() || complemento.isEmpty() || bairro.isEmpty() || cep.isEmpty() || cidade.isEmpty() || estado.isEmpty()
+            if (nome.isEmpty() || especialidade.isEmpty() || crm.isEmpty() || contato.isEmpty() || textValorConsulta.isEmpty() ||
+            		horarioAtendimento.isEmpty() || logradouro.isEmpty() || numero.isEmpty() || complemento.isEmpty() || bairro.isEmpty() ||
+            		cep.isEmpty() || cidade.isEmpty() || estado.isEmpty()
             		) {
                 throw new Exception("Todos os campos devem ser preenchidos!");
             }
@@ -75,7 +76,7 @@ public class ControladorCadastrarMedico implements ActionListener{
   				  horarioAtendimento, valorConsulta);
             medicosCadastrados.add(medico);
 
-            JOptionPane.showMessageDialog(panelCadastrarMedico, "Medico cadastrado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panelCadastrarMedico, "[SUCESSO]: Medico cadastrado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
 
         } catch (NumberFormatException ex) {

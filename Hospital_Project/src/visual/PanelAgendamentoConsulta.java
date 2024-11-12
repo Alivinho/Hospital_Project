@@ -12,16 +12,16 @@ import javax.swing.JButton;
 
 public class PanelAgendamentoConsulta extends JPanel {
 	private JPanel panelDadosPessoais;
-	private JTextField textField;
-	private JLabel lblMdico;
-	private JTextField textField_1;
+	private JTextField textFieldMedico;
+	private JLabel lblMedico;
+	private JTextField textFieldData;
 	private JLabel lblData;
-	private JTextField textField_2;
+	private JTextField textFieldPaciente;
 	private JLabel lblPaciente;
 	private JLabel lblDadosDoAgendamento;
 	private JLabel lblAgendamentoDeConsultas;
-	private JLabel lblHora;
-	private JTextField textField_3;
+	private JLabel lblHorario;
+	private JTextField textFieldHorario;
 	private JButton btnLimpar;
 	private JButton btnAgendar;
 	public PanelAgendamentoConsulta() {
@@ -34,48 +34,48 @@ public class PanelAgendamentoConsulta extends JPanel {
 		add(getBtnLimpar());
 		add(getBtnAgendar());
 	}
-	private JPanel getPanelDadosPessoais() {
+	public JPanel getPanelDadosPessoais() {
 		if (panelDadosPessoais == null) {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(79, 169, 800, 167);
-			panelDadosPessoais.add(getTextField());
-			panelDadosPessoais.add(getLblMdico());
-			panelDadosPessoais.add(getTextField_1());
+			panelDadosPessoais.add(getTextFieldMedico());
+			panelDadosPessoais.add(getLblMedico());
+			panelDadosPessoais.add(getTextFieldData());
 			panelDadosPessoais.add(getLblData());
-			panelDadosPessoais.add(getTextField_2());
+			panelDadosPessoais.add(getTextFieldPaciente());
 			panelDadosPessoais.add(getLblPaciente());
-			panelDadosPessoais.add(getLblHora());
-			panelDadosPessoais.add(getTextField_3());
+			panelDadosPessoais.add(getLblHorario());
+			panelDadosPessoais.add(getTextFieldHorario());
 		}
 		return panelDadosPessoais;
 	}
-	private JTextField getTextField() {
-		if (textField == null) {
-			textField = new JTextField();
-			textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField.setBounds(10, 40, 373, 32);
+	public JTextField getTextFieldMedico() {
+		if (textFieldMedico == null) {
+			textFieldMedico = new JTextField();
+			textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldMedico.setBounds(10, 40, 373, 32);
 		}
-		return textField;
+		return textFieldMedico;
 	}
-	private JLabel getLblMdico() {
-		if (lblMdico == null) {
-			lblMdico = new JLabel("Médico:");
-			lblMdico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblMdico.setBounds(10, 10, 200, 32);
+	public JLabel getLblMedico() {
+		if (lblMedico == null) {
+			lblMedico = new JLabel("Médico:");
+			lblMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblMedico.setBounds(10, 10, 200, 32);
 		}
-		return lblMdico;
+		return lblMedico;
 	}
-	private JTextField getTextField_1() {
-		if (textField_1 == null) {
-			textField_1 = new JTextField();
-			textField_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField_1.setBounds(10, 112, 109, 32);
+	public JTextField getTextFieldData() {
+		if (textFieldData == null) {
+			textFieldData = new JTextField();
+			textFieldData.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldData.setBounds(10, 112, 109, 32);
 		}
-		return textField_1;
+		return textFieldData;
 	}
-	private JLabel getLblData() {
+	public JLabel getLblData() {
 		if (lblData == null) {
 			lblData = new JLabel("Data");
 			lblData.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -83,15 +83,15 @@ public class PanelAgendamentoConsulta extends JPanel {
 		}
 		return lblData;
 	}
-	private JTextField getTextField_2() {
-		if (textField_2 == null) {
-			textField_2 = new JTextField();
-			textField_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField_2.setBounds(393, 40, 397, 32);
+	public JTextField getTextFieldPaciente() {
+		if (textFieldPaciente == null) {
+			textFieldPaciente = new JTextField();
+			textFieldPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldPaciente.setBounds(393, 40, 397, 32);
 		}
-		return textField_2;
+		return textFieldPaciente;
 	}
-	private JLabel getLblPaciente() {
+	public JLabel getLblPaciente() {
 		if (lblPaciente == null) {
 			lblPaciente = new JLabel("Paciente:");
 			lblPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -99,7 +99,7 @@ public class PanelAgendamentoConsulta extends JPanel {
 		}
 		return lblPaciente;
 	}
-	private JLabel getLblDadosDoAgendamento() {
+	public JLabel getLblDadosDoAgendamento() {
 		if (lblDadosDoAgendamento == null) {
 			lblDadosDoAgendamento = new JLabel("Dados do agendamento");
 			lblDadosDoAgendamento.setForeground(Color.WHITE);
@@ -108,7 +108,7 @@ public class PanelAgendamentoConsulta extends JPanel {
 		}
 		return lblDadosDoAgendamento;
 	}
-	private JLabel getLblAgendamentoDeConsultas() {
+	public JLabel getLblAgendamentoDeConsultas() {
 		if (lblAgendamentoDeConsultas == null) {
 			lblAgendamentoDeConsultas = new JLabel("Agendamento de Consultas");
 			lblAgendamentoDeConsultas.setForeground(Color.WHITE);
@@ -117,23 +117,23 @@ public class PanelAgendamentoConsulta extends JPanel {
 		}
 		return lblAgendamentoDeConsultas;
 	}
-	private JLabel getLblHora() {
-		if (lblHora == null) {
-			lblHora = new JLabel("Horário");
-			lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblHora.setBounds(129, 82, 109, 32);
+	public JLabel getLblHorario() {
+		if (lblHorario == null) {
+			lblHorario = new JLabel("Horário");
+			lblHorario.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblHorario.setBounds(129, 82, 109, 32);
 		}
-		return lblHora;
+		return lblHorario;
 	}
-	private JTextField getTextField_3() {
-		if (textField_3 == null) {
-			textField_3 = new JTextField();
-			textField_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField_3.setBounds(129, 112, 109, 32);
+	public JTextField getTextFieldHorario() {
+		if (textFieldHorario == null) {
+			textFieldHorario = new JTextField();
+			textFieldHorario.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldHorario.setBounds(129, 112, 109, 32);
 		}
-		return textField_3;
+		return textFieldHorario;
 	}
-	private JButton getBtnLimpar() {
+	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
 			btnLimpar.setText("LIMPAR");
@@ -143,7 +143,7 @@ public class PanelAgendamentoConsulta extends JPanel {
 		}
 		return btnLimpar;
 	}
-	private JButton getBtnAgendar() {
+	public JButton getBtnAgendar() {
 		if (btnAgendar == null) {
 			btnAgendar = new JButton();
 			btnAgendar.setText("AGENDAR");

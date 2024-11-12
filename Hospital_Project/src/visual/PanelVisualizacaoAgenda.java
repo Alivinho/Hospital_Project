@@ -11,85 +11,85 @@ import javax.swing.JTextPane;
 import javax.swing.JButton;
 
 public class PanelVisualizacaoAgenda extends JPanel {
-	private JLabel lblVisualizaoDeAgenda;
+	private JLabel lblVisualizacaoAgenda;
 	private JPanel panelDadosPessoais;
-	private JLabel lblData_1;
-	private JTextField textField;
-	private JLabel lblPesquisarMdico;
-	private JLabel lblAgenda_1;
+	private JLabel lblPesquisarData;
+	private JTextField textFieldPesquisarMedico;
+	private JLabel lblPesquisarMedico;
+	private JLabel lblPainelAgenda;
 	private JLabel lblAgenda;
-	private JTextField textField_3;
-	private JTextPane textPane;
+	private JTextField textFieldPesquisarData;
+	private JTextPane textPainelAgenda;
 	private JButton btnLimpar;
 	private JButton btnVisualizar;
 	public PanelVisualizacaoAgenda() {
 		this.setSize(960, 790);
 		setBackground(new Color(89, 169, 255));
 		setLayout(null);
-		add(getLblVisualizaoDeAgenda());
+		add(getLblVisualizacaoAgenda());
 		add(getPanelDadosPessoais());
 		add(getLblAgenda());
 		add(getBtnLimpar());
 		add(getBtnVisualizar());
 	}
 
-	private JLabel getLblVisualizaoDeAgenda() {
-		if (lblVisualizaoDeAgenda == null) {
-			lblVisualizaoDeAgenda = new JLabel("Visualização de Agenda");
-			lblVisualizaoDeAgenda.setForeground(Color.WHITE);
-			lblVisualizaoDeAgenda.setFont(new Font("Tahoma", Font.BOLD, 30));
-			lblVisualizaoDeAgenda.setBounds(301, 33, 358, 37);
+	public JLabel getLblVisualizacaoAgenda() {
+		if (lblVisualizacaoAgenda == null) {
+			lblVisualizacaoAgenda = new JLabel("Visualização de Agenda");
+			lblVisualizacaoAgenda.setForeground(Color.WHITE);
+			lblVisualizacaoAgenda.setFont(new Font("Tahoma", Font.BOLD, 30));
+			lblVisualizacaoAgenda.setBounds(301, 33, 358, 37);
 		}
-		return lblVisualizaoDeAgenda;
+		return lblVisualizacaoAgenda;
 	}
-	private JPanel getPanelDadosPessoais() {
+	public JPanel getPanelDadosPessoais() {
 		if (panelDadosPessoais == null) {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(80, 153, 800, 472);
-			panelDadosPessoais.add(getLblData_1());
-			panelDadosPessoais.add(getTextField());
-			panelDadosPessoais.add(getLblPesquisarMdico());
-			panelDadosPessoais.add(getLblAgenda_1());
-			panelDadosPessoais.add(getTextField_3());
-			panelDadosPessoais.add(getTextPane());
+			panelDadosPessoais.add(getLblPesquisarData());
+			panelDadosPessoais.add(getTextFieldPesquisarMedico());
+			panelDadosPessoais.add(getLblPesquisarMedico());
+			panelDadosPessoais.add(getLblPainelAgenda());
+			panelDadosPessoais.add(getTextFieldPesquisarData());
+			panelDadosPessoais.add(getTextPainelAgenda());
 		}
 		return panelDadosPessoais;
 	}
-	private JLabel getLblData_1() {
-		if (lblData_1 == null) {
-			lblData_1 = new JLabel("Pesquisar Data");
-			lblData_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblData_1.setBounds(559, 10, 128, 32);
+	public JLabel getLblPesquisarData() {
+		if (lblPesquisarData == null) {
+			lblPesquisarData = new JLabel("Pesquisar Data");
+			lblPesquisarData.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblPesquisarData.setBounds(559, 10, 128, 32);
 		}
-		return lblData_1;
+		return lblPesquisarData;
 	}
-	private JTextField getTextField() {
-		if (textField == null) {
-			textField = new JTextField();
-			textField.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField.setBounds(10, 40, 539, 32);
+	public JTextField getTextFieldPesquisarMedico() {
+		if (textFieldPesquisarMedico == null) {
+			textFieldPesquisarMedico = new JTextField();
+			textFieldPesquisarMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldPesquisarMedico.setBounds(10, 40, 539, 32);
 		}
-		return textField;
+		return textFieldPesquisarMedico;
 	}
-	private JLabel getLblPesquisarMdico() {
-		if (lblPesquisarMdico == null) {
-			lblPesquisarMdico = new JLabel("Pesquisar Médico");
-			lblPesquisarMdico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblPesquisarMdico.setBounds(10, 10, 397, 32);
+	public JLabel getLblPesquisarMedico() {
+		if (lblPesquisarMedico == null) {
+			lblPesquisarMedico = new JLabel("Pesquisar Médico");
+			lblPesquisarMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblPesquisarMedico.setBounds(10, 10, 397, 32);
 		}
-		return lblPesquisarMdico;
+		return lblPesquisarMedico;
 	}
-	private JLabel getLblAgenda_1() {
-		if (lblAgenda_1 == null) {
-			lblAgenda_1 = new JLabel("Agenda");
-			lblAgenda_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblAgenda_1.setBounds(10, 82, 109, 32);
+	public JLabel getLblPainelAgenda() {
+		if (lblPainelAgenda == null) {
+			lblPainelAgenda = new JLabel("Agenda");
+			lblPainelAgenda.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblPainelAgenda.setBounds(10, 82, 109, 32);
 		}
-		return lblAgenda_1;
+		return lblPainelAgenda;
 	}
-	private JLabel getLblAgenda() {
+	public JLabel getLblAgenda() {
 		if (lblAgenda == null) {
 			lblAgenda = new JLabel("Agenda");
 			lblAgenda.setForeground(Color.WHITE);
@@ -98,22 +98,22 @@ public class PanelVisualizacaoAgenda extends JPanel {
 		}
 		return lblAgenda;
 	}
-	private JTextField getTextField_3() {
-		if (textField_3 == null) {
-			textField_3 = new JTextField();
-			textField_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textField_3.setBounds(559, 40, 231, 32);
+	public JTextField getTextFieldPesquisarData() {
+		if (textFieldPesquisarData == null) {
+			textFieldPesquisarData = new JTextField();
+			textFieldPesquisarData.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldPesquisarData.setBounds(559, 40, 231, 32);
 		}
-		return textField_3;
+		return textFieldPesquisarData;
 	}
-	private JTextPane getTextPane() {
-		if (textPane == null) {
-			textPane = new JTextPane();
-			textPane.setBounds(10, 113, 780, 344);
+	public JTextPane getTextPainelAgenda() {
+		if (textPainelAgenda == null) {
+			textPainelAgenda = new JTextPane();
+			textPainelAgenda.setBounds(10, 113, 780, 344);
 		}
-		return textPane;
+		return textPainelAgenda;
 	}
-	private JButton getBtnLimpar() {
+	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
 			btnLimpar.setText("LIMPAR");
@@ -123,7 +123,7 @@ public class PanelVisualizacaoAgenda extends JPanel {
 		}
 		return btnLimpar;
 	}
-	private JButton getBtnVisualizar() {
+	public JButton getBtnVisualizar() {
 		if (btnVisualizar == null) {
 			btnVisualizar = new JButton();
 			btnVisualizar.setText("VISUALIZAR");
