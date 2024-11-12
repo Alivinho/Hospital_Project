@@ -81,11 +81,13 @@ public class ControladorCadastrarPaciente implements ActionListener{
 	            } catch (NumberFormatException e) {
 	                throw new Exception("Digite um valor numérico válido para o Peso.");
 	            }
+
 	           
 	            historicoMedico = panelCadastrarPaciente.getTextAreaHistoricoMedico().getText();
 	            if (historicoMedico.isEmpty()) {
 	            	throw new Exception("O campo Histórico Médico não pode estar vazio.");
 	            }
+
 	           
 	            convenio = (String) panelCadastrarPaciente.getConvenio().getSelectedItem();
 	            if (convenio == null || convenio.isEmpty()) {
@@ -136,6 +138,7 @@ public class ControladorCadastrarPaciente implements ActionListener{
 	            if (!estado.matches("[a-zA-Zá-úÁ-ÚçÇ\\s]+")) {
 	            	throw new Exception("O campo Estado deve conter apenas letras.");
 	            }
+
 	            
 	            Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cep, cidade, estado);
 				Paciente paciente = new Paciente(
