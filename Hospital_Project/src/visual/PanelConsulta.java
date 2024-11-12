@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class PanelConsulta extends JPanel {
 	private JLabel lblCadastroConsultas;
@@ -30,6 +31,10 @@ public class PanelConsulta extends JPanel {
 	private JLabel lblMateriaisUtilizados;
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
+	private JTextField textFieldData;
+	private JLabel lblData;
+	private JTextField textFieldHora;
+	private JLabel lblHora;
 	public PanelConsulta() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(940, 920);
@@ -63,7 +68,7 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais = new JPanel();
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
-			panelDadosPessoais.setBounds(69, 169, 800, 375);
+			panelDadosPessoais.setBounds(69, 169, 800, 459);
 			panelDadosPessoais.add(getTextFieldMedico());
 			panelDadosPessoais.add(getLblMedico());
 			panelDadosPessoais.add(getLblTipoConsulta());
@@ -78,6 +83,10 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais.add(getComboBoxTipoConsulta());
 			panelDadosPessoais.add(getTextAreaMateriaisUtilizados());
 			panelDadosPessoais.add(getLblMateriaisUtilizados());
+			panelDadosPessoais.add(getTextFieldData());
+			panelDadosPessoais.add(getLblData());
+			panelDadosPessoais.add(getTextFieldHora());
+			panelDadosPessoais.add(getLblHora());
 		}
 		return panelDadosPessoais;
 	}
@@ -133,7 +142,7 @@ public class PanelConsulta extends JPanel {
 		if (lblObservacoes == null) {
 			lblObservacoes = new JLabel("Observações");
 			lblObservacoes.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblObservacoes.setBounds(10, 154, 150, 32);
+			lblObservacoes.setBounds(10, 254, 150, 32);
 		}
 		return lblObservacoes;
 	}
@@ -141,13 +150,14 @@ public class PanelConsulta extends JPanel {
 		if (textAreaObservacoes == null) {
 			textAreaObservacoes = new JTextArea();
 			textAreaObservacoes.setFont(new Font("Monospaced", Font.PLAIN, 15));
-			textAreaObservacoes.setBounds(10, 186, 373, 163);
+			textAreaObservacoes.setBounds(10, 286, 373, 163);
 		}
 		return textAreaObservacoes;
 	}
 	public JComboBox getComboBoxTipoConvenio() {
 		if (comboBoxTipoConvenio == null) {
 			comboBoxTipoConvenio = new JComboBox();
+			comboBoxTipoConvenio.setModel(new DefaultComboBoxModel(new String[] {"Selecione um plano", "Plano Básico", "Plano Bronze", "Plano Prata", "Plano Ouro", "Plano Diamante"}));
 			comboBoxTipoConvenio.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxTipoConvenio.setBackground(Color.WHITE);
 			comboBoxTipoConvenio.setBounds(579, 112, 211, 32);
@@ -173,6 +183,7 @@ public class PanelConsulta extends JPanel {
 	public JComboBox getComboBoxTipoConsulta() {
 		if (comboBoxTipoConsulta == null) {
 			comboBoxTipoConsulta = new JComboBox();
+			comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de consulta", "Consulta 1", "Consulta 2", "Consulta 3"}));
 			comboBoxTipoConsulta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxTipoConsulta.setBackground(Color.WHITE);
 			comboBoxTipoConsulta.setBounds(10, 112, 178, 32);
@@ -183,7 +194,7 @@ public class PanelConsulta extends JPanel {
 		if (textAreaMateriaisUtilizados == null) {
 			textAreaMateriaisUtilizados = new JTextArea();
 			textAreaMateriaisUtilizados.setFont(new Font("Monospaced", Font.PLAIN, 15));
-			textAreaMateriaisUtilizados.setBounds(396, 186, 394, 163);
+			textAreaMateriaisUtilizados.setBounds(396, 286, 394, 163);
 		}
 		return textAreaMateriaisUtilizados;
 	}
@@ -191,7 +202,7 @@ public class PanelConsulta extends JPanel {
 		if (lblMateriaisUtilizados == null) {
 			lblMateriaisUtilizados = new JLabel("Materiais utilizados");
 			lblMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblMateriaisUtilizados.setBounds(396, 154, 150, 32);
+			lblMateriaisUtilizados.setBounds(396, 254, 150, 32);
 		}
 		return lblMateriaisUtilizados;
 	}
@@ -201,7 +212,7 @@ public class PanelConsulta extends JPanel {
 			btnLimpar.setText("LIMPAR");
 			btnLimpar.setForeground(new Color(0, 0, 205));
 			btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnLimpar.setBounds(531, 554, 156, 40);
+			btnLimpar.setBounds(531, 638, 156, 40);
 		}
 		return btnLimpar;
 	}
@@ -211,8 +222,40 @@ public class PanelConsulta extends JPanel {
 			btnCadastrar.setText("CADASTRAR");
 			btnCadastrar.setForeground(new Color(0, 0, 205));
 			btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnCadastrar.setBounds(722, 554, 147, 40);
+			btnCadastrar.setBounds(722, 638, 147, 40);
 		}
 		return btnCadastrar;
+	}
+	public JTextField getTextFieldData() {
+		if (textFieldData == null) {
+			textFieldData = new JTextField();
+			textFieldData.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldData.setBounds(12, 184, 126, 32);
+		}
+		return textFieldData;
+	}
+	public JLabel getLblData() {
+		if (lblData == null) {
+			lblData = new JLabel("Data");
+			lblData.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblData.setBounds(12, 154, 47, 32);
+		}
+		return lblData;
+	}
+	public JTextField getTextFieldHora() {
+		if (textFieldHora == null) {
+			textFieldHora = new JTextField();
+			textFieldHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			textFieldHora.setBounds(148, 184, 126, 32);
+		}
+		return textFieldHora;
+	}
+	public JLabel getLblHora() {
+		if (lblHora == null) {
+			lblHora = new JLabel("Data");
+			lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblHora.setBounds(148, 154, 47, 32);
+		}
+		return lblHora;
 	}
 }

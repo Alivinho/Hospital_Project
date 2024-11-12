@@ -35,45 +35,46 @@ public class ControladorConsulta implements ActionListener {
 	        	limparCampos();
 	        }
 	}
-
-	// !!!!!!!!!!!!!!!!!!! IMCOMPLETO
 	
 	public void cadastrarConsulta() {
 		try {
-            String medico = panelConsulta.getTextFieldMedico().getText().trim();
+			String data = panelConsulta.getTextFieldData().getText().trim();
+			String hora = panelConsulta.getTextFieldHora().getText().trim();
+            String medico = (String) panelConsulta.getTextFieldMedico().getText().trim();
             String paciente = panelConsulta.getTextFieldPaciente().getText().trim();
-            String tipoConsulta = panelConsulta.getComboBoxTipoConsulta().getSelectedItem().trim();
             String queixaPaciente = panelConsulta.getTextFieldQueixaPaciente().getText().trim();
-            String tipoConvenio = panelConsulta.getComboBoxTipoConvenio().getSelectedItem().trim();
+            String tipoConsulta = (String) panelConsulta.getComboBoxTipoConsulta().getSelectedItem();
+            String convenio = (String) panelConsulta.getComboBoxTipoConvenio().getSelectedItem();
             String observacoes = panelConsulta.getTextAreaObservacoes().getText().trim();
-            String materiaisUtilizados = panelConsulta.getTextAreaMateriaisUtilizados().getText().trim();
+            String materiais = panelConsulta.getTextAreaMateriaisUtilizados().getText().trim();
 
-            
-            if (data, hora, medico, paciente, queixaPaciente,
-					tipoConsulta, convenio, observacoes, materiais
-            		) {
+            if (data.isEmpty() || hora.isEmpty() || medico.isEmpty() || paciente.isEmpty() || queixaPaciente.isEmpty() ||
+            		tipoConsulta.isEmpty() || tipoConsulta.isEmpty() || convenio.isEmpty() || observacoes.isEmpty() || materiais.isEmpty()) {
                 throw new Exception("Todos os campos devem ser preenchidos!");
             }
             
-            if (!nome.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
+            if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
                 throw new Exception("O nome do material deve conter apenas letras e espaços.");
             }
             
-            if (!especialidade.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
+            if (!paciente.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
                 throw new Exception("A especialidade deve conter apenas letras e espaços.");
             }
-    
-            float valorConsulta = Float.parseFloat(textValorConsulta); 
             
-            if (valorConsulta<0) {
-                throw new Exception("O valor da consulta deve ser um valor maior que 0.");
+            if(panelConsulta.getComboBoxTipoConsulta().getSelectedIndex() == 0) {
+            	throw new Exception("Selecione um tipo consulta.");
             }
             
-            Consulta consulta = new Consulta(nome, especialidade, crm, contato, 
-  				  horarioAtendimento, valorConsulta);
-            consultaCadastradas.add(consulta);
+            if(panelConsulta.getComboBoxTipoConvenio().getSelectedIndex() == 0) {
+            	throw new Exception("Selecione um tipo de convênio.");
+            }
+    
 
-            JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO]: Medico cadastrado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+            Consulta consulta = new Consulta(data, hora, medico, paciente, queixaPaciente,
+				 tipoConsulta, convenio, observacoes, materiais);
+            consultasCadastradas.add(consulta);
+
+            JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO]: Consulta cadastrada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
 
         } catch (NumberFormatException ex) {
@@ -84,12 +85,15 @@ public class ControladorConsulta implements ActionListener {
 	}
 		
 	private void limparCampos() {   
-		panelConsulta.getTextFieldNome().setText("");
-		panelConsulta.getTextFieldEspecialidade().setText("");
-		panelConsulta.getTextFieldCRM().setText("");
-        panelConsulta.getTextAreaContato().setText("");
-        panelConsulta.getTextFieldValorConsulta().setText("");
-        panelConsulta.getTextFieldHorarioAtendimento().setText("");
+        panelConsulta.getTextFieldData().setText("");
+		panelConsulta.getTextFieldHora().setText("");
+        panelConsulta.getTextFieldMedico().setText("");
+        panelConsulta.getTextFieldPaciente().setText("");
+        panelConsulta.getTextFieldQueixaPaciente().setText("");
+        panelConsulta.getComboBoxTipoConsulta().setSelectedIndex(0);;
+        panelConsulta.getComboBoxTipoConvenio().setSelectedIndex(0);
+        panelConsulta.getTextAreaObservacoes().setText("");
+        panelConsulta.getTextAreaMateriaisUtilizados().setText("");
               
     }
 }

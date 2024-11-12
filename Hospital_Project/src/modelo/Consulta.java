@@ -4,18 +4,18 @@ public class Consulta {
 	
 	private String data;
 	private String hora;
-	private Medico medico;
-	private Paciente paciente;
+	private String medico;
+	private String paciente;
 	private String queixaPaciente;
 	private String tipoConsulta;
 	private String convenio;
 	private String observacoes;
-	private Material materiais;
+	private String materiais;
 	
 	public Consulta() {}
 	
-	public Consulta(String data, String hora, Medico medico, Paciente paciente, String queixaPaciente,
-					String tipoConsulta, String convenio, String observacoes, Material materiais) {
+	public Consulta(String data, String hora, String medico, String paciente, String queixaPaciente,
+					String tipoConsulta, String convenio, String observacoes, String materiais) {
 		this.data = data;
 		this.hora = hora;
 		this.medico = medico;
@@ -42,19 +42,19 @@ public class Consulta {
 		this.hora = hora;
 	}
 
-	public Medico getMedico() {
+	public String getMedico() {
 		return medico;
 	}
 
-	public void setMedico(Medico medico) {
+	public void setMedico(String medico) {
 		this.medico = medico;
 	}
 
-	public Paciente getPaciente() {
+	public String getPaciente() {
 		return paciente;
 	}
 
-	public void setPaciente(Paciente paciente) {
+	public void setPaciente(String paciente) {
 		this.paciente = paciente;
 	}
 
@@ -90,11 +90,11 @@ public class Consulta {
 		this.observacoes = observacoes;
 	}
 
-	public Material getMateriais() {
+	public String getMateriais() {
 		return materiais;
 	}
 
-	public void setMateriais(Material materiais) {
+	public void setMateriais(String materiais) {
 		this.materiais = materiais;
 	}
 	

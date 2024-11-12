@@ -20,6 +20,8 @@ public class ControladorCadastrarPaciente implements ActionListener{
 		addEventos();
 	}
 	
+	// ******************************** ESTÁ COM PROBLEMA NO CADASTRO!
+	
 	public void cadastrarPaciente() {	
 		try {			
 			String nome = panelCadastrarPaciente.getTextFieldNome().getText();
