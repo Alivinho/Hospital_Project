@@ -128,7 +128,7 @@ public class PanelRelatorioConsulta extends JPanel {
 	public JComboBox getComboBoxTipoConsulta() {
 		if (comboBoxTipoConsulta == null) {
 			comboBoxTipoConsulta = new JComboBox();
-			comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"Selelcione um tipo de Consulta"}));
+			comboBoxTipoConsulta.setModel(new DefaultComboBoxModel(new String[] {"Selelcione um tipo de Consulta", "Consulta 1", "Consulta 2", "Consulta 3"}));
 			comboBoxTipoConsulta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxTipoConsulta.setBackground(Color.WHITE);
 			comboBoxTipoConsulta.setBounds(269, 40, 224, 32);

@@ -40,25 +40,28 @@ public class ControladorAgendamentoExame implements ActionListener {
 			String paciente = panelAgendamentoExame.getTextFieldPaciente().getText().trim();
 			String tipoExame = (String) panelAgendamentoExame.getComboBoxTipoExame().getSelectedItem();
 			String data = panelAgendamentoExame.getTextFieldData().getText().trim();
-			String hora = panelAgendamentoExame.getTextField_1_1().getText().trim();
+			String hora = panelAgendamentoExame.getTextFieldHorario().getText().trim();
 			
 			
 			if (paciente.isEmpty() || tipoExame.isEmpty() || data.isEmpty() || hora.isEmpty()) {
 				throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
 			}
 			
-			
-			if (!data.matches("\\d{2}/\\d{2}/\\d{4}") || !hora.matches("\\d{2}:\\d{2}")) {
-				throw new IllegalArgumentException("Data ou horário em formato inválido.");
+			if(panelAgendamentoExame.getComboBoxTipoExame().getSelectedIndex() == 0) {
+				throw new IllegalArgumentException("Selecione um tipo de exame.");
 			}
 			
-			 String[] dataParts = data.split("/");
-		        int anoInformado = Integer.parseInt(dataParts[2]);
-		        int anoAtual = java.time.Year.now().getValue();
-
-		        if (anoInformado < anoAtual) {
-		            throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
-		        }
+//			if (!data.matches("\\d{2}/\\d{2}/\\d{4}") || !hora.matches("\\d{2}:\\d{2}")) {
+//				throw new IllegalArgumentException("Data ou horário em formato inválido. Data: xx/xx/xxx; Hora: xx:xx");
+//			}
+//			
+//			 String[] dataParts = data.split("/");
+//		        int anoInformado = Integer.parseInt(dataParts[2]);
+//		        int anoAtual = java.time.Year.now().getValue();
+//
+//		        if (anoInformado < anoAtual) {
+//		            throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
+//		        }
 
 			
 			if (!paciente.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
@@ -73,7 +76,7 @@ public class ControladorAgendamentoExame implements ActionListener {
 			examesAgendados.add(agendamento);
 			
 			 
-	        JOptionPane.showMessageDialog(panelAgendamentoExame, "[SUCESSO ✅ ]: Exame agendada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(panelAgendamentoExame, "[SUCESSO ✅ ]: Relatório gerado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
 			
 			
@@ -85,13 +88,9 @@ public class ControladorAgendamentoExame implements ActionListener {
 	}
 	
 	public void limparCampos() {
-		panelAgendamentoExame.getTextField_1_1().setText("");
 		panelAgendamentoExame.getTextFieldPaciente().setText("");		
+		panelAgendamentoExame.getTextFieldHorario().setText("");
 		panelAgendamentoExame.getComboBoxTipoExame().setSelectedIndex(0);	
 		panelAgendamentoExame.getTextFieldData().setText("");		
-
-
 	}
-
-
 }

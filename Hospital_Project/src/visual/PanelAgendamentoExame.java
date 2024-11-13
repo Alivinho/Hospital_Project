@@ -66,7 +66,7 @@ public class PanelAgendamentoExame extends JPanel {
 			panelDadosPessoais.add(getComboBoxTipoExame());
 			panelDadosPessoais.add(getTextFieldData());
 			panelDadosPessoais.add(getLblData());
-			panelDadosPessoais.add(getTextField_1_1());
+			panelDadosPessoais.add(getTextFieldHorario());
 			panelDadosPessoais.add(getLblHorario());
 		}
 		return panelDadosPessoais;
@@ -121,7 +121,7 @@ public class PanelAgendamentoExame extends JPanel {
 		}
 		return lblData;
 	}
-	public JTextField getTextField_1_1() {
+	public JTextField getTextFieldHorario() {
 		if (textFieldHorario == null) {
 			textFieldHorario = new JTextField();
 			textFieldHorario.setFont(new Font("Tahoma", Font.PLAIN, 15));

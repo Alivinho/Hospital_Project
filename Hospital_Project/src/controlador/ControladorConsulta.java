@@ -24,8 +24,7 @@ public class ControladorConsulta implements ActionListener {
 
 	private void addEventos() {
 		panelConsulta.getBtnCadastrar().addActionListener(this);  
-        panelConsulta.getBtnLimpar().addActionListener(this);  
-		
+        panelConsulta.getBtnLimpar().addActionListener(this);  		
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -58,7 +57,7 @@ public class ControladorConsulta implements ActionListener {
             }
             
             if (!paciente.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-                throw new Exception("A especialidade deve conter apenas letras e espaços.");
+                throw new Exception("O nome do paciente deve conter apenas letras e espaços.");
             }
             
             if(panelConsulta.getComboBoxTipoConsulta().getSelectedIndex() == 0) {

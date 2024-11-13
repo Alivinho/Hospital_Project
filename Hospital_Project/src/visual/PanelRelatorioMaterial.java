@@ -118,7 +118,7 @@ public class PanelRelatorioMaterial extends JPanel {
 	public JComboBox getComboBoxTipoMaterial() {
 		if (comboBoxTipoMaterial == null) {
 			comboBoxTipoMaterial = new JComboBox();
-			comboBoxTipoMaterial.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de material", "\t"}));
+			comboBoxTipoMaterial.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de material", "Material A", "Material B", "Material C"}));
 			comboBoxTipoMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxTipoMaterial.setBackground(Color.WHITE);
 			comboBoxTipoMaterial.setBounds(269, 40, 224, 32);

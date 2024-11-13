@@ -12,8 +12,6 @@ public class Consulta {
 	private String observacoes;
 	private String materiais;
 	
-	public Consulta() {}
-	
 	public Consulta(String data, String hora, String medico, String paciente, String queixaPaciente,
 					String tipoConsulta, String convenio, String observacoes, String materiais) {
 		this.data = data;

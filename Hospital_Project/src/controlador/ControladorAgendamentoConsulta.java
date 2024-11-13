@@ -35,7 +35,6 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 		
 	}
 
-	
 
 	public void agendarConsulta() {
 		try {
@@ -80,6 +79,5 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 		panelAgendamentoConsulta.getTextFieldPaciente().setText("");
 		panelAgendamentoConsulta.getTextFieldHorario().setText("");
 		panelAgendamentoConsulta.getTextFieldData().setText("");
-		
 	}
 }
