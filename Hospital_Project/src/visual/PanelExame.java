@@ -24,7 +24,7 @@ public class PanelExame extends JPanel {
 	private JLabel lblDadosExame;
 	private JLabel lblTipoExame;
 	
-	private JComboBox<String> textFieldTipoExame;
+	private JComboBox<String> TipoExame;
 	
 	private JTextField textFieldNomeExame;
 	private JTextArea textAreaDescricao;
@@ -63,7 +63,7 @@ public class PanelExame extends JPanel {
 	        panelDadosExame.add(getLblMedico());
 	        panelDadosExame.add(getLblTipoExame());
 	       
-	        panelDadosExame.add(getTextFieldTipoExame());
+	        panelDadosExame.add(getTipoExame());
 	       
 	        panelDadosExame.add(getTextFieldNomeExame());
 	        panelDadosExame.add(getTextAreaDescricao());
@@ -199,16 +199,16 @@ public class PanelExame extends JPanel {
 	    return textFieldMedico;
 	}
 	
-	public JComboBox<String> getTextFieldTipoExame(){
-		if(textFieldTipoExame == null) {
-			textFieldTipoExame = new JComboBox();
-			textFieldTipoExame.setBackground(new Color(255, 255, 255));
-			textFieldTipoExame.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldTipoExame.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de exame", "Exames físicos", "Exames laboratoriais", "Imagens", "Biópsia", "Patologia e análise clínica"}));
-			textFieldTipoExame.setBounds(10, 117, 370, 32);
+	public JComboBox<String> getTipoExame(){
+		if(TipoExame == null) {
+			TipoExame = new JComboBox();
+			TipoExame.setBackground(new Color(255, 255, 255));
+			TipoExame.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			TipoExame.setModel(new DefaultComboBoxModel(new String[] {"Selecione um tipo de exame", "Exames físicos", "Exames laboratoriais", "Imagens", "Biópsia", "Patologia e análise clínica"}));
+			TipoExame.setBounds(10, 117, 370, 32);
 		}
 	
-		return textFieldTipoExame;
+		return TipoExame;
 	}
 
 	public JButton getBtnLimpar() {

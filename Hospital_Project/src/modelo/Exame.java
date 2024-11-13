@@ -6,12 +6,12 @@ public class Exame {
 	private String descricao;
 	private String tipoExame;
 	private float valorParticular;
-	private Material materiais;
-	private Medico medico;
+	private String materiais;
+	private String medico;
 		
 	public Exame() {}
 	
-	public Exame(String nomeExame, String descricao, String tipoExame, float valorParticular, Material materiais, Medico medico) {
+	public Exame(String nomeExame, String descricao, String tipoExame, float valorParticular, String materiais, String medico) {
 		this.nomeExame = nomeExame;
 		this.descricao = descricao;
 		this.tipoExame = tipoExame;
@@ -52,19 +52,19 @@ public class Exame {
 		this.valorParticular = valorParticular;
 	}
 
-	public Material getMateriais() {
+	public String getMateriais() {
 		return materiais;
 	}
 
-	public void setMateriais(Material materiais) {
+	public void setMateriais(String materiais) {
 		this.materiais = materiais;
 	}
 
-	public Medico getMedico() {
+	public String getMedico() {
 		return medico;
 	}
 
-	public void setMedico(Medico medico) {
+	public void setMedico(String medico) {
 		this.medico = medico;
 	}		
 

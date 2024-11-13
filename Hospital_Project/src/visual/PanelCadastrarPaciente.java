@@ -109,7 +109,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		panelDadosPessoais.setLayout(null);
 		panelDadosPessoais.setSize(800, 429);
 		panelDadosPessoais.setLocation(70, 169);
-	    panelDadosPessoais.add(getComboBoxTipoSangue());
+	    panelDadosPessoais.add(getComboBoxTipoSanguineo());
 		panelDadosPessoais.add(getTextFieldNome());
 		panelDadosPessoais.add(getLblNome());
 		panelDadosPessoais.add(getTextFieldDataNascimento());
@@ -153,7 +153,7 @@ public class PanelCadastrarPaciente extends JPanel {
 		return panelEndereco;
 	}
 	
-	public JComboBox<String> getComboBoxTipoSangue(){
+	public JComboBox<String> getComboBoxTipoSanguineo(){
 		 if (tipoSanguineo == null) {
 		        String[] tiposSanguineos = { " ", "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" };
 		        tipoSanguineo = new JComboBox<>(tiposSanguineos);

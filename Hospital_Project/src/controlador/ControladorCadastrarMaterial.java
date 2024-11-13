@@ -24,7 +24,6 @@ public class ControladorCadastrarMaterial implements ActionListener {
         panelCadastrarMaterial.getBtnLimpar().addActionListener(this);  
     }
 
-    @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == panelCadastrarMaterial.getBtnCadastrar()) {
             cadastrarMaterial();
@@ -72,13 +71,13 @@ public class ControladorCadastrarMaterial implements ActionListener {
             Material material = new Material(nomeMaterial, quantEstoque, quantMinimaEstoque, fornecedor, preco);
             materiaisCadastrados.add(material);
 
-            JOptionPane.showMessageDialog(panelCadastrarMaterial, "Material cadastrado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panelCadastrarMaterial, "[SUCESSO ✅ ]: Material cadastrado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
 
         } catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(panelCadastrarMaterial, "Por favor, insira valores numéricos válidos para quantidade e preço.", "Erro de Formato", JOptionPane.WARNING_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(panelCadastrarMaterial, "[ERRO]: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panelCadastrarMaterial, "[ERRO ❌ ]: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
         }
     }
 

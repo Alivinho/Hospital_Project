@@ -25,7 +25,6 @@ public class ControladorFrame implements ActionListener{
 	Frame frame; 
 	
 	PanelHome panelHome;
-//	ControladorHome controladorHome; 
 	
 	PanelCadastrarPaciente panelCadastrarPaciente;
 	ControladorCadastrarPaciente controladorCadastrarPaciente; 

@@ -29,11 +29,11 @@ public class ControladorConsulta implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		  if (e.getSource() == panelConsulta.getBtnCadastrar()) {
-	            cadastrarConsulta();
-	        }else if(e.getSource() == panelConsulta.getBtnLimpar()) {
-	        	limparCampos();
-	        }
+	  if (e.getSource() == panelConsulta.getBtnCadastrar()) {
+            cadastrarConsulta();
+        }else if(e.getSource() == panelConsulta.getBtnLimpar()) {
+        	limparCampos();
+        }
 	}
 	
 	public void cadastrarConsulta() {
@@ -74,13 +74,11 @@ public class ControladorConsulta implements ActionListener {
 				 tipoConsulta, convenio, observacoes, materiais);
             consultasCadastradas.add(consulta);
 
-            JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO]: Consulta cadastrada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO ✅ ]: Consulta cadastrada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
 
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(panelConsulta, "Por favor, insira valores numéricos válidos para valor de consulta.", "Erro de Formato", JOptionPane.WARNING_MESSAGE);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(panelConsulta, "[ERRO]: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(panelConsulta, "[ERRO ❌ ]: " + ex.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
         }
 	}
 		
@@ -93,7 +91,6 @@ public class ControladorConsulta implements ActionListener {
         panelConsulta.getComboBoxTipoConsulta().setSelectedIndex(0);;
         panelConsulta.getComboBoxTipoConvenio().setSelectedIndex(0);
         panelConsulta.getTextAreaObservacoes().setText("");
-        panelConsulta.getTextAreaMateriaisUtilizados().setText("");
-              
+        panelConsulta.getTextAreaMateriaisUtilizados().setText("");     
     }
 }
