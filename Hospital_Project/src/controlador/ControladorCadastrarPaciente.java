@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -23,8 +26,8 @@ public class ControladorCadastrarPaciente implements ActionListener{
 	public void cadastrarPaciente() {	
 		try {			
 			String nome = panelCadastrarPaciente.getTextFieldNome().getText();
-			String dataNascimento = panelCadastrarPaciente.getLblDataNascimento().getText();
-			String telefone = panelCadastrarPaciente.getLblTelefone().getText();
+			String dataNascimento = panelCadastrarPaciente.getTextFieldDataNascimento().getText();
+			String telefone = panelCadastrarPaciente.getTextFieldTelefone().getText();
 			String tipoSanguineo = (String) panelCadastrarPaciente.getComboBoxTipoSanguineo().getSelectedItem();
 			String alturaText = panelCadastrarPaciente.getTextFieldAltura().getText();
 			String pesoText = panelCadastrarPaciente.getTextFieldPeso().getText();
@@ -88,6 +91,7 @@ public class ControladorCadastrarPaciente implements ActionListener{
             if (!logradouro.matches("^[\\d]+[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]*$") && !logradouro.matches("^[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]+$")) {
                 throw new Exception("O Logradouro deve ser válido. Pode iniciar com números, mas deve conter ao menos uma letra ou caractere.");
             }
+            
 
             if (!cep.matches("\\d{5}-\\d{3}")) {
             	throw new Exception("O campo CEP deve estar no formato XXXXX-XXX.");
@@ -107,6 +111,10 @@ public class ControladorCadastrarPaciente implements ActionListener{
 					tipoSanguineo, altura, peso, historicoMedico, convenio);
 			
 			pacientesCadastrados.add(paciente);
+			
+			//Gravação do paciente no arquivo
+			gravarDados(paciente);
+			
 			JOptionPane.showMessageDialog(panelCadastrarPaciente, "[SUCESSO ✅ ]: Paciente cadastrado.", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);	
 			limparCampos();
 		} catch (NumberFormatException ex) {
@@ -115,6 +123,24 @@ public class ControladorCadastrarPaciente implements ActionListener{
             JOptionPane.showMessageDialog(panelCadastrarPaciente, "[ERRO ❌ ]: " + e.getMessage(), "Erro", JOptionPane.WARNING_MESSAGE);
         }	
 	}
+	
+	
+	
+	private void gravarDados(Paciente paciente) {
+	    try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\Users\\Alisson\\Desktop\\dados.txt", true))) { // 'true' para adicionar sem sobrescrever
+	        
+	        writer.write(paciente.toString());
+	        writer.newLine();  // quebra de linha
+	        
+	        System.out.println("Dados gravados com sucesso!");
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	    
+	    System.out.println("Dados gravados com sucesso em dados.txt:");
+	    System.out.println(paciente.toString());
+	}
+	
 	
 	 public void limparCampos() {
 	        panelCadastrarPaciente.getTextFieldNome().setText("");
