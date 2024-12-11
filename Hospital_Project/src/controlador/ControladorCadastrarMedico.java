@@ -66,10 +66,18 @@ public class ControladorCadastrarMedico implements ActionListener{
                 throw new Exception("A especialidade deve conter apenas letras e espaços.");
             }
     
+            if (!horarioAtendimento.matches("\\d{2}:\\d{2}")) {
+            	throw new Exception("O horário deve estar no formato 00:00");
+            }
+            
             float valorConsulta = Float.parseFloat(valorConsultaText); 
             
             if (valorConsulta<0) {
                 throw new Exception("O valor da consulta deve ser um valor maior que 0.");
+            }
+            
+            if (!cep.matches("\\d{5}-\\d{3}")) {
+            	throw new Exception("O campo CEP deve estar no formato XXXXX-XXX.");
             }
             
             Medico medico = new Medico(nome, especialidade, crm, contato, 

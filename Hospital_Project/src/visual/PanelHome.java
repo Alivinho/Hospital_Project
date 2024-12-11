@@ -24,8 +24,8 @@ public class PanelHome extends JPanel {
 		if (lblBemVindo == null) {
 			lblBemVindo = new JLabel("Bem-Vindo(a)!");
 			lblBemVindo.setForeground(Color.WHITE);
-			lblBemVindo.setFont(new Font("Dialog", Font.PLAIN, 40));
-			lblBemVindo.setBounds(350, 48, 260, 52);
+			lblBemVindo.setFont(new Font("Dialog", Font.PLAIN, 38));
+			lblBemVindo.setBounds(355, 48, 249, 49);
 		}
 		return lblBemVindo;
 	}

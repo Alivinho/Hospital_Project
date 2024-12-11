@@ -239,7 +239,7 @@ public class PanelCadastrarPaciente extends JPanel {
 	}
 	public JLabel getLblAltura() {
 		if (lblAltura == null) {
-			lblAltura = new JLabel("Altura:");
+			lblAltura = new JLabel("Altura (metros):");
 			lblAltura.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			lblAltura.setBounds(10, 154, 200, 32);
 		}
@@ -255,7 +255,7 @@ public class PanelCadastrarPaciente extends JPanel {
 	}
 	public JLabel getLblPeso() {
 		if (lblPeso == null) {
-			lblPeso = new JLabel("Peso:");
+			lblPeso = new JLabel("Peso (Kg):");
 			lblPeso.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			lblPeso.setBounds(220, 154, 150, 32);
 		}
