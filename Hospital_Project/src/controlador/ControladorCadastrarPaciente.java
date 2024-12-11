@@ -3,6 +3,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -119,13 +120,14 @@ public class ControladorCadastrarPaciente implements ActionListener {
 
 			pacientesCadastrados.add(paciente);
 
-			// Gravação do paciente no arquivo
+			// *************************** Gravação do paciente no arquivo
+			// ***************************
 			gravarDados(paciente);
 
 			JOptionPane.showMessageDialog(panelCadastrarPaciente, "[SUCESSO ✅ ]: Paciente cadastrado.", "Sucesso!",
 					JOptionPane.INFORMATION_MESSAGE);
 			limparCampos();
-			
+
 		} catch (NumberFormatException ex) {
 			JOptionPane.showMessageDialog(panelCadastrarPaciente,
 					"Por favor, insira valores numéricos válidos para altura e peso.", "Erro de Formato",
@@ -137,20 +139,36 @@ public class ControladorCadastrarPaciente implements ActionListener {
 	}
 
 	private void gravarDados(Paciente paciente) {
-		try (BufferedWriter writer = new BufferedWriter(
-				new FileWriter("C:\\Users\\Alisson\\Desktop\\dados.txt", true))) { // 'true' para adicionar sem
-																					// sobrescrever
+	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
-			writer.write(paciente.toString());
-			writer.newLine(); // quebra de linha
+	    // Caminho ajustado para o local correto do arquivo dentro do projeto
+	    String filePath = "src/dados/dadosPaciente.txt"; 
+	    System.out.println("Tentando gravar no arquivo: " + new File(filePath).getAbsolutePath());
 
-			System.out.println("Dados gravados com sucesso!");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	    // Criação do diretório 'dados' caso não exista
+	    File file = new File(filePath);
+	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
 
-		System.out.println("Dados gravados com sucesso em dados.txt:");
-		System.out.println(paciente.toString());
+	    if (!parentDirectory.exists()) {
+	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
+	        if (created) {
+	            System.out.println("Diretório 'dados' criado com sucesso!");
+	        } else {
+	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
+	            return;
+	        }
+	    }
+
+	    // Gravação no arquivo
+	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+	        writer.write(paciente.toString());
+	        writer.newLine();
+	        System.out.println("Dados gravados com sucesso em dadosPaciente.txt:");
+	        System.out.println(paciente.toString());
+	    } catch (IOException e) {
+	        System.out.println("Erro ao gravar os dados no arquivo:");
+	        e.printStackTrace();
+	    }
 	}
 
 	public void validarDataNascimento(String dataNascimento) throws Exception {
@@ -208,5 +226,4 @@ public class ControladorCadastrarPaciente implements ActionListener {
 			limparCampos();
 		}
 	}
-
 }
