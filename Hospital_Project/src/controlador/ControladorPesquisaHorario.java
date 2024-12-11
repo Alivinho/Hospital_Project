@@ -19,7 +19,6 @@ public class ControladorPesquisaHorario implements ActionListener {
 	private void addEventos() {
 		panelPesquisaHorario.getBtnPesquisar().addActionListener(this);
 		panelPesquisaHorario.getBtnLimpar().addActionListener(this);
-
 	}
 
 	@Override

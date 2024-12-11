@@ -142,7 +142,7 @@ public class ControladorCadastrarPaciente implements ActionListener {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
 	    // Caminho ajustado para o local correto do arquivo dentro do projeto
-	    String filePath = "src/dados/dadosPaciente.txt"; 
+	    String filePath = "Hospital_Project/src/dados/dadosPaciente.txt"; 
 	    System.out.println("Tentando gravar no arquivo: " + new File(filePath).getAbsolutePath());
 
 	    // Criação do diretório 'dados' caso não exista
