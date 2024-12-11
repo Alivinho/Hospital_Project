@@ -47,7 +47,7 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 			
 			
 			if (!data.matches("\\d{2}/\\d{2}/\\d{4}")) {
-				throw new IllegalArgumentException("Data em formato inválido.");
+				throw new IllegalArgumentException("Data deve estar no formato xx/xx/xxxx.");
 			}
 			
 //			 if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {

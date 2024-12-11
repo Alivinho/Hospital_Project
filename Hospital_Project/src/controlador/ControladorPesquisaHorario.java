@@ -56,6 +56,10 @@ public class ControladorPesquisaHorario implements ActionListener {
             	throw new Exception("Selecione um tipo de exame.");
 			}
 			
+			if (!data.matches("\\d{2}/\\d{2}/\\d{4}")) {
+				throw new IllegalArgumentException("Data deve estar no formato xx/xx/xxxx.");
+			}
+			
 	        JOptionPane.showMessageDialog(panelPesquisaHorario, "[SUCESSO ✅ ]: Pesquisado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();	
 			

@@ -67,6 +67,18 @@ public class ControladorConsulta implements ActionListener {
             if(panelConsulta.getComboBoxTipoConvenio().getSelectedIndex() == 0) {
             	throw new Exception("Selecione um tipo de convênio.");
             }
+            
+            if (!data.matches("\\d{2}/\\d{2}/\\d{4}") || !hora.matches("\\d{2}:\\d{2}")) {
+				throw new IllegalArgumentException("Data ou horário em formato inválido. Data: xx/xx/xxxx; Hora: xx:xx");
+			}
+			
+			 String[] dataParts = data.split("/");
+		        int anoInformado = Integer.parseInt(dataParts[2]);
+		        int anoAtual = java.time.Year.now().getValue();
+
+		        if (anoInformado < anoAtual) {
+		            throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
+		        }
     
 
             Consulta consulta = new Consulta(data, hora, medico, paciente, queixaPaciente,

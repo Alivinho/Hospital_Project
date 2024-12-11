@@ -252,9 +252,9 @@ public class PanelConsulta extends JPanel {
 	}
 	public JLabel getLblHora() {
 		if (lblHora == null) {
-			lblHora = new JLabel("Data");
+			lblHora = new JLabel("Horário");
 			lblHora.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblHora.setBounds(148, 154, 47, 32);
+			lblHora.setBounds(150, 161, 49, 19);
 		}
 		return lblHora;
 	}
