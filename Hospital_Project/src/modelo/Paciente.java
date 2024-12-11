@@ -27,6 +27,20 @@ public class Paciente {
 		this.historicoMedico = historicoMedico;  
 		this.convenio = convenio;
 	}
+	
+	
+	public String toString() { // O método toString  retorna o objeto em formato de string
+		return nome + ";" +
+			   dataNascimento + ";" +
+			   telefone + ";" +
+			   tipoSangue + ";" +
+			   altura + ";" +
+			   peso + ";" +
+			   historicoMedico + ";" +
+			   convenio + ";" +
+			   (endereco != null ? endereco.toString() : "Sem Endereço");
+			   
+	}
 
 	public String getNome() {
 		return nome;

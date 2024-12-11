@@ -22,6 +22,16 @@ public class Endereco {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
+	
+	public String toString() {
+        return logradouro + ";" + 
+               numero + ";" + 
+               complemento + ";" + 
+               bairro + ";" + 
+               cep + ";" + 
+               cidade + ";" + 
+               estado;
+    }
 
 	public String getLogradouro() {
 		return logradouro;
