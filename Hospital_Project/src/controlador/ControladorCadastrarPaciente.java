@@ -53,6 +53,10 @@ public class ControladorCadastrarPaciente implements ActionListener{
             	throw new Exception("O campo Nome deve conter apenas letras.");
             }
 	        
+            
+            validarDataNascimento(dataNascimento);
+
+            
 //            if (!dataNascimento.matches("\\d{2}/\\d{2}/\\d{4}")) {
 //            	throw new Exception("Data de Nascimento deve estar no formato DD/MM/AAAA.");
 //            }
@@ -91,6 +95,11 @@ public class ControladorCadastrarPaciente implements ActionListener{
             if (!logradouro.matches("^[\\d]+[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]*$") && !logradouro.matches("^[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]+$")) {
                 throw new Exception("O Logradouro deve ser válido. Pode iniciar com números, mas deve conter ao menos uma letra ou caractere.");
             }
+            
+            if (!complemento.matches("^[\\d]+[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]*$") && !complemento.matches("^[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]+$")) {
+                throw new Exception("O Complemento deve ser válido. Deve conter ao menos uma letra ou caractere.");
+            }
+           
             
 
             if (!cep.matches("\\d{5}-\\d{3}")) {
@@ -142,6 +151,35 @@ public class ControladorCadastrarPaciente implements ActionListener{
 	}
 	
 	
+	public void validarDataNascimento(String dataNascimento) throws Exception {
+	  
+	    if (!dataNascimento.matches("\\d{2}/\\d{2}/\\d{4}")) {
+	        throw new Exception("Data de Nascimento deve estar no formato DD/MM/AAAA.");
+	    }
+
+	    // Divide a data em dia, mês e ano
+	    String[] partes = dataNascimento.split("/");
+	    int dia = Integer.parseInt(partes[0]);
+	    int mes = Integer.parseInt(partes[1]);
+	    int ano = Integer.parseInt(partes[2]);
+
+	    
+	    if (mes < 1 || mes > 12) {
+	        throw new Exception("Mês inválido. O mês deve estar entre 01 e 12.");
+	    }
+
+	   
+	    if (dia < 1 || dia > 31) {
+	        throw new Exception("Dia inválido. O dia deve estar entre 01 e 31.");
+	    }
+
+
+	    if (ano < 1900 || ano > 2024) {
+	        throw new Exception("Ano de nascimento inválido. O ano deve estar entre 1900 e 2024.");
+	    }
+	}
+
+
 	 public void limparCampos() {
 	        panelCadastrarPaciente.getTextFieldNome().setText("");
 	        panelCadastrarPaciente.getTextFieldDataNascimento().setText("");
