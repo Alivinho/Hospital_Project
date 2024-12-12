@@ -32,7 +32,7 @@ public class ControladorRelatorioExame implements ActionListener {
 
 	public void gerarRelatorioExame() {
 		try {
-			String periodo = panelRelatorioExame.getTextFieldPeriodo().getText().trim();
+			String periodo = (String) panelRelatorioExame.getComboBoxTipoExame().getSelectedItem();
 			String tipoExame = (String) panelRelatorioExame.getComboBoxTipoExame().getSelectedItem();
 			String data = panelRelatorioExame.getTextFieldData().getText().trim();
 			String formato = (String) panelRelatorioExame.getComboBoxTipoFormato().getSelectedItem();
@@ -64,7 +64,7 @@ public class ControladorRelatorioExame implements ActionListener {
 	}
 
 	public void limparCampos() {
-		panelRelatorioExame.getTextFieldPeriodo().setText("");
+		panelRelatorioExame.getComboBoxTipoExame().setSelectedIndex(0);
 		panelRelatorioExame.getComboBoxTipoExame().setSelectedIndex(0);
 		panelRelatorioExame.getTextFieldData().setText("");
 		panelRelatorioExame.getComboBoxTipoFormato().setSelectedIndex(0);

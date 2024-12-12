@@ -26,7 +26,6 @@ public class PanelRelatorioConsulta extends JPanel {
 	private JLabel lblTipoFormato;
 	private JButton btnLimpar;
 	private JButton btnImprimir;
-	private JButton btnGerar2;
 	private JComboBox comboBoxPeriodo;
 	
 	public PanelRelatorioConsulta() {
@@ -38,7 +37,6 @@ public class PanelRelatorioConsulta extends JPanel {
 		add(getLblRelatorioMaterial());
 		add(getBtnLimpar());
 		add(getBtnImprimir());
-		add(getBtnGerar2());
 	}
 
 	public JPanel getPanelDadosPessoais() {
@@ -174,17 +172,6 @@ public class PanelRelatorioConsulta extends JPanel {
 			btnImprimir.setBounds(80, 640, 147, 40);
 		}
 		return btnImprimir;
-	}
-	
-	public JButton getBtnGerar2() {
-		if (btnGerar2 == null) {
-			btnGerar2 = new JButton();
-			btnGerar2.setText("GERAR");
-			btnGerar2.setForeground(new Color(0, 0, 205));
-			btnGerar2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnGerar2.setBounds(733, 640, 147, 40);
-		}
-		return btnGerar2;
 	}
 	public JComboBox getComboBoxPeriodo() {
 		if (comboBoxPeriodo == null) {

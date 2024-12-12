@@ -16,7 +16,6 @@ public class PanelRelatorioExame extends JPanel {
 	private JLabel lblDadosRelatorio;
 	private JPanel panelDadosPessoais;
 	private JLabel lblTipoExame;
-	private JTextField textFieldPeriodo;
 	private JLabel lblPeriodo;
 	private JComboBox comboBoxTipoExame;
 	private JTextField textFieldData;
@@ -27,6 +26,8 @@ public class PanelRelatorioExame extends JPanel {
 	private JLabel lblTipoFormato;
 	private JButton btnLimpar;
 	private JButton btnGerar;
+	private JButton btnImprimir;
+	private JComboBox comboBoxPeriodo;
 	public PanelRelatorioExame() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(960, 790);
@@ -36,6 +37,8 @@ public class PanelRelatorioExame extends JPanel {
 		add(getPanelDadosPessoais());
 		add(getBtnLimpar());
 		add(getBtnGerar());
+		add(getBtnImprimir());
+		panelDadosPessoais.add(getComboBoxPeriodo());
 	}
 	public JLabel getLblRelatorioExames() {
 		if (lblRelatorioExames == null) {
@@ -62,7 +65,6 @@ public class PanelRelatorioExame extends JPanel {
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(80, 169, 800, 461);
 			panelDadosPessoais.add(getLblTipoExame());
-			panelDadosPessoais.add(getTextFieldPeriodo());
 			panelDadosPessoais.add(getLblPeriodo());
 			panelDadosPessoais.add(getComboBoxTipoExame());
 			panelDadosPessoais.add(getTextFieldData());
@@ -81,14 +83,6 @@ public class PanelRelatorioExame extends JPanel {
 			lblTipoExame.setBounds(269, 10, 128, 32);
 		}
 		return lblTipoExame;
-	}
-	public JTextField getTextFieldPeriodo() {
-		if (textFieldPeriodo == null) {
-			textFieldPeriodo = new JTextField();
-			textFieldPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldPeriodo.setBounds(10, 40, 249, 32);
-		}
-		return textFieldPeriodo;
 	}
 	public JLabel getLblPeriodo() {
 		if (lblPeriodo == null) {
@@ -177,5 +171,25 @@ public class PanelRelatorioExame extends JPanel {
 			btnGerar.setBounds(733, 640, 147, 40);
 		}
 		return btnGerar;
+	}
+	public JButton getBtnImprimir() {
+		if (btnImprimir == null) {
+			btnImprimir = new JButton();
+			btnImprimir.setText("IMPRIMIR");
+			btnImprimir.setForeground(new Color(0, 0, 205));
+			btnImprimir.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnImprimir.setBounds(80, 640, 147, 40);
+		}
+		return btnImprimir;
+	}
+	public JComboBox getComboBoxPeriodo() {
+		if (comboBoxPeriodo == null) {
+			comboBoxPeriodo = new JComboBox();
+			comboBoxPeriodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione um período", "I semestre", "II semestre"}));
+			comboBoxPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxPeriodo.setBackground(Color.WHITE);
+			comboBoxPeriodo.setBounds(10, 40, 249, 32);
+		}
+		return comboBoxPeriodo;
 	}
 }
