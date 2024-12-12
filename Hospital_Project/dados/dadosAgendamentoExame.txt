@@ -3,3 +3,4 @@ Biópsia;;;a - Data de nascimento: 11/11/2024;
 Patologia e análise clínica;;;colesterol alto - Data de nascimento: Plano Diamante;
 25/01/2025;;teste - Data de nascimento: 20/03/2005;Imagens;
 Patologia e análise clínica;;;colesterol alto - Data de nascimento: Plano Diamante;
+José dos Santos Oliveira - Data de nascimento: 25/10/1970;Biópsia;12/12/2026;00:00;

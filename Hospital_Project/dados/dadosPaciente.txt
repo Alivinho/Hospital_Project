@@ -4,3 +4,4 @@ teste;20/03/2005;77981049182;B-;1.0;45.0;teste;Plano Ouro;teste;8;teste;teste;12
 José dos Santos Oliveira ;25/10/1970;77981000000;O-;1.89;78.0;hipertenso
 diabético
 colesterol alto;Plano Diamante;Avenida São João ;14;Apt;São João ;00000-000;Irineu ;BA
+Julia;14/12/2024;1234567891;A-;14.0;12.0;a;Plano Bronze;a;a;a;a;12345-123;a;a

@@ -12,15 +12,16 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import modelo.Agendamento;
+import modelo.AgendamentoExame;
 import visual.PanelAgendamentoExame;
 
 public class ControladorAgendamentoExame implements ActionListener {
 	PanelAgendamentoExame panelAgendamentoExame;
-	ArrayList<Agendamento> examesAgendados;
+	ArrayList<AgendamentoExame> examesAgendados;
 	
 	public ControladorAgendamentoExame(PanelAgendamentoExame panelAgendamentoExame) {
 		this.panelAgendamentoExame = panelAgendamentoExame;
-		examesAgendados = new ArrayList<Agendamento>();
+		examesAgendados = new ArrayList<AgendamentoExame>();
 		addEventos();
 		
 		carregarPacientes();
@@ -82,10 +83,10 @@ public class ControladorAgendamentoExame implements ActionListener {
 				throw new Exception("Selecione um paciente.");
 			}
 			
-			Agendamento agendamento = new Agendamento("",paciente, tipoExame, data, hora);
-			examesAgendados.add(agendamento);
+			AgendamentoExame agendamentoExame = new AgendamentoExame(paciente, tipoExame, data, hora);
+			examesAgendados.add(agendamentoExame);
 			
-			gravarDados(agendamento);
+			gravarDados(agendamentoExame);
 			
 			 
 	        JOptionPane.showMessageDialog(panelAgendamentoExame, "[SUCESSO ✅ ]: Aendado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
@@ -123,14 +124,14 @@ public class ControladorAgendamentoExame implements ActionListener {
 	}
 	
 	
-	private void gravarDados(Agendamento agendamento) {
+	private void gravarDados(AgendamentoExame agendamentoExame) {
 		System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosAgendamentoExame.txt", true))) {
-			writer.write(agendamento.toString());
+			writer.write(agendamentoExame.toString());
 			writer.newLine();
 			System.out.println("Dados gravados com sucesso em dadosAgendamentoExame.txt:");
-			System.out.println(agendamento.toString());
+			System.out.println(agendamentoExame.toString());
 		} catch (IOException e) {
 			System.out.println("Erro ao gravar os dados no arquivo:");
 			e.printStackTrace();

@@ -12,16 +12,17 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import modelo.Agendamento;
+import modelo.AgendamentoConsulta;
 import modelo.Consulta;
 import visual.PanelAgendamentoConsulta;
 
 public class ControladorAgendamentoConsulta implements ActionListener {
 	PanelAgendamentoConsulta panelAgendamentoConsulta;
-	ArrayList<Agendamento> consultasAgendadas;
+	ArrayList<AgendamentoConsulta> consultasAgendadas;
 	
 	public ControladorAgendamentoConsulta(PanelAgendamentoConsulta panelAgendamentoConsulta) {
 		this.panelAgendamentoConsulta = panelAgendamentoConsulta;
-		consultasAgendadas = new ArrayList<Agendamento>();
+		consultasAgendadas = new ArrayList<AgendamentoConsulta>();
 		addEventos();
 		
 		carregarMedicos();
@@ -85,10 +86,10 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 				throw new Exception("Selecione um paciente.");
 			}
 	        
-	        Agendamento agendamento = new Agendamento(data, hora, medico, paciente, null);
-	        consultasAgendadas.add(agendamento);
+			AgendamentoConsulta agendamentoConsulta = new AgendamentoConsulta(medico, paciente, data, hora);
+	        consultasAgendadas.add(agendamentoConsulta);
 	        
-	        gravarDados(agendamento);
+	        gravarDados(agendamentoConsulta);
 	        
 	        JOptionPane.showMessageDialog(panelAgendamentoConsulta, "[SUCESSO ✅ ]: Consulta agendada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
@@ -149,14 +150,14 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 	}
 	
 	
-	private void gravarDados(Agendamento agendamento) {
+	private void gravarDados(AgendamentoConsulta agendamentoConsulta) {
 		System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosAgendamentoConsulta.txt", true))) {
-			writer.write(agendamento.toString());
+			writer.write(agendamentoConsulta.toString());
 			writer.newLine();
 			System.out.println("Dados gravados com sucesso em dadosAgendamentoConsulta.txt:");
-			System.out.println(agendamento.toString());
+			System.out.println(agendamentoConsulta.toString());
 		} catch (IOException e) {
 			System.out.println("Erro ao gravar os dados no arquivo:");
 			e.printStackTrace();
