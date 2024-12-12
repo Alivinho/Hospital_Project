@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
 
 import modelo.Agendamento;
 import modelo.AgendamentoExame;
@@ -55,6 +56,8 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 				throw new Exception("Selecione um médico.");
 			}
 
+//			inserirDadosNoTextPane(panelVisualizacaoAgenda.getTextPainelAgenda());
+			
 			JOptionPane.showMessageDialog(panelVisualizacaoAgenda, "[SUCESSO ✅ ]: Visualizando com sucesso!",
 					"Sucesso!", JOptionPane.INFORMATION_MESSAGE);
 			limparCampos();
@@ -90,8 +93,33 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 		}
 	}
 	
-//	public void inserirDados() {
-//		String 
+//	private void inserirDadosNoTextPane(JTextPane textPane) {
+//	    try {
+//	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
+//	        StringBuilder conteudo = new StringBuilder();
+//	        String linha;
+//
+//	        while ((linha = br.readLine()) != null) {
+//	            String[] dadosConsultasAgendadas = linha.split(";");
+//	            if (dadosConsultasAgendadas.length >= 4) {
+//	                String medico = dadosConsultasAgendadas[0].trim();
+//	                String paciente = dadosConsultasAgendadas[1].trim();
+//	                String data = dadosConsultasAgendadas[2].trim();
+//	                String hora = dadosConsultasAgendadas[3].trim();
+//	                String medicoFormatado = nome + " - CRM: " + crm + " (" + especialidade + ")";
+//	                conteudo.append(medicoFormatado).append("\n");
+//	            }
+//	        }
+//
+//	        // Atualizar o texto no JTextPane
+//	        textPane.setText(conteudo.toString());
+//	        br.close();
+//	    } catch (IOException e) {
+//	        JOptionPane.showMessageDialog(null, 
+//	            "Erro ao carregar médicos: " + e.getMessage(), 
+//	            "Erro", 
+//	            JOptionPane.ERROR_MESSAGE);
+//	    }
 //	}
 
 	public void limparCampos() {
