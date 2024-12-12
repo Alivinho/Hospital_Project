@@ -25,6 +25,8 @@ public class ControladorConsulta implements ActionListener {
 	private void addEventos() {
 		panelConsulta.getBtnCadastrar().addActionListener(this);
 		panelConsulta.getBtnLimpar().addActionListener(this);
+        panelConsulta.getCheckBoxMateriais().addActionListener(this);  
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -32,7 +34,9 @@ public class ControladorConsulta implements ActionListener {
 			cadastrarConsulta();
 		} else if (e.getSource() == panelConsulta.getBtnLimpar()) {
 			limparCampos();
-		}
+		}else if (e.getSource() == panelConsulta.getCheckBoxMateriais()) {
+            toggleMateriais();
+        }
 	}
 
 	public void cadastrarConsulta() {
@@ -49,7 +53,7 @@ public class ControladorConsulta implements ActionListener {
 
 			if (data.isEmpty() || hora.isEmpty() || medico.isEmpty() || paciente.isEmpty() || queixaPaciente.isEmpty()
 					|| tipoConsulta.isEmpty() || tipoConsulta.isEmpty() || convenio.isEmpty() || observacoes.isEmpty()
-					|| materiais.isEmpty()) {
+					) {
 				throw new Exception("Todos os campos devem ser preenchidos!");
 			}
 
@@ -77,11 +81,18 @@ public class ControladorConsulta implements ActionListener {
 			String[] dataParts = data.split("/");
 			int anoInformado = Integer.parseInt(dataParts[2]);
 			int anoAtual = java.time.Year.now().getValue();
+	        int mesInformado = Integer.parseInt(dataParts[1]);
+	        
+	        int mesAtual = java.time.Month.from(java.time.LocalDate.now()).getValue();
+
 
 			if (anoInformado < anoAtual) {
 				throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
 			}
-
+			if (anoInformado == anoAtual && mesInformado < mesAtual) {
+	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
+	        }
+			
 			Consulta consulta = new Consulta(data, hora, medico, paciente, queixaPaciente, tipoConsulta, convenio,
 					observacoes, materiais);
 			consultasCadastradas.add(consulta);
@@ -95,6 +106,16 @@ public class ControladorConsulta implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	
+	private void toggleMateriais() {
+        
+        if (panelConsulta.getCheckBoxMateriais().isSelected()) {
+            panelConsulta.getTextAreaMateriaisUtilizados().setVisible(true);  
+        } else {
+            panelConsulta.getTextAreaMateriaisUtilizados().setVisible(false);  
+        }
+    }
 
 	private void limparCampos() {
 		panelConsulta.getTextFieldData().setText("");

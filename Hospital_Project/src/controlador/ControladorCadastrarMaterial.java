@@ -25,6 +25,7 @@ public class ControladorCadastrarMaterial implements ActionListener {
 		materiaisCadastrados = new ArrayList<Material>();
 		addEventos();
 	}
+	
 
 	private void addEventos() {
 		panelCadastrarMaterial.getBtnCadastrar().addActionListener(this);
@@ -100,7 +101,6 @@ public class ControladorCadastrarMaterial implements ActionListener {
 	
 	private void gravarDados(Material material) {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
-	    
 	    
 	    String resourcePath = "/dados/dadosMaterial.txt";
 	    URL resourceUrl = getClass().getResource(resourcePath);

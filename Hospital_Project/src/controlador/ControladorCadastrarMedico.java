@@ -136,7 +136,6 @@ public class ControladorCadastrarMedico implements ActionListener {
 	}
 	
 	
-	
 	private void gravarDados(Medico medico) {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
@@ -183,9 +182,6 @@ public class ControladorCadastrarMedico implements ActionListener {
 	    }
 	}
 
-
-	
-	
 	private void limparCampos() {
 		panelCadastrarMedico.getTextFieldNome().setText("");
 		panelCadastrarMedico.getTextFieldEspecialidade().setText("");

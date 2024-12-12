@@ -53,6 +53,21 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 				throw new IllegalArgumentException("Data ou horário em formato inválido.");
 			}
 			
+			String[] dataParts = data.split("/");
+			int anoInformado = Integer.parseInt(dataParts[2]);
+			int anoAtual = java.time.Year.now().getValue();
+	        int mesInformado = Integer.parseInt(dataParts[1]);
+	        
+	        int mesAtual = java.time.Month.from(java.time.LocalDate.now()).getValue();
+
+
+			if (anoInformado < anoAtual) {
+				throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
+			}
+			if (anoInformado == anoAtual && mesInformado < mesAtual) {
+	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
+	        }
+			
 			if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
 	                throw new Exception("O nome do material deve conter apenas letras e espaços.");
 	           }

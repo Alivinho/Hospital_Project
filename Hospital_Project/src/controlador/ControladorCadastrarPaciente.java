@@ -24,6 +24,7 @@ public class ControladorCadastrarPaciente implements ActionListener {
 		addEventos();
 	}
 
+
 	public void cadastrarPaciente() {
 		try {
 			String nome = panelCadastrarPaciente.getTextFieldNome().getText();

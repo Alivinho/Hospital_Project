@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.DefaultComboBoxModel;
 
 public class PanelConsulta extends JPanel {
@@ -35,6 +36,10 @@ public class PanelConsulta extends JPanel {
 	private JLabel lblData;
 	private JTextField textFieldHora;
 	private JLabel lblHora;
+	
+	private JCheckBox checkBoxMateriais;
+	
+
 	public PanelConsulta() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(940, 920);
@@ -76,17 +81,20 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais.add(getLblQueixaPaciente());
 			panelDadosPessoais.add(getLblTipoConvenio());
 			panelDadosPessoais.add(getLblObservacoes());
-			panelDadosPessoais.add(getTextAreaObservacoes());
 			panelDadosPessoais.add(getComboBoxTipoConvenio());
 			panelDadosPessoais.add(getTextFieldPaciente());
 			panelDadosPessoais.add(getLblPaciente());
 			panelDadosPessoais.add(getComboBoxTipoConsulta());
 			panelDadosPessoais.add(getTextAreaMateriaisUtilizados());
-			panelDadosPessoais.add(getLblMateriaisUtilizados());
+			//panelDadosPessoais.add(getLblMateriaisUtilizados());
 			panelDadosPessoais.add(getTextFieldData());
 			panelDadosPessoais.add(getLblData());
 			panelDadosPessoais.add(getTextFieldHora());
 			panelDadosPessoais.add(getLblHora());
+			panelDadosPessoais.add(getCheckBoxMateriais());
+			panelDadosPessoais.add(getTextAreaObservacoes());
+			
+
 		}
 		return panelDadosPessoais;
 	}
@@ -149,8 +157,8 @@ public class PanelConsulta extends JPanel {
 	public JTextArea getTextAreaObservacoes() {
 		if (textAreaObservacoes == null) {
 			textAreaObservacoes = new JTextArea();
-			textAreaObservacoes.setFont(new Font("Monospaced", Font.PLAIN, 15));
 			textAreaObservacoes.setBounds(10, 286, 373, 163);
+			textAreaObservacoes.setFont(new Font("Monospaced", Font.PLAIN, 15));
 		}
 		return textAreaObservacoes;
 	}
@@ -195,17 +203,19 @@ public class PanelConsulta extends JPanel {
 			textAreaMateriaisUtilizados = new JTextArea();
 			textAreaMateriaisUtilizados.setFont(new Font("Monospaced", Font.PLAIN, 15));
 			textAreaMateriaisUtilizados.setBounds(396, 286, 394, 163);
+			textAreaMateriaisUtilizados.setVisible(false);
 		}
 		return textAreaMateriaisUtilizados;
 	}
-	public JLabel getLblMateriaisUtilizados() {
+	
+	/*public JLabel getLblMateriaisUtilizados() {
 		if (lblMateriaisUtilizados == null) {
 			lblMateriaisUtilizados = new JLabel("Materiais utilizados");
 			lblMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			lblMateriaisUtilizados.setBounds(396, 254, 150, 32);
 		}
 		return lblMateriaisUtilizados;
-	}
+	}*/
 	public JButton getBtnLimpar() {
 		if (btnLimpar == null) {
 			btnLimpar = new JButton();
@@ -258,4 +268,18 @@ public class PanelConsulta extends JPanel {
 		}
 		return lblHora;
 	}
+	
+	
+	public JCheckBox getCheckBoxMateriais() {
+		if (checkBoxMateriais == null) {
+			checkBoxMateriais = new JCheckBox("Utilizou materiais?");
+			checkBoxMateriais.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			checkBoxMateriais.setBounds(393, 254, 200, 32); 
+
+		}
+	    return checkBoxMateriais;
+	}
+	
+	
+	
 }
