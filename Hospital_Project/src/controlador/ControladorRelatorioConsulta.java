@@ -16,12 +16,12 @@ public class ControladorRelatorioConsulta implements ActionListener {
 	}
 
 	private void addEventos() {
-		panelRelatorioConsulta.getBtnGerar().addActionListener(this);
+		panelRelatorioConsulta.getBtnImprimir().addActionListener(this);
 		panelRelatorioConsulta.getBtnLimpar().addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == panelRelatorioConsulta.getBtnGerar()) {
+		if (e.getSource() == panelRelatorioConsulta.getBtnImprimir()) {
 			gerarRelatorioConsulta();
 		} else if (e.getSource() == panelRelatorioConsulta.getBtnLimpar()) {
 			limparCampos();
@@ -30,7 +30,7 @@ public class ControladorRelatorioConsulta implements ActionListener {
 
 	public void gerarRelatorioConsulta() {
 		try {
-			String periodo = panelRelatorioConsulta.getTextFieldPeriodo().getText().trim();
+			String periodo = (String) panelRelatorioConsulta.getComboBoxPeriodo().getSelectedItem();
 			String tipoExame = (String) panelRelatorioConsulta.getComboBoxTipoConsulta().getSelectedItem();
 			String data = panelRelatorioConsulta.getTextFieldData().getText().trim();
 			String formato = (String) panelRelatorioConsulta.getComboBoxTipoFormato().getSelectedItem();
@@ -62,7 +62,7 @@ public class ControladorRelatorioConsulta implements ActionListener {
 	}
 
 	public void limparCampos() {
-		panelRelatorioConsulta.getTextFieldPeriodo().setText("");
+		panelRelatorioConsulta.getComboBoxPeriodo().setSelectedIndex(0);
 		panelRelatorioConsulta.getComboBoxTipoConsulta().setSelectedIndex(0);
 		panelRelatorioConsulta.getTextFieldData().setText("");
 		panelRelatorioConsulta.getComboBoxTipoFormato().setSelectedIndex(0);

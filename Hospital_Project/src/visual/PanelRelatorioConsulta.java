@@ -18,7 +18,6 @@ public class PanelRelatorioConsulta extends JPanel {
 	private JLabel lblDadosRelatrio;
 	private JLabel lblRelatorioMaterial;
 	private JComboBox comboBoxTipoFormato;
-	private JTextField textFieldPeriodo;
 	private JLabel lblPeriodo;
 	private JLabel lblTipoConsulta;
 	private JComboBox comboBoxTipoConsulta;
@@ -26,7 +25,10 @@ public class PanelRelatorioConsulta extends JPanel {
 	private JLabel lblData;
 	private JLabel lblTipoFormato;
 	private JButton btnLimpar;
-	private JButton btnGerar;
+	private JButton btnImprimir;
+	private JButton btnGerar2;
+	private JComboBox comboBoxPeriodo;
+	
 	public PanelRelatorioConsulta() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(960, 790);
@@ -35,7 +37,8 @@ public class PanelRelatorioConsulta extends JPanel {
 		add(getLblDadosRelatrio());
 		add(getLblRelatorioMaterial());
 		add(getBtnLimpar());
-		add(getBtnGerar());
+		add(getBtnImprimir());
+		add(getBtnGerar2());
 	}
 
 	public JPanel getPanelDadosPessoais() {
@@ -47,13 +50,14 @@ public class PanelRelatorioConsulta extends JPanel {
 			panelDadosPessoais.add(getTextPainelMaterial());
 			panelDadosPessoais.add(getLblPainelMaterial());
 			panelDadosPessoais.add(getComboBoxTipoFormato());
-			panelDadosPessoais.add(getTextFieldPeriodo());
 			panelDadosPessoais.add(getLblPeriodo());
 			panelDadosPessoais.add(getLblTipoConsulta());
 			panelDadosPessoais.add(getComboBoxTipoConsulta());
 			panelDadosPessoais.add(getTextFieldData());
 			panelDadosPessoais.add(getLblData());
 			panelDadosPessoais.add(getLblTipoFormato());
+			panelDadosPessoais.add(getComboBoxPeriodo());
+		
 		}
 		return panelDadosPessoais;
 	}
@@ -100,14 +104,6 @@ public class PanelRelatorioConsulta extends JPanel {
 			comboBoxTipoFormato.setBounds(622, 40, 168, 32);
 		}
 		return comboBoxTipoFormato;
-	}
-	public JTextField getTextFieldPeriodo() {
-		if (textFieldPeriodo == null) {
-			textFieldPeriodo = new JTextField();
-			textFieldPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldPeriodo.setBounds(10, 40, 249, 32);
-		}
-		return textFieldPeriodo;
 	}
 	public JLabel getLblPeriodo() {
 		if (lblPeriodo == null) {
@@ -169,14 +165,35 @@ public class PanelRelatorioConsulta extends JPanel {
 		}
 		return btnLimpar;
 	}
-	public JButton getBtnGerar() {
-		if (btnGerar == null) {
-			btnGerar = new JButton();
-			btnGerar.setText("GERAR");
-			btnGerar.setForeground(new Color(0, 0, 205));
-			btnGerar.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			btnGerar.setBounds(733, 640, 147, 40);
+	public JButton getBtnImprimir() {
+		if (btnImprimir == null) {
+			btnImprimir = new JButton();
+			btnImprimir.setText("IMPRIMIR");
+			btnImprimir.setForeground(new Color(0, 0, 205));
+			btnImprimir.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnImprimir.setBounds(80, 640, 147, 40);
 		}
-		return btnGerar;
+		return btnImprimir;
+	}
+	
+	public JButton getBtnGerar2() {
+		if (btnGerar2 == null) {
+			btnGerar2 = new JButton();
+			btnGerar2.setText("GERAR");
+			btnGerar2.setForeground(new Color(0, 0, 205));
+			btnGerar2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnGerar2.setBounds(733, 640, 147, 40);
+		}
+		return btnGerar2;
+	}
+	public JComboBox getComboBoxPeriodo() {
+		if (comboBoxPeriodo == null) {
+			comboBoxPeriodo = new JComboBox();
+			comboBoxPeriodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione um período", "I semestre", "II semestre"}));
+			comboBoxPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxPeriodo.setBackground(Color.WHITE);
+			comboBoxPeriodo.setBounds(10, 40, 249, 32);
+		}
+		return comboBoxPeriodo;
 	}
 }
