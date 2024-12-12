@@ -15,7 +15,6 @@ public class PanelPesquisaHorario extends JPanel {
 	private JLabel lblPesquisaDeHorarios;
 	private JPanel panelDadosPessoais;
 	private JLabel lblTipoExame;
-	private JTextField textFieldMedico;
 	private JLabel lblMedico;
 	private JComboBox comboBoxTipoExame;
 	private JTextField textFieldData;
@@ -25,6 +24,7 @@ public class PanelPesquisaHorario extends JPanel {
 	private JLabel lblPainelHorarios;
 	private JButton btnLimpar;
 	private JButton btnPesquisar;
+	private JComboBox<String> Medico;
 	public PanelPesquisaHorario() {
 		this.setSize(960, 790);
 		setBackground(new Color(89, 169, 255));
@@ -52,13 +52,13 @@ public class PanelPesquisaHorario extends JPanel {
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(80, 169, 800, 461);
 			panelDadosPessoais.add(getLblTipoExame());
-			panelDadosPessoais.add(getTextFieldMedico());
 			panelDadosPessoais.add(getLblMedico());
 			panelDadosPessoais.add(getComboBoxTipoExame());
 			panelDadosPessoais.add(getTextFieldData());
 			panelDadosPessoais.add(getLblData());
 			panelDadosPessoais.add(getTextPainelHorario());
 			panelDadosPessoais.add(getLblPainelHorarios());
+			panelDadosPessoais.add(getMedico());
 		}
 		return panelDadosPessoais;
 	}
@@ -69,14 +69,6 @@ public class PanelPesquisaHorario extends JPanel {
 			lblTipoExame.setBounds(447, 10, 128, 32);
 		}
 		return lblTipoExame;
-	}
-	public JTextField getTextFieldMedico() {
-		if (textFieldMedico == null) {
-			textFieldMedico = new JTextField();
-			textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldMedico.setBounds(10, 40, 427, 32);
-		}
-		return textFieldMedico;
 	}
 	public JLabel getLblMedico() {
 		if (lblMedico == null) {
@@ -155,5 +147,14 @@ public class PanelPesquisaHorario extends JPanel {
 			btnPesquisar.setBounds(733, 640, 147, 40);
 		}
 		return btnPesquisar;
+	}
+	public JComboBox<String> getMedico() {
+		if (Medico == null) {
+			Medico = new JComboBox<String>();
+			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Medico.setBackground(Color.WHITE);
+			Medico.setBounds(10, 40, 370, 32);
+		}
+		return Medico;
 	}
 }

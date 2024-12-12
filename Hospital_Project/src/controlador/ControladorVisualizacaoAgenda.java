@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -17,6 +20,8 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	public ControladorVisualizacaoAgenda(PanelVisualizacaoAgenda panelVisualizacaoAgenda) {
 		this.panelVisualizacaoAgenda = panelVisualizacaoAgenda;
 		addEventos();
+		
+		carregarMedicos();
 	}
 
 	private void addEventos() {
@@ -59,9 +64,34 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	private void carregarMedicos() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
+			String linha;
+			panelVisualizacaoAgenda.getMedico().removeAllItems();
+			panelVisualizacaoAgenda.getMedico().addItem("Selecionar Médico");
+
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 3) {
+					String nome = dados[0].trim();
+					String crm = dados[1].trim();
+					String especialidade = dados[2].trim();
+					String medicoFormatado = nome + " - CRM: " + crm + " (" + especialidade + ")";
+					panelVisualizacaoAgenda.getMedico().addItem(medicoFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelVisualizacaoAgenda, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 	public void limparCampos() {
 		panelVisualizacaoAgenda.getTextFieldPesquisarData().setText("");
-		panelVisualizacaoAgenda.getTextFieldPesquisarMedico().setText("");
+		panelVisualizacaoAgenda.getMedico().setSelectedIndex(0);
 	}
 }

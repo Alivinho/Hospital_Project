@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
@@ -14,6 +17,8 @@ public class ControladorPesquisaHorario implements ActionListener {
 	public ControladorPesquisaHorario(PanelPesquisaHorario panelPesquisaHorario) {
 		this.panelPesquisaHorario = panelPesquisaHorario;
 		addEventos();
+		
+		carregarMedicos();
 	}
 
 	private void addEventos() {
@@ -32,7 +37,7 @@ public class ControladorPesquisaHorario implements ActionListener {
 
 	public void pesquisarHorario() {
 		try {
-			String medico = panelPesquisaHorario.getTextFieldMedico().getText().trim();
+			String medico = (String) panelPesquisaHorario.getMedico().getSelectedItem();
 			String tipoExame = (String) panelPesquisaHorario.getComboBoxTipoExame().getSelectedItem();
 			String data = panelPesquisaHorario.getTextFieldData().getText().trim();
 
@@ -65,9 +70,34 @@ public class ControladorPesquisaHorario implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	private void carregarMedicos() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
+			String linha;
+			panelPesquisaHorario.getMedico().removeAllItems();
+			panelPesquisaHorario.getMedico().addItem("Selecionar Médico");
+
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 3) {
+					String nome = dados[0].trim();
+					String crm = dados[1].trim();
+					String especialidade = dados[2].trim();
+					String medicoFormatado = nome + " - CRM: " + crm + " (" + especialidade + ")";
+					panelPesquisaHorario.getMedico().addItem(medicoFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelPesquisaHorario, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
 
 	public void limparCampos() {
-		panelPesquisaHorario.getTextFieldMedico().setText("");
+		panelPesquisaHorario.getMedico().setSelectedIndex(0);
 		panelPesquisaHorario.getComboBoxTipoExame().setSelectedIndex(0);
 		panelPesquisaHorario.getTextFieldData().setText("");
 	}

@@ -14,7 +14,6 @@ public class PanelVisualizacaoAgenda extends JPanel {
 	private JLabel lblVisualizacaoAgenda;
 	private JPanel panelDadosPessoais;
 	private JLabel lblPesquisarData;
-	private JTextField textFieldPesquisarMedico;
 	private JLabel lblPesquisarMedico;
 	private JLabel lblPainelAgenda;
 	private JLabel lblAgenda;
@@ -22,6 +21,7 @@ public class PanelVisualizacaoAgenda extends JPanel {
 	private JTextPane textPainelAgenda;
 	private JButton btnLimpar;
 	private JButton btnVisualizar;
+	private JComboBox<String> Medico;
 	public PanelVisualizacaoAgenda() {
 		this.setSize(960, 790);
 		setBackground(new Color(89, 169, 255));
@@ -49,11 +49,11 @@ public class PanelVisualizacaoAgenda extends JPanel {
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(80, 153, 800, 472);
 			panelDadosPessoais.add(getLblPesquisarData());
-			panelDadosPessoais.add(getTextFieldPesquisarMedico());
 			panelDadosPessoais.add(getLblPesquisarMedico());
 			panelDadosPessoais.add(getLblPainelAgenda());
 			panelDadosPessoais.add(getTextFieldPesquisarData());
 			panelDadosPessoais.add(getTextPainelAgenda());
+			panelDadosPessoais.add(getMedico());
 		}
 		return panelDadosPessoais;
 	}
@@ -64,14 +64,6 @@ public class PanelVisualizacaoAgenda extends JPanel {
 			lblPesquisarData.setBounds(559, 10, 128, 32);
 		}
 		return lblPesquisarData;
-	}
-	public JTextField getTextFieldPesquisarMedico() {
-		if (textFieldPesquisarMedico == null) {
-			textFieldPesquisarMedico = new JTextField();
-			textFieldPesquisarMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldPesquisarMedico.setBounds(10, 40, 539, 32);
-		}
-		return textFieldPesquisarMedico;
 	}
 	public JLabel getLblPesquisarMedico() {
 		if (lblPesquisarMedico == null) {
@@ -132,5 +124,14 @@ public class PanelVisualizacaoAgenda extends JPanel {
 			btnVisualizar.setBounds(733, 635, 147, 40);
 		}
 		return btnVisualizar;
+	}
+	public JComboBox<String> getMedico() {
+		if (Medico == null) {
+			Medico = new JComboBox<String>();
+			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Medico.setBackground(Color.WHITE);
+			Medico.setBounds(10, 40, 539, 32);
+		}
+		return Medico;
 	}
 }
