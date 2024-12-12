@@ -8,17 +8,32 @@ public class Medico {
 	private String contato;
 	private String horariosAtendimento;
 	private float valorConsultaParticular;
+	private Endereco endereco;
+
 	
 	public Medico() {}
 	
 	public Medico(String nome, String especialidade, String crm, String contato, 
-				  String horariosAtendimento, float valorConsultaParticular) {
+				  String horariosAtendimento, float valorConsultaParticular, Endereco endereco) {
 		this.nome = nome;
 		this.especialidade = especialidade;
 		this.crm = crm;
 		this.contato = contato;
 		this.horariosAtendimento = horariosAtendimento;
 		this.valorConsultaParticular = valorConsultaParticular;
+		this.endereco = endereco;
+	}
+	
+	
+	public String toString() { 
+		return nome + ";" +
+				especialidade + ";" +
+				crm + ";" +
+				contato + ";" +
+				horariosAtendimento + ";" +
+				valorConsultaParticular + ";" +
+			   (endereco != null ? endereco.toString() : "Sem Endereço");
+			   
 	}
 
 	public String getNome() {

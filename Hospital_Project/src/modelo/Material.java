@@ -19,6 +19,15 @@ public class Material {
 		this.fornecedor = fornecedor;
 		this.preco = preco;
 	}
+	
+	
+	public String toString() { 
+		return nomeMaterial + ";" +
+			   quantEstoque + ";" +
+			   quantMinimaEstoque + ";" +
+			   fornecedor + ";" +
+			   preco + ";" ;
+	}
 
 	public String getNomeMaterial() {
 		return nomeMaterial;

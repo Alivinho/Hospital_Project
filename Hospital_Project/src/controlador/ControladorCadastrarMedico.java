@@ -2,12 +2,18 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import modelo.Endereco;
 import modelo.Material;
 import modelo.Medico;
+import modelo.Paciente;
 import visual.PanelCadastrarMedico;
 
 public class ControladorCadastrarMedico implements ActionListener {
@@ -78,9 +84,35 @@ public class ControladorCadastrarMedico implements ActionListener {
 			if (!cep.matches("\\d{5}-\\d{3}")) {
 				throw new Exception("O campo CEP deve estar no formato XXXXX-XXX.");
 			}
+			
+			if (!logradouro.matches("^[\\d]+[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]*$")
+					&& !logradouro.matches("^[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]+$")) {
+				throw new Exception(
+						"O Logradouro deve iniciar com números, mas deve conter ao menos uma letra ou caractere.");
+			}
 
-			Medico medico = new Medico(nome, especialidade, crm, contato, horarioAtendimento, valorConsulta);
+			if (!complemento.matches("^[\\d]+[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]*$")
+					&& !complemento.matches("^[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]+$")) {
+				throw new Exception("O Complemento deve conter ao menos uma letra ou caractere.");
+			}
+
+			if (!cidade.matches("[a-zA-Zá-úÁ-ÚçÇ\\s]+")) {
+				throw new Exception("O campo Cidade deve conter apenas letras.");
+			}
+
+			if (!estado.matches("[a-zA-Zá-úÁ-ÚçÇ\\s]+")) {
+				throw new Exception("O campo Estado deve conter apenas letras.");
+			}
+			
+			Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cep, cidade, estado);
+
+			Medico medico = new Medico(nome, especialidade, crm, contato, horarioAtendimento, valorConsulta, endereco);
 			medicosCadastrados.add(medico);
+			
+			// *************************** Gravação do médico no arquivo
+			// ***************************
+			gravarDados(medico);
+
 
 			JOptionPane.showMessageDialog(panelCadastrarMedico, "[SUCESSO ✅ ]: Medico cadastrado com sucesso!",
 					"Sucesso!", JOptionPane.INFORMATION_MESSAGE);
@@ -95,7 +127,44 @@ public class ControladorCadastrarMedico implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	
+	
+	private void gravarDados(Medico medico) {
+	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
+	    // Caminho ajustado para o local correto do arquivo dentro do projeto
+	    String filePath = "src/dados/dadosMedico.txt"; 
+	    System.out.println("Tentando gravar no arquivo: " + new File(filePath).getAbsolutePath());
+
+	    // Criação do diretório 'dados' caso não exista
+	    File file = new File(filePath);
+	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
+
+	    /*if (!parentDirectory.exists()) {
+	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
+	        if (created) {
+	            System.out.println("Diretório 'dados' criado com sucesso!");
+	        } else {
+	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
+	            return;
+	        }
+	    }*/
+
+	    // Gravação no arquivo
+	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+	        writer.write(medico.toString());
+	        writer.newLine();
+	        System.out.println("Dados gravados com sucesso em dadosPaciente.txt:");
+	        System.out.println(medico.toString());
+	    } catch (IOException e) {
+	        System.out.println("Erro ao gravar os dados no arquivo:");
+	        e.printStackTrace();
+	    }
+	}
+
+	
+	
 	private void limparCampos() {
 		panelCadastrarMedico.getTextFieldNome().setText("");
 		panelCadastrarMedico.getTextFieldEspecialidade().setText("");
