@@ -70,6 +70,11 @@ public class ControladorCadastrarMedico implements ActionListener {
 			if (!especialidade.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
 				throw new Exception("A especialidade deve conter apenas letras e espaços.");
 			}
+			
+			
+			if (!crm.matches("[A-Za-z]{2}\\d{4,6}")) {
+		        throw new Exception("O campo CRM deve seguir o formato correto: 2 letras (estado) seguidas de 4 a 6 dígitos.");
+		    }
 
 			if (!horarioAtendimento.matches("\\d{2}:\\d{2}")) {
 				throw new Exception("O horário deve estar no formato HH:MM");

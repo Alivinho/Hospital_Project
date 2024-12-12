@@ -25,12 +25,13 @@ public class PanelExame extends JPanel {
 	private JLabel lblTipoExame;
 	
 	private JComboBox<String> TipoExame;
+	private JComboBox<String> Medico;
 	
 	private JTextField textFieldNomeExame;
 	private JTextArea textAreaDescricao;
 	private JTextField textFieldValorParticular;
 	private JTextArea textAreaMateriaisUtilizados;
-	private JTextField textFieldMedico;
+	//private JTextField textFieldMedico;
 	
 	private JPanel panelDadosExame;
 	
@@ -69,7 +70,8 @@ public class PanelExame extends JPanel {
 	        panelDadosExame.add(getTextAreaDescricao());
 	        panelDadosExame.add(getTextFieldValorParticular());
 	        panelDadosExame.add(getTextAreaMateriaisUtilizados());
-	        panelDadosExame.add(getTextFieldMedico());
+	        panelDadosExame.add(getMedico());
+	        //panelDadosExame.add(getTextFieldMedico());
 	    }
 	    return panelDadosExame;
 	}
@@ -190,13 +192,25 @@ public class PanelExame extends JPanel {
 	    return textAreaMateriaisUtilizados;
 	}
 
-	public JTextField getTextFieldMedico() {
+	/*public JTextField getTextFieldMedico() {
 	    if (textFieldMedico == null) {
 	        textFieldMedico = new JTextField();
 	        textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	        textFieldMedico.setBounds(10, 37, 370, 32);
 	    }
 	    return textFieldMedico;
+	}*/
+	
+	public JComboBox<String> getMedico(){
+		if(Medico == null) {
+			Medico = new JComboBox<>();
+			Medico.setBackground(new Color(255, 255, 255));
+			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Medico.setModel(new DefaultComboBoxModel<>(new String[] {"Selecione um médico"}));
+			Medico.setBounds(10, 37, 370, 32);
+		}
+	
+		return Medico;
 	}
 	
 	public JComboBox<String> getTipoExame(){

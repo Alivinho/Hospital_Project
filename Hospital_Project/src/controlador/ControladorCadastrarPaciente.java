@@ -149,7 +149,7 @@ public class ControladorCadastrarPaciente implements ActionListener {
 	    /*if (!parentDirectory.exists()) {
 	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
 	        if (created) {
-	            System.out.println("Diretório 'dados' criado com sucesso!");
+	            System.out.println("Diretório 'dados' c riado com sucesso!");
 	        } else {
 	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
 	            return;
