@@ -12,6 +12,15 @@ public class AgendamentoExame {
 		this.data = data;
 		this.horario = horario;
 	}
+	
+	
+	public String toString() { 
+		return paciente + ";" +
+			   tipoExame + ";"+
+			   data + ";" +
+			   horario + ";";
+
+	}
 
 	public String getPaciente() {
 		return paciente;

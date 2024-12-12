@@ -2,11 +2,17 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import modelo.Agendamento;
+import modelo.Consulta;
 import visual.PanelAgendamentoConsulta;
 
 public class ControladorAgendamentoConsulta implements ActionListener {
@@ -17,6 +23,9 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 		this.panelAgendamentoConsulta = panelAgendamentoConsulta;
 		consultasAgendadas = new ArrayList<Agendamento>();
 		addEventos();
+		
+		carregarMedicos();
+		carregarPacientes();
 	}
 	
 	private void addEventos() {
@@ -39,8 +48,8 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 	public void agendarConsulta() {
 		try {
 			
-			String medico = panelAgendamentoConsulta.getTextFieldMedico().getText().trim();
-			String paciente = panelAgendamentoConsulta.getTextFieldPaciente().getText().trim();
+			String medico = (String) panelAgendamentoConsulta.getMedico().getSelectedItem();
+			String paciente = (String) panelAgendamentoConsulta.getPaciente().getSelectedItem();
 			String data = panelAgendamentoConsulta.getTextFieldData().getText().trim();
 			String hora = panelAgendamentoConsulta.getTextFieldHorario().getText().trim();
 			
@@ -67,17 +76,11 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 			if (anoInformado == anoAtual && mesInformado < mesAtual) {
 	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
 	        }
-			
-			if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-	                throw new Exception("O nome do material deve conter apenas letras e espaços.");
-	           }
-	            
-	        if (!paciente.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-	                throw new Exception("A especialidade deve conter apenas letras e espaços.");
-	           }
 	        
 	        Agendamento agendamento = new Agendamento(data, hora, medico, paciente, null);
 	        consultasAgendadas.add(agendamento);
+	        
+	        gravarDados(agendamento);
 	        
 	        JOptionPane.showMessageDialog(panelAgendamentoConsulta, "[SUCESSO ✅ ]: Consulta agendada com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
@@ -89,9 +92,72 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 		
 	}
 	
+	
+	private void carregarMedicos() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
+			String linha;
+			panelAgendamentoConsulta.getMedico().removeAllItems();
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 3) {
+					String nome = dados[0].trim();
+					String crm = dados[1].trim();
+					String especialidade = dados[2].trim();
+					String medicoFormatado = nome + " - CRM: " + crm + " (" + especialidade + ")";
+					panelAgendamentoConsulta.getMedico().addItem(medicoFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelAgendamentoConsulta, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	private void carregarPacientes() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosPaciente.txt"));
+			String linha;
+			panelAgendamentoConsulta.getPaciente().removeAllItems();
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 2) {
+					String nome = dados[0].trim();
+					String dataNascimento = dados[1].trim();
+					String pacienteFormatado = nome + " - Data de nascimento: " + dataNascimento;
+					panelAgendamentoConsulta.getPaciente().addItem(pacienteFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelAgendamentoConsulta, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	
+	private void gravarDados(Agendamento agendamento) {
+		System.out.println("Diretório atual: " + System.getProperty("user.dir"));
+		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosAgendamentoConsulta.txt", true))) {
+			writer.write(agendamento.toString());
+			writer.newLine();
+			System.out.println("Dados gravados com sucesso em dadosAgendamentoConsulta.txt:");
+			System.out.println(agendamento.toString());
+		} catch (IOException e) {
+			System.out.println("Erro ao gravar os dados no arquivo:");
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	public void limparCampos() {
-		panelAgendamentoConsulta.getTextFieldMedico().setText("");
-		panelAgendamentoConsulta.getTextFieldPaciente().setText("");
+		panelAgendamentoConsulta.getMedico().setSelectedIndex(0);
+		panelAgendamentoConsulta.getPaciente().setSelectedIndex(0);
 		panelAgendamentoConsulta.getTextFieldHorario().setText("");
 		panelAgendamentoConsulta.getTextFieldData().setText("");
 	}

@@ -8,15 +8,14 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 
 public class PanelAgendamentoConsulta extends JPanel {
 	private JPanel panelDadosPessoais;
-	private JTextField textFieldMedico;
 	private JLabel lblMedico;
 	private JTextField textFieldData;
 	private JLabel lblData;
-	private JTextField textFieldPaciente;
 	private JLabel lblPaciente;
 	private JLabel lblDadosDoAgendamento;
 	private JLabel lblAgendamentoDeConsultas;
@@ -24,6 +23,10 @@ public class PanelAgendamentoConsulta extends JPanel {
 	private JTextField textFieldHorario;
 	private JButton btnLimpar;
 	private JButton btnAgendar;
+	
+	private JComboBox<String> Medico;
+	private JComboBox<String> Paciente;
+	
 	public PanelAgendamentoConsulta() {
 		setBackground(new Color(89, 169, 255));
 		this.setSize(960, 790);
@@ -40,25 +43,31 @@ public class PanelAgendamentoConsulta extends JPanel {
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(79, 169, 800, 167);
-			panelDadosPessoais.add(getTextFieldMedico());
 			panelDadosPessoais.add(getLblMedico());
 			panelDadosPessoais.add(getTextFieldData());
 			panelDadosPessoais.add(getLblData());
-			panelDadosPessoais.add(getTextFieldPaciente());
+			panelDadosPessoais.add(getPaciente());
+			panelDadosPessoais.add(getMedico());
 			panelDadosPessoais.add(getLblPaciente());
 			panelDadosPessoais.add(getLblHorario());
 			panelDadosPessoais.add(getTextFieldHorario());
 		}
 		return panelDadosPessoais;
 	}
-	public JTextField getTextFieldMedico() {
-		if (textFieldMedico == null) {
-			textFieldMedico = new JTextField();
-			textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldMedico.setBounds(10, 40, 373, 32);
+	
+	public JComboBox<String> getMedico(){
+		if(Medico == null) {
+			Medico = new JComboBox<>();
+			Medico.setBackground(new Color(255, 255, 255));
+			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Medico.setModel(new DefaultComboBoxModel<>(new String[] {"Selecione um médico"}));
+			Medico.setBounds(10, 40, 373, 32);
 		}
-		return textFieldMedico;
+	
+		return Medico;
 	}
+	
+	
 	public JLabel getLblMedico() {
 		if (lblMedico == null) {
 			lblMedico = new JLabel("Médico:");
@@ -83,14 +92,22 @@ public class PanelAgendamentoConsulta extends JPanel {
 		}
 		return lblData;
 	}
-	public JTextField getTextFieldPaciente() {
-		if (textFieldPaciente == null) {
-			textFieldPaciente = new JTextField();
-			textFieldPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldPaciente.setBounds(393, 40, 397, 32);
+	
+	
+	public JComboBox<String> getPaciente(){
+		if(Paciente == null) {
+			Paciente = new JComboBox<>();
+			Paciente.setBackground(new Color(255, 255, 255));
+			Paciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Paciente.setModel(new DefaultComboBoxModel<>(new String[] {"Selecione um paciente"}));
+			Paciente.setBounds(393, 40, 397, 32);
 		}
-		return textFieldPaciente;
+	
+		return Paciente;
 	}
+	
+	
+	
 	public JLabel getLblPaciente() {
 		if (lblPaciente == null) {
 			lblPaciente = new JLabel("Paciente:");

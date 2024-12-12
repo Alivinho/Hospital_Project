@@ -3,7 +3,9 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -32,14 +34,14 @@ public class ControladorAgendamentoExame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == panelAgendamentoExame.getBtnAgendar()) {
-			agendarConsulta();
+			agendarExame();
 		}else if(e.getSource() == panelAgendamentoExame.getBtnLimpar()){
 			limparCampos();
 		}		
 	}
 
 	
-	public void agendarConsulta() {
+	public void agendarExame() {
 		try {
 			
 			String paciente = (String) panelAgendamentoExame.getPaciente().getSelectedItem();
@@ -56,32 +58,34 @@ public class ControladorAgendamentoExame implements ActionListener {
 				throw new IllegalArgumentException("Selecione um tipo de exame.");
 			}
 			
-//			if (!data.matches("\\d{2}/\\d{2}/\\d{4}") || !hora.matches("\\d{2}:\\d{2}")) {
-//				throw new IllegalArgumentException("Data ou horário em formato inválido. Data: xx/xx/xxx; Hora: xx:xx");
-//			}
-//			
-//			 String[] dataParts = data.split("/");
-//		        int anoInformado = Integer.parseInt(dataParts[2]);
-//		        int anoAtual = java.time.Year.now().getValue();
-//
-//		        if (anoInformado < anoAtual) {
-//		            throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
-//		        }
+			String[] dataParts = data.split("/");
+			int anoInformado = Integer.parseInt(dataParts[2]);
+			int anoAtual = java.time.Year.now().getValue();
+	        int mesInformado = Integer.parseInt(dataParts[1]);
+	        
+	        int mesAtual = java.time.Month.from(java.time.LocalDate.now()).getValue();
 
+
+			if (anoInformado < anoAtual) {
+				throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
+			}
+			if (anoInformado == anoAtual && mesInformado < mesAtual) {
+	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
+	        }
 			
-			if (!paciente.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-	                throw new Exception("O nome do material deve conter apenas letras e espaços.");
-	           }
+
 	            
 			if(panelAgendamentoExame.getComboBoxTipoExame().getSelectedIndex() == 0) {
             	throw new Exception("Selecione um tipo de exame.");
             }
 			
-			Agendamento agendamento = new Agendamento(null, paciente, tipoExame, data, hora);
+			Agendamento agendamento = new Agendamento("",paciente, tipoExame, data, hora);
 			examesAgendados.add(agendamento);
 			
+			gravarDados(agendamento);
+			
 			 
-	        JOptionPane.showMessageDialog(panelAgendamentoExame, "[SUCESSO ✅ ]: Relatório gerado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(panelAgendamentoExame, "[SUCESSO ✅ ]: Aendado com sucesso!", "Sucesso!", JOptionPane.INFORMATION_MESSAGE);
             limparCampos();
 			
 			
@@ -115,6 +119,21 @@ public class ControladorAgendamentoExame implements ActionListener {
 		}
 	}
 	
+	
+	private void gravarDados(Agendamento agendamento) {
+		System.out.println("Diretório atual: " + System.getProperty("user.dir"));
+		
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosAgendamentoExame.txt", true))) {
+			writer.write(agendamento.toString());
+			writer.newLine();
+			System.out.println("Dados gravados com sucesso em dadosAgendamentoExame.txt:");
+			System.out.println(agendamento.toString());
+		} catch (IOException e) {
+			System.out.println("Erro ao gravar os dados no arquivo:");
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	public void limparCampos() {

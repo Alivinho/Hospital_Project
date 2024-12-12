@@ -22,6 +22,10 @@ public class Agendamento {
 		this.tipoExame = tipoExame;
 		
 	}
+	
+	 public String toString() {
+	        return data + ";"  + ";" + medico + ";" + paciente + ";";
+	    }
 
 	public String getMedico() {
 		return medico;

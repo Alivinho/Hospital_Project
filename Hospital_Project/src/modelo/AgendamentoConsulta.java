@@ -6,6 +6,15 @@ public class AgendamentoConsulta {
 	private String data;
 	private String horario;
 	
+	public String toString() { 
+		return medico + ";" +
+			   paciente + ";" +
+			   data + ";" +
+			   horario + ";";
+
+	}
+	
+	
 	public AgendamentoConsulta(String medico, String paciente, String data, String horario) {
 		this.medico = medico;
 		this.paciente = paciente;
