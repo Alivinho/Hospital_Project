@@ -56,13 +56,10 @@ public class ControladorCadastrarPaciente implements ActionListener {
 
 			validarDataNascimento(dataNascimento);
 
-//            if (!dataNascimento.matches("\\d{2}/\\d{2}/\\d{4}")) {
-//            	throw new Exception("Data de Nascimento deve estar no formato DD/MM/AAAA.");
-//            }
 
-//            if (!telefone.matches("\\d{10,11}")) {
-//            	throw new Exception("O Telefone deve conter apenas números com 10 ou 11 dígitos.");    
-//            } 
+            if (!telefone.matches("\\d{10,11}")) {
+            	throw new Exception("O Telefone deve conter apenas números com 10 ou 11 dígitos.");    
+            } 
 
 			float altura = Float.parseFloat(alturaText);
 			float peso = Float.parseFloat(pesoText);
@@ -142,14 +139,14 @@ public class ControladorCadastrarPaciente implements ActionListener {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
 	    // Caminho ajustado para o local correto do arquivo dentro do projeto
-	    String filePath = "Hospital_Project/src/dados/dadosPaciente.txt"; 
+	    String filePath = "src/dados/dadosPaciente.txt"; 
 	    System.out.println("Tentando gravar no arquivo: " + new File(filePath).getAbsolutePath());
 
 	    // Criação do diretório 'dados' caso não exista
 	    File file = new File(filePath);
 	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
 
-	    if (!parentDirectory.exists()) {
+	    /*if (!parentDirectory.exists()) {
 	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
 	        if (created) {
 	            System.out.println("Diretório 'dados' criado com sucesso!");
@@ -157,7 +154,7 @@ public class ControladorCadastrarPaciente implements ActionListener {
 	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
 	            return;
 	        }
-	    }
+	    }*/
 
 	    // Gravação no arquivo
 	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
