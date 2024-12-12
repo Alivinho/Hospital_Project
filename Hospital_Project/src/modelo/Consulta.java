@@ -19,10 +19,19 @@ public class Consulta {
 		this.medico = medico;
 		this.paciente = paciente;
 		this.queixaPaciente = queixaPaciente;
+		this.tipoConsulta = tipoConsulta;
 		this.convenio = convenio;
 		this.observacoes = observacoes;
 		this.materiais = materiais;
 	}
+	
+	@Override
+    public String toString() {
+        return String.format(
+            "Data: %s, Hora: %s, Médico: %s, Paciente: %s, Queixa: %s, Tipo de Consulta: %s, Convênio: %s, Observações: %s, Materiais: %s",
+            data, hora, medico, paciente, queixaPaciente, tipoConsulta, convenio, observacoes, materiais
+        );
+    }
 
 	public String getData() {
 		return data;

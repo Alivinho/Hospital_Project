@@ -3,13 +3,16 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import modelo.Consulta;
+import modelo.Exame;
 import modelo.Material;
 import modelo.Medico;
 import modelo.Paciente;
@@ -63,14 +66,6 @@ public class ControladorConsulta implements ActionListener {
 				throw new Exception("Todos os campos devem ser preenchidos!");
 			}
 
-			if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-				throw new Exception("O nome do médico deve conter apenas letras e espaços.");
-			}
-
-			if (!paciente.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-				throw new Exception("O nome do paciente deve conter apenas letras e espaços.");
-			}
-
 			if (panelConsulta.getComboBoxTipoConsulta().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um tipo de consulta.");
 			}
@@ -103,7 +98,7 @@ public class ControladorConsulta implements ActionListener {
 					observacoes, materiais);
 			consultasCadastradas.add(consulta);
 			
-			
+			gravarDados(consulta);
 
 			JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO ✅ ]: Consulta cadastrada com sucesso!", "Sucesso!",
 					JOptionPane.INFORMATION_MESSAGE);
@@ -158,6 +153,18 @@ public class ControladorConsulta implements ActionListener {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(panelConsulta, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
 					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	private void gravarDados(Consulta consulta) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosConsulta.txt", true))) {
+			writer.write(consulta.toString());
+			writer.newLine();
+			System.out.println("Dados gravados com sucesso em dadosConsulta.txt:");
+			System.out.println(consulta.toString());
+		} catch (IOException e) {
+			System.out.println("Erro ao gravar os dados no arquivo:");
+			e.printStackTrace();
 		}
 	}
 	
