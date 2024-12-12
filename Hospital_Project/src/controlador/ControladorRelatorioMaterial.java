@@ -31,7 +31,7 @@ public class ControladorRelatorioMaterial implements ActionListener {
 
 	public void gerarRelatorioConsulta() {
 		try {
-			String periodo = panelRelatorioMaterial.getTextFieldPeriodo().getText().trim();
+			String periodo = (String) panelRelatorioMaterial.getComboBoxPeriodo().getSelectedItem();
 			String tipoExame = (String) panelRelatorioMaterial.getComboBoxTipoMaterial().getSelectedItem();
 			String data = panelRelatorioMaterial.getTextFieldData().getText().trim();
 			String formato = (String) panelRelatorioMaterial.getComboBoxTipoFormato().getSelectedItem();
@@ -40,6 +40,11 @@ public class ControladorRelatorioMaterial implements ActionListener {
 				throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
 			}
 
+			if (panelRelatorioMaterial.getComboBoxPeriodo().getSelectedIndex() == 0) {
+				throw new IllegalArgumentException("Selecione um período.");
+			}
+			
+			
 			if (panelRelatorioMaterial.getComboBoxTipoMaterial().getSelectedIndex() == 0) {
 				throw new IllegalArgumentException("Selecione um tipo de material.");
 			}
@@ -63,7 +68,7 @@ public class ControladorRelatorioMaterial implements ActionListener {
 	}
 
 	public void limparCampos() {
-		panelRelatorioMaterial.getTextFieldPeriodo().setText("");
+		panelRelatorioMaterial.getComboBoxPeriodo().setSelectedIndex(0);
 		panelRelatorioMaterial.getComboBoxTipoMaterial().setSelectedIndex(0);
 		panelRelatorioMaterial.getTextFieldData().setText("");
 		panelRelatorioMaterial.getComboBoxTipoFormato().setSelectedIndex(0);

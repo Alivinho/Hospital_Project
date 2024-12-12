@@ -33,7 +33,7 @@ public class ControladorRelatorioExame implements ActionListener {
 	public void gerarRelatorioExame() {
 		try {
 			String periodo = (String) panelRelatorioExame.getComboBoxTipoExame().getSelectedItem();
-			String tipoExame = (String) panelRelatorioExame.getComboBoxTipoExame().getSelectedItem();
+			String tipoExame = (String) panelRelatorioExame.getComboBoxPeriodo().getSelectedItem();
 			String data = panelRelatorioExame.getTextFieldData().getText().trim();
 			String formato = (String) panelRelatorioExame.getComboBoxTipoFormato().getSelectedItem();
 
@@ -44,7 +44,11 @@ public class ControladorRelatorioExame implements ActionListener {
 			if (panelRelatorioExame.getComboBoxTipoExame().getSelectedIndex() == 0) {
 				throw new IllegalArgumentException("Selecione um tipo de exame.");
 			}
-
+			
+			if (panelRelatorioExame.getComboBoxPeriodo().getSelectedIndex() == 0) {
+				throw new IllegalArgumentException("Selecione um período.");
+			}
+			
 			if (panelRelatorioExame.getComboBoxTipoFormato().getSelectedIndex() == 0) {
 				throw new IllegalArgumentException("Selecione um tipo de formato.");
 			}
@@ -64,7 +68,7 @@ public class ControladorRelatorioExame implements ActionListener {
 	}
 
 	public void limparCampos() {
-		panelRelatorioExame.getComboBoxTipoExame().setSelectedIndex(0);
+		panelRelatorioExame.getComboBoxPeriodo().setSelectedIndex(0);
 		panelRelatorioExame.getComboBoxTipoExame().setSelectedIndex(0);
 		panelRelatorioExame.getTextFieldData().setText("");
 		panelRelatorioExame.getComboBoxTipoFormato().setSelectedIndex(0);

@@ -42,6 +42,10 @@ public class ControladorRelatorioFinanceiro implements ActionListener {
 			if (panelRelatorioFinanceiro.getComboBoxTipoFormato().getSelectedIndex() == 0) {
 				throw new IllegalArgumentException("Selecione um tipo de formato.");
 			}
+			
+			if (panelRelatorioFinanceiro.getComboBoxPeriodo().getSelectedIndex() == 0) {
+				throw new IllegalArgumentException("Selecione um período.");
+			}
 
 			if (!data.matches("\\d{2}/\\d{2}/\\d{4}")) {
 				throw new IllegalArgumentException("Data deve estar no formato DD/MM/AAAA.");

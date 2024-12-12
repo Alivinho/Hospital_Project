@@ -28,6 +28,7 @@ public class PanelRelatorioExame extends JPanel {
 	private JButton btnGerar;
 	private JButton btnImprimir;
 	private JComboBox comboBoxPeriodo;
+	
 	public PanelRelatorioExame() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(960, 790);

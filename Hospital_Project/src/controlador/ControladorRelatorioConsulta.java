@@ -18,10 +18,12 @@ public class ControladorRelatorioConsulta implements ActionListener {
 	private void addEventos() {
 		panelRelatorioConsulta.getBtnImprimir().addActionListener(this);
 		panelRelatorioConsulta.getBtnLimpar().addActionListener(this);
+		panelRelatorioConsulta.getBtnGerar().addActionListener(this);
+		
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == panelRelatorioConsulta.getBtnImprimir()) {
+		if (e.getSource() == panelRelatorioConsulta.getBtnGerar()) {
 			gerarRelatorioConsulta();
 		} else if (e.getSource() == panelRelatorioConsulta.getBtnLimpar()) {
 			limparCampos();
@@ -41,6 +43,10 @@ public class ControladorRelatorioConsulta implements ActionListener {
 
 			if (panelRelatorioConsulta.getComboBoxTipoConsulta().getSelectedIndex() == 0) {
 				throw new IllegalArgumentException("Selecione um tipo de consulta.");
+			}
+			
+			if (panelRelatorioConsulta.getComboBoxPeriodo().getSelectedIndex() == 0) {
+				throw new IllegalArgumentException("Selecione um período.");
 			}
 
 			if (panelRelatorioConsulta.getComboBoxTipoFormato().getSelectedIndex() == 0) {
