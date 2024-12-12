@@ -72,11 +72,11 @@ public class ControladorCadastrarMedico implements ActionListener {
 			if (!especialidade.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
 				throw new Exception("A especialidade deve conter apenas letras e espaços.");
 			}
-			
-			
+
 			if (!crm.matches("[A-Za-z]{2}\\d{4,6}")) {
-		        throw new Exception("O campo CRM deve seguir o formato correto: 2 letras (estado) seguidas de 4 a 6 dígitos.");
-		    }
+				throw new Exception(
+						"O campo CRM deve seguir o formato correto: 2 letras (estado) seguidas de 4 a 6 dígitos.");
+			}
 
 			if (!horarioAtendimento.matches("\\d{2}:\\d{2}")) {
 				throw new Exception("O horário deve estar no formato HH:MM");
@@ -91,7 +91,7 @@ public class ControladorCadastrarMedico implements ActionListener {
 			if (!cep.matches("\\d{5}-\\d{3}")) {
 				throw new Exception("O campo CEP deve estar no formato XXXXX-XXX.");
 			}
-			
+
 			if (!logradouro.matches("^[\\d]+[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]*$")
 					&& !logradouro.matches("^[a-zA-Zá-úÁ-ÚçÇ\\s\\-\\/]+$")) {
 				throw new Exception(
@@ -110,16 +110,15 @@ public class ControladorCadastrarMedico implements ActionListener {
 			if (!estado.matches("[a-zA-Zá-úÁ-ÚçÇ\\s]+")) {
 				throw new Exception("O campo Estado deve conter apenas letras.");
 			}
-			
+
 			Endereco endereco = new Endereco(logradouro, numero, complemento, bairro, cep, cidade, estado);
 
 			Medico medico = new Medico(nome, especialidade, crm, contato, horarioAtendimento, valorConsulta, endereco);
 			medicosCadastrados.add(medico);
-			
+
 			// *************************** Gravação do médico no arquivo
 			// ***************************
 			gravarDados(medico);
-
 
 			JOptionPane.showMessageDialog(panelCadastrarMedico, "[SUCESSO ✅ ]: Medico cadastrado com sucesso!",
 					"Sucesso!", JOptionPane.INFORMATION_MESSAGE);
@@ -134,52 +133,51 @@ public class ControladorCadastrarMedico implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	
+
 	private void gravarDados(Medico medico) {
-	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
+		System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
-	    // Obtendo o caminho do arquivo como recurso no classpath
-	    String resourcePath = "/dados/dadosMedico.txt";
-	    URL resourceUrl = getClass().getResource(resourcePath);
+		// Obtendo o caminho do arquivo como recurso no classpath
+		String resourcePath = "/dados2/dadosMedico.txt";
+		URL resourceUrl = getClass().getResource(resourcePath);
 
-	    if (resourceUrl == null) {
-	        System.out.println("Arquivo não encontrado no classpath: " + resourcePath);
-	        return;
-	    }
+		if (resourceUrl == null) {
+			System.out.println("Arquivo não encontrado no classpath: " + resourcePath);
+			return;
+		}
 
-	    // Convertendo o recurso em um arquivo
-	    File file;
-	    try {
-	        file = new File(resourceUrl.toURI());
-	    } catch (URISyntaxException e) {
-	        System.out.println("Erro ao converter o caminho do recurso para URI:");
-	        e.printStackTrace();
-	        return;
-	    }
+		// Convertendo o recurso em um arquivo
+		File file;
+		try {
+			file = new File(resourceUrl.toURI());
+		} catch (URISyntaxException e) {
+			System.out.println("Erro ao converter o caminho do recurso para URI:");
+			e.printStackTrace();
+			return;
+		}
 
-	    // Criação do diretório 'dados' caso não exista
-	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
-	    if (!parentDirectory.exists()) {
-	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
-	        if (created) {
-	            System.out.println("Diretório 'dados' criado com sucesso!");
-	        } else {
-	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
-	            return;
-	        }
-	    }
+		// Criação do diretório 'dados' caso não exista
+		File parentDirectory = file.getParentFile(); // Obtém o diretório pai
+		if (!parentDirectory.exists()) {
+			boolean created = parentDirectory.mkdirs(); // Cria o diretório
+			if (created) {
+				System.out.println("Diretório 'dados' criado com sucesso!");
+			} else {
+				System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
+				return;
+			}
+		}
 
-	    // Gravação no arquivo
-	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-	        writer.write(medico.toString());
-	        writer.newLine();
-	        System.out.println("Dados gravados com sucesso em dadosMedico.txt:");
-	        System.out.println(medico.toString());
-	    } catch (IOException e) {
-	        System.out.println("Erro ao gravar os dados no arquivo:");
-	        e.printStackTrace();
-	    }
+		// Gravação no arquivo
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+			writer.write(medico.toString());
+			writer.newLine();
+			System.out.println("Dados gravados com sucesso em dadosMedico.txt:");
+			System.out.println(medico.toString());
+		} catch (IOException e) {
+			System.out.println("Erro ao gravar os dados no arquivo:");
+			e.printStackTrace();
+		}
 	}
 
 	private void limparCampos() {
