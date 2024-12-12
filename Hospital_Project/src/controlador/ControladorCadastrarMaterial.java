@@ -102,36 +102,10 @@ public class ControladorCadastrarMaterial implements ActionListener {
 	private void gravarDados(Material material) {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 	    
-	    String resourcePath = "/dados/dadosMaterial.txt";
-	    URL resourceUrl = getClass().getResource(resourcePath);
-
-	    if (resourceUrl == null) {
-	        System.out.println("Arquivo não encontrado no classpath: " + resourcePath);
-	        return;
-	    }
-	    
-	    File file;
-	    try {
-	        file = new File(resourceUrl.toURI());
-	    } catch (URISyntaxException e) {
-	        System.out.println("Erro ao converter o caminho do recurso para URI:");
-	        e.printStackTrace();
-	        return;
-	    }
-	    
-	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
-	    if (!parentDirectory.exists()) {
-	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
-	        if (created) {
-	            System.out.println("Diretório 'dados' criado com sucesso!");
-	        } else {
-	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
-	            return;
-	        }
-	    }
+	   
 	    
 	    // Gravação no arquivo
-	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+	    try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosMaterial.txt", true))) {
 	        writer.write(material.toString());
 	        writer.newLine();
 	        System.out.println("Dados gravados com sucesso em dadosMaterial.txt:");

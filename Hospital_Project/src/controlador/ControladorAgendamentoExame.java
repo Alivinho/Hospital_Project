@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -17,6 +20,8 @@ public class ControladorAgendamentoExame implements ActionListener {
 		this.panelAgendamentoExame = panelAgendamentoExame;
 		examesAgendados = new ArrayList<Agendamento>();
 		addEventos();
+		
+		carregarPacientes();
 	}
 	
 	private void addEventos() {
@@ -37,7 +42,7 @@ public class ControladorAgendamentoExame implements ActionListener {
 	public void agendarConsulta() {
 		try {
 			
-			String paciente = panelAgendamentoExame.getTextFieldPaciente().getText().trim();
+			String paciente = (String) panelAgendamentoExame.getPaciente().getSelectedItem();
 			String tipoExame = (String) panelAgendamentoExame.getComboBoxTipoExame().getSelectedItem();
 			String data = panelAgendamentoExame.getTextFieldData().getText().trim();
 			String hora = panelAgendamentoExame.getTextFieldHorario().getText().trim();
@@ -87,8 +92,33 @@ public class ControladorAgendamentoExame implements ActionListener {
 		
 	}
 	
+	private void carregarPacientes() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosPaciente.txt"));
+			String linha;
+			panelAgendamentoExame.getPaciente().removeAllItems();
+			panelAgendamentoExame.getPaciente().addItem("Selecionar Paciente");
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 2) {
+					String nome = dados[0].trim();
+					String dataNascimento = dados[1].trim();
+					String pacienteFormatado = nome + " - Data de nascimento: " + dataNascimento;
+					panelAgendamentoExame.getPaciente().addItem(pacienteFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelAgendamentoExame, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	
+	
 	public void limparCampos() {
-		panelAgendamentoExame.getTextFieldPaciente().setText("");		
+		panelAgendamentoExame.getPaciente().setSelectedIndex(0);		
 		panelAgendamentoExame.getTextFieldHorario().setText("");
 		panelAgendamentoExame.getComboBoxTipoExame().setSelectedIndex(0);	
 		panelAgendamentoExame.getTextFieldData().setText("");		

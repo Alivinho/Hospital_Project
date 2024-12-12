@@ -5,8 +5,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -74,6 +76,11 @@ public class ControladorExame implements ActionListener {
 
 			Exame exame = new Exame(nomeExame, descricao, tipoExame, valorParticular, materiaisUtilizados, medico);
 			examesCadastrados.add(exame);
+			
+			
+			// *************************** Gravação do exame no arquivo
+			// ***************************
+			gravarDados(exame);
 
 			JOptionPane.showMessageDialog(panelExame, "[SUCESSO ✅ ]: Exame cadastrado com sucesso!", "Sucesso!",
 					JOptionPane.INFORMATION_MESSAGE);
@@ -89,32 +96,28 @@ public class ControladorExame implements ActionListener {
 		}
 	}
 
+	
+	
+	private void gravarDados(Exame exame) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosExame.txt", true))) {
+			writer.write(exame.toString());
+			writer.newLine();
+			System.out.println("Dados gravados com sucesso em dadosExame.txt:");
+			System.out.println(exame.toString());
+		} catch (IOException e) {
+			System.out.println("Erro ao gravar os dados no arquivo:");
+			e.printStackTrace();
+		}
+	}
+	
+	
 	private void carregarMedicos() {
 		try {
-//			// Obtendo o caminho do arquivo como recurso no classpath
-//			String resourcePath = "./dados/dadosMedico.txt";
-//			URL resourceUrl = getClass().getResource(resourcePath);
-//
-//			if (resourceUrl == null) {
-//				JOptionPane.showMessageDialog(panelExame, "Arquivo de médico não encontrado!", "Erro",
-//						JOptionPane.ERROR_MESSAGE);
-//				return;
-//			}
-
-			// Convertendo o recurso em um arquivo
-//			File arquivo;
-//			try {
-//				arquivo = new File(resourceUrl.toURI());
-//			} catch (URISyntaxException e) {
-//				JOptionPane.showMessageDialog(panelExame, "Erro ao acessar o arquivo de médicos!", "Erro",
-//						JOptionPane.ERROR_MESSAGE);
-//				e.printStackTrace();
-//				return;
-//			}
-
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
 			String linha;
 			panelExame.getMedico().removeAllItems();
+			panelExame.getMedico().addItem("Selecionar Paciente");
+
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");

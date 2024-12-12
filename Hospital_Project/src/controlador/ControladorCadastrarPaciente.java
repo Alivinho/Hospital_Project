@@ -138,27 +138,9 @@ public class ControladorCadastrarPaciente implements ActionListener {
 
 	private void gravarDados(Paciente paciente) {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
-
-	    // Caminho ajustado para o local correto do arquivo dentro do projeto
-	    String filePath = "src/dados/dadosPaciente.txt"; 
-	    System.out.println("Tentando gravar no arquivo: " + new File(filePath).getAbsolutePath());
-
-	    // Criação do diretório 'dados' caso não exista
-	    File file = new File(filePath);
-	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
-
-	    /*if (!parentDirectory.exists()) {
-	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
-	        if (created) {
-	            System.out.println("Diretório 'dados' c riado com sucesso!");
-	        } else {
-	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
-	            return;
-	        }
-	    }*/
-
+	   
 	    // Gravação no arquivo
-	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+	    try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosPaciente.txt", true))) {
 	        writer.write(paciente.toString());
 	        writer.newLine();
 	        System.out.println("Dados gravados com sucesso em dadosPaciente.txt:");

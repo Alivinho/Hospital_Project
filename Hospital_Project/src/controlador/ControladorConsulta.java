@@ -147,7 +147,7 @@ public class ControladorConsulta implements ActionListener {
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");
-				if (dados.length >= 1) {
+				if (dados.length >= 2) {
 					String nome = dados[0].trim();
 					String dataNascimento = dados[1].trim();
 					String pacienteFormatado = nome + " - Data de nascimento: " + dataNascimento;

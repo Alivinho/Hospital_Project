@@ -19,6 +19,16 @@ public class Exame {
 		this.materiais = materiais;
 		this.medico = medico;				
 	}
+	
+	
+	public String toString() {
+		return nomeExame + ";"+
+				descricao + ";" +
+				tipoExame + ";" +
+				valorParticular + ";" +
+				materiais + ";" +
+				medico + ";";
+	}
 
 	public String getNomeExame() {
 		return nomeExame;

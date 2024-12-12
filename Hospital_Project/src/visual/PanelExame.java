@@ -206,7 +206,7 @@ public class PanelExame extends JPanel {
 			Medico = new JComboBox<>();
 			Medico.setBackground(new Color(255, 255, 255));
 			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			Medico.setModel(new DefaultComboBoxModel<>(new String[] {"Selecione um médico"}));
+			Medico.setModel(new DefaultComboBoxModel<>(new String[] {}));
 			Medico.setBounds(10, 37, 370, 32);
 		}
 	

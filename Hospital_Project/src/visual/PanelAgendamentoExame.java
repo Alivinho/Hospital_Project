@@ -16,7 +16,7 @@ public class PanelAgendamentoExame extends JPanel {
 	private JLabel lblDadosDoAgendamento;
 	private JPanel panelDadosPessoais;
 	private JLabel lblTipoExame;
-	private JTextField textFieldPaciente;
+	//private JTextField textFieldPaciente;
 	private JLabel lblPaciente;
 	private JComboBox comboBoxTipoExame;
 	private JTextField textFieldData;
@@ -25,6 +25,10 @@ public class PanelAgendamentoExame extends JPanel {
 	private JLabel lblHorario;
 	private JButton btnLimpar;
 	private JButton btnAgendar;
+	
+	private JComboBox<String> Paciente;
+	
+	
 	public PanelAgendamentoExame() {
 		setBackground(new Color(89, 169, 255));
 		this.setSize(960, 790);
@@ -61,7 +65,7 @@ public class PanelAgendamentoExame extends JPanel {
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(80, 169, 800, 167);
 			panelDadosPessoais.add(getLblTipoExame());
-			panelDadosPessoais.add(getTextFieldPaciente());
+			panelDadosPessoais.add(getPaciente());
 			panelDadosPessoais.add(getLblPaciente());
 			panelDadosPessoais.add(getComboBoxTipoExame());
 			panelDadosPessoais.add(getTextFieldData());
@@ -79,14 +83,21 @@ public class PanelAgendamentoExame extends JPanel {
 		}
 		return lblTipoExame;
 	}
-	public JTextField getTextFieldPaciente() {
-		if (textFieldPaciente == null) {
-			textFieldPaciente = new JTextField();
-			textFieldPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldPaciente.setBounds(10, 40, 511, 32);
+	
+	
+	public JComboBox<String> getPaciente() {
+		if(Paciente == null) {
+			Paciente = new JComboBox<>();
+			Paciente.setBackground(new Color(255, 255, 255));
+			Paciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Paciente.setModel(new DefaultComboBoxModel<>(new String[] {}));
+			Paciente.setBounds(10, 40, 511, 32);
 		}
-		return textFieldPaciente;
+	
+		return Paciente;
 	}
+	
+	
 	public JLabel getLblPaciente() {
 		if (lblPaciente == null) {
 			lblPaciente = new JLabel("Paciente:");
