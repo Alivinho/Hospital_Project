@@ -2,6 +2,9 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -20,6 +23,9 @@ public class ControladorConsulta implements ActionListener {
 		this.panelConsulta = panelConsulta;
 		consultasCadastradas = new ArrayList<Consulta>();
 		addEventos();
+		
+		carregarMedicos();
+		carregarPacientes();
 	}
 
 	private void addEventos() {
@@ -43,8 +49,8 @@ public class ControladorConsulta implements ActionListener {
 		try {
 			String data = panelConsulta.getTextFieldData().getText().trim();
 			String hora = panelConsulta.getTextFieldHora().getText().trim();
-			String medico = (String) panelConsulta.getTextFieldMedico().getText().trim();
-			String paciente = panelConsulta.getTextFieldPaciente().getText().trim();
+			String medico = (String) panelConsulta.getMedico().getSelectedItem();
+			String paciente = (String) panelConsulta.getPaciente().getSelectedItem();
 			String queixaPaciente = panelConsulta.getTextFieldQueixaPaciente().getText().trim();
 			String tipoConsulta = (String) panelConsulta.getComboBoxTipoConsulta().getSelectedItem();
 			String convenio = (String) panelConsulta.getComboBoxTipoConvenio().getSelectedItem();
@@ -96,6 +102,8 @@ public class ControladorConsulta implements ActionListener {
 			Consulta consulta = new Consulta(data, hora, medico, paciente, queixaPaciente, tipoConsulta, convenio,
 					observacoes, materiais);
 			consultasCadastradas.add(consulta);
+			
+			
 
 			JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO ✅ ]: Consulta cadastrada com sucesso!", "Sucesso!",
 					JOptionPane.INFORMATION_MESSAGE);
@@ -107,6 +115,51 @@ public class ControladorConsulta implements ActionListener {
 		}
 	}
 	
+	
+	private void carregarMedicos() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
+			String linha;
+			panelConsulta.getMedico().removeAllItems();
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 3) {
+					String nome = dados[0].trim();
+					String crm = dados[1].trim();
+					String especialidade = dados[2].trim();
+					String medicoFormatado = nome + " - CRM: " + crm + " (" + especialidade + ")";
+					panelConsulta.getMedico().addItem(medicoFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelConsulta, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	private void carregarPacientes() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosPaciente.txt"));
+			String linha;
+			panelConsulta.getPaciente().removeAllItems();
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 1) {
+					String nome = dados[0].trim();
+					String dataNascimento = dados[1].trim();
+					String pacienteFormatado = nome + " - Data de nascimento: " + dataNascimento;
+					panelConsulta.getPaciente().addItem(pacienteFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelConsulta, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
 	
 	private void toggleMateriais() {
         
@@ -120,8 +173,8 @@ public class ControladorConsulta implements ActionListener {
 	private void limparCampos() {
 		panelConsulta.getTextFieldData().setText("");
 		panelConsulta.getTextFieldHora().setText("");
-		panelConsulta.getTextFieldMedico().setText("");
-		panelConsulta.getTextFieldPaciente().setText("");
+		panelConsulta.getMedico().setSelectedIndex(0);
+		panelConsulta.getPaciente().setSelectedIndex(0);
 		panelConsulta.getTextFieldQueixaPaciente().setText("");
 		panelConsulta.getComboBoxTipoConsulta().setSelectedIndex(0);
 		;

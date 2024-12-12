@@ -39,6 +39,9 @@ public class PanelConsulta extends JPanel {
 	
 	private JCheckBox checkBoxMateriais;
 	
+	private JComboBox<String> Medico;
+	private JComboBox<String> Paciente;
+	
 
 	public PanelConsulta() {
 		setBackground(new Color(83, 169, 255));
@@ -74,7 +77,7 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais.setLayout(null);
 			panelDadosPessoais.setBorder(new LineBorder(new Color(192, 192, 192), 1, true));
 			panelDadosPessoais.setBounds(69, 169, 800, 459);
-			panelDadosPessoais.add(getTextFieldMedico());
+			panelDadosPessoais.add(getMedico());
 			panelDadosPessoais.add(getLblMedico());
 			panelDadosPessoais.add(getLblTipoConsulta());
 			panelDadosPessoais.add(getTextFieldQueixaPaciente());
@@ -82,7 +85,7 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais.add(getLblTipoConvenio());
 			panelDadosPessoais.add(getLblObservacoes());
 			panelDadosPessoais.add(getComboBoxTipoConvenio());
-			panelDadosPessoais.add(getTextFieldPaciente());
+			panelDadosPessoais.add(getPaciente());
 			panelDadosPessoais.add(getLblPaciente());
 			panelDadosPessoais.add(getComboBoxTipoConsulta());
 			panelDadosPessoais.add(getTextAreaMateriaisUtilizados());
@@ -98,13 +101,16 @@ public class PanelConsulta extends JPanel {
 		}
 		return panelDadosPessoais;
 	}
-	public JTextField getTextFieldMedico() {
-		if (textFieldMedico == null) {
-			textFieldMedico = new JTextField();
-			textFieldMedico.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldMedico.setBounds(10, 40, 373, 32);
+	public JComboBox<String> getMedico(){
+		if(Medico == null) {
+			Medico = new JComboBox<>();
+			Medico.setBackground(new Color(255, 255, 255));
+			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Medico.setModel(new DefaultComboBoxModel<>(new String[] {"Selecione um médico"}));
+			Medico.setBounds(10, 37, 370, 32);
 		}
-		return textFieldMedico;
+	
+		return Medico;
 	}
 	public JLabel getLblMedico() {
 		if (lblMedico == null) {
@@ -172,19 +178,22 @@ public class PanelConsulta extends JPanel {
 		}
 		return comboBoxTipoConvenio;
 	}
-	public JTextField getTextFieldPaciente() {
-		if (textFieldPaciente == null) {
-			textFieldPaciente = new JTextField();
-			textFieldPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldPaciente.setBounds(393, 40, 397, 32);
+	public JComboBox<String> getPaciente(){
+		if(Paciente == null) {
+			Paciente = new JComboBox<>();
+			Paciente.setBackground(new Color(255, 255, 255));
+			Paciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			Paciente.setModel(new DefaultComboBoxModel<>(new String[] {"Selecione um paciente"}));
+			Paciente.setBounds(390, 37, 400, 32);
 		}
-		return textFieldPaciente;
+	
+		return Paciente;
 	}
 	public JLabel getLblPaciente() {
 		if (lblPaciente == null) {
 			lblPaciente = new JLabel("Paciente:");
 			lblPaciente.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblPaciente.setBounds(393, 10, 397, 32);
+			lblPaciente.setBounds(390, 10, 397, 32);
 		}
 		return lblPaciente;
 	}
