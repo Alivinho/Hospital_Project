@@ -138,38 +138,38 @@ public class ControladorCadastrarMedico implements ActionListener {
 		System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
 		// Obtendo o caminho do arquivo como recurso no classpath
-		String resourcePath = "/dados2/dadosMedico.txt";
-		URL resourceUrl = getClass().getResource(resourcePath);
-
-		if (resourceUrl == null) {
-			System.out.println("Arquivo não encontrado no classpath: " + resourcePath);
-			return;
-		}
-
-		// Convertendo o recurso em um arquivo
-		File file;
-		try {
-			file = new File(resourceUrl.toURI());
-		} catch (URISyntaxException e) {
-			System.out.println("Erro ao converter o caminho do recurso para URI:");
-			e.printStackTrace();
-			return;
-		}
-
-		// Criação do diretório 'dados' caso não exista
-		File parentDirectory = file.getParentFile(); // Obtém o diretório pai
-		if (!parentDirectory.exists()) {
-			boolean created = parentDirectory.mkdirs(); // Cria o diretório
-			if (created) {
-				System.out.println("Diretório 'dados' criado com sucesso!");
-			} else {
-				System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
-				return;
-			}
-		}
+//		String resourcePath = "./dados/dadosMedico.txt";
+//		URL resourceUrl = getClass().getResource(resourcePath);
+//
+//		if (resourceUrl == null) {
+//			System.out.println("Arquivo não encontrado no classpath: " + resourcePath);
+//			return;
+//		}
+//
+//		// Convertendo o recurso em um arquivo
+//		File file;
+//		try {
+//			file = new File(resourceUrl.toURI());
+//		} catch (URISyntaxException e) {
+//			System.out.println("Erro ao converter o caminho do recurso para URI:");
+//			e.printStackTrace();
+//			return;
+//		}
+//
+//		// Criação do diretório 'dados' caso não exista
+//		File parentDirectory = file.getParentFile(); // Obtém o diretório pai
+//		if (!parentDirectory.exists()) {
+//			boolean created = parentDirectory.mkdirs(); // Cria o diretório
+//			if (created) {
+//				System.out.println("Diretório 'dados' criado com sucesso!");
+//			} else {
+//				System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
+//				return;
+//			}
+//		}
 
 		// Gravação no arquivo
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosMedico.txt", true))) {
 			writer.write(medico.toString());
 			writer.newLine();
 			System.out.println("Dados gravados com sucesso em dadosMedico.txt:");

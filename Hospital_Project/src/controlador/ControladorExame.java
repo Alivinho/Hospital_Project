@@ -91,28 +91,28 @@ public class ControladorExame implements ActionListener {
 
 	private void carregarMedicos() {
 		try {
-			// Obtendo o caminho do arquivo como recurso no classpath
-			String resourcePath = "/dados2/dadosMedico.txt";
-			URL resourceUrl = getClass().getResource(resourcePath);
-
-			if (resourceUrl == null) {
-				JOptionPane.showMessageDialog(panelExame, "Arquivo de médico não encontrado!", "Erro",
-						JOptionPane.ERROR_MESSAGE);
-				return;
-			}
+//			// Obtendo o caminho do arquivo como recurso no classpath
+//			String resourcePath = "./dados/dadosMedico.txt";
+//			URL resourceUrl = getClass().getResource(resourcePath);
+//
+//			if (resourceUrl == null) {
+//				JOptionPane.showMessageDialog(panelExame, "Arquivo de médico não encontrado!", "Erro",
+//						JOptionPane.ERROR_MESSAGE);
+//				return;
+//			}
 
 			// Convertendo o recurso em um arquivo
-			File arquivo;
-			try {
-				arquivo = new File(resourceUrl.toURI());
-			} catch (URISyntaxException e) {
-				JOptionPane.showMessageDialog(panelExame, "Erro ao acessar o arquivo de médicos!", "Erro",
-						JOptionPane.ERROR_MESSAGE);
-				e.printStackTrace();
-				return;
-			}
+//			File arquivo;
+//			try {
+//				arquivo = new File(resourceUrl.toURI());
+//			} catch (URISyntaxException e) {
+//				JOptionPane.showMessageDialog(panelExame, "Erro ao acessar o arquivo de médicos!", "Erro",
+//						JOptionPane.ERROR_MESSAGE);
+//				e.printStackTrace();
+//				return;
+//			}
 
-			BufferedReader br = new BufferedReader(new FileReader(arquivo));
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
 			String linha;
 			panelExame.getMedico().removeAllItems();
 
