@@ -14,7 +14,6 @@ public class AgendamentoConsulta {
 
 	}
 	
-	
 	public AgendamentoConsulta(String medico, String paciente, String data, String horario) {
 		this.medico = medico;
 		this.paciente = paciente;

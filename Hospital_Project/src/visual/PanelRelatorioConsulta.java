@@ -16,7 +16,7 @@ public class PanelRelatorioConsulta extends JPanel {
 	private JTextPane textPainelMaterial;
 	private JLabel lblPainelMaterial;
 	private JLabel lblDadosRelatrio;
-	private JLabel lblRelatorioMaterial;
+	private JLabel lblRelatorioConsulta;
 	private JComboBox comboBoxTipoFormato;
 	private JLabel lblPeriodo;
 	private JLabel lblTipoConsulta;
@@ -26,6 +26,8 @@ public class PanelRelatorioConsulta extends JPanel {
 	private JLabel lblTipoFormato;
 	private JButton btnLimpar;
 	private JButton btnImprimir;
+	private JButton btnGerar;
+
 	private JComboBox comboBoxPeriodo;
 	
 	public PanelRelatorioConsulta() {
@@ -34,7 +36,8 @@ public class PanelRelatorioConsulta extends JPanel {
 		setLayout(null);
 		add(getPanelDadosPessoais());
 		add(getLblDadosRelatrio());
-		add(getLblRelatorioMaterial());
+		add(getLblRelatorioConsulta());
+		add(getBtnGerar());
 		add(getBtnLimpar());
 		add(getBtnImprimir());
 	}
@@ -84,14 +87,14 @@ public class PanelRelatorioConsulta extends JPanel {
 		}
 		return lblDadosRelatrio;
 	}
-	public JLabel getLblRelatorioMaterial() {
-		if (lblRelatorioMaterial == null) {
-			lblRelatorioMaterial = new JLabel("Relatório de Material");
-			lblRelatorioMaterial.setForeground(Color.WHITE);
-			lblRelatorioMaterial.setFont(new Font("Tahoma", Font.BOLD, 30));
-			lblRelatorioMaterial.setBounds(320, 33, 320, 37);
+	public JLabel getLblRelatorioConsulta() {
+		if (lblRelatorioConsulta == null) {
+			lblRelatorioConsulta = new JLabel("Relatório de Consulta");
+			lblRelatorioConsulta.setForeground(Color.WHITE);
+			lblRelatorioConsulta.setFont(new Font("Tahoma", Font.BOLD, 30));
+			lblRelatorioConsulta.setBounds(320, 33, 341, 37);
 		}
-		return lblRelatorioMaterial;
+		return lblRelatorioConsulta;
 	}
 	public JComboBox getComboBoxTipoFormato() {
 		if (comboBoxTipoFormato == null) {
@@ -173,6 +176,19 @@ public class PanelRelatorioConsulta extends JPanel {
 		}
 		return btnImprimir;
 	}
+	
+	public JButton getBtnGerar() {
+		if (btnGerar == null) {
+			btnGerar = new JButton();
+			btnGerar.setText("GERAR");
+			btnGerar.setForeground(new Color(0, 0, 205));
+			btnGerar.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnGerar.setBounds(733, 640, 147, 40);
+		}
+		return btnGerar;
+	}
+	
+	
 	public JComboBox getComboBoxPeriodo() {
 		if (comboBoxPeriodo == null) {
 			comboBoxPeriodo = new JComboBox();

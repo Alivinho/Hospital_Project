@@ -31,7 +31,7 @@ public class ControladorRelatorioFinanceiro implements ActionListener {
 
 	public void gerarRelatorioConsulta() {
 		try {
-			String periodo = panelRelatorioFinanceiro.getTextFieldPeriodo().getText().trim();
+			String periodo = (String) panelRelatorioFinanceiro.getComboBoxPeriodo().getSelectedItem();
 			String data = panelRelatorioFinanceiro.getTextFieldData().getText().trim();
 			String formato = (String) panelRelatorioFinanceiro.getComboBoxTipoFormato().getSelectedItem();
 
@@ -58,7 +58,7 @@ public class ControladorRelatorioFinanceiro implements ActionListener {
 	}
 
 	public void limparCampos() {
-		panelRelatorioFinanceiro.getTextFieldPeriodo().setText("");
+		panelRelatorioFinanceiro.getComboBoxPeriodo().setSelectedIndex(0);
 		panelRelatorioFinanceiro.getTextFieldData().setText("");
 		panelRelatorioFinanceiro.getComboBoxTipoFormato().setSelectedIndex(0);
 	}

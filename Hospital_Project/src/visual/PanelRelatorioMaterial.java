@@ -27,6 +27,11 @@ public class PanelRelatorioMaterial extends JPanel {
 	private JComboBox comboBoxTipoFormato;
 	private JButton btnLimpar;
 	private JButton btnGerar;
+	private JButton btnImprimir;
+	
+	private JComboBox comboBoxPeriodo;
+
+	
 	public PanelRelatorioMaterial() {
 		setBackground(new Color(83, 169, 255));
 		this.setSize(960, 790);
@@ -36,6 +41,8 @@ public class PanelRelatorioMaterial extends JPanel {
 		add(getPanelDadosPessoais());
 		add(getBtnLimpar());
 		add(getBtnGerar());
+		add(getBtnImprimir());
+
 	}
 
 	public JLabel getLblRelatorioMaterial() {
@@ -64,7 +71,6 @@ public class PanelRelatorioMaterial extends JPanel {
 			panelDadosPessoais.setBounds(80, 169, 800, 461);
 			panelDadosPessoais.add(getTextPainelMaterial());
 			panelDadosPessoais.add(getLblPainelMaterial());
-			panelDadosPessoais.add(getTextFieldPeriodo());
 			panelDadosPessoais.add(getLblPeriodo());
 			panelDadosPessoais.add(getLblTipoMaterial());
 			panelDadosPessoais.add(getComboBoxTipoMaterial());
@@ -72,6 +78,7 @@ public class PanelRelatorioMaterial extends JPanel {
 			panelDadosPessoais.add(getLblData());
 			panelDadosPessoais.add(getLblTipoFormato());
 			panelDadosPessoais.add(getComboBoxTipoFormato());
+			panelDadosPessoais.add(getComboBoxPeriodo());
 		}
 		return panelDadosPessoais;
 	}
@@ -178,5 +185,27 @@ public class PanelRelatorioMaterial extends JPanel {
 			btnGerar.setBounds(733, 640, 147, 40);
 		}
 		return btnGerar;
+	}
+	
+	public JButton getBtnImprimir() {
+		if (btnImprimir == null) {
+			btnImprimir = new JButton();
+			btnImprimir.setText("IMPRIMIR");
+			btnImprimir.setForeground(new Color(0, 0, 205));
+			btnImprimir.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			btnImprimir.setBounds(80, 640, 147, 40);
+		}
+		return btnImprimir;
+	}
+	
+	public JComboBox getComboBoxPeriodo() {
+		if (comboBoxPeriodo == null) {
+			comboBoxPeriodo = new JComboBox();
+			comboBoxPeriodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione um período", "I semestre", "II semestre"}));
+			comboBoxPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxPeriodo.setBackground(Color.WHITE);
+			comboBoxPeriodo.setBounds(10, 40, 249, 32);
+		}
+		return comboBoxPeriodo;
 	}
 }
