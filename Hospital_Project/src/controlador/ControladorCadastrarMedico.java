@@ -6,6 +6,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -138,15 +140,28 @@ public class ControladorCadastrarMedico implements ActionListener {
 	private void gravarDados(Medico medico) {
 	    System.out.println("Diretório atual: " + System.getProperty("user.dir"));
 
-	    // Caminho ajustado para o local correto do arquivo dentro do projeto
-	    String filePath = "src/dados/dadosMedico.txt"; 
-	    System.out.println("Tentando gravar no arquivo: " + new File(filePath).getAbsolutePath());
+	    // Obtendo o caminho do arquivo como recurso no classpath
+	    String resourcePath = "/dados/dadosMedico.txt";
+	    URL resourceUrl = getClass().getResource(resourcePath);
+
+	    if (resourceUrl == null) {
+	        System.out.println("Arquivo não encontrado no classpath: " + resourcePath);
+	        return;
+	    }
+
+	    // Convertendo o recurso em um arquivo
+	    File file;
+	    try {
+	        file = new File(resourceUrl.toURI());
+	    } catch (URISyntaxException e) {
+	        System.out.println("Erro ao converter o caminho do recurso para URI:");
+	        e.printStackTrace();
+	        return;
+	    }
 
 	    // Criação do diretório 'dados' caso não exista
-	    File file = new File(filePath);
 	    File parentDirectory = file.getParentFile(); // Obtém o diretório pai
-
-	    /*if (!parentDirectory.exists()) {
+	    if (!parentDirectory.exists()) {
 	        boolean created = parentDirectory.mkdirs(); // Cria o diretório
 	        if (created) {
 	            System.out.println("Diretório 'dados' criado com sucesso!");
@@ -154,19 +169,20 @@ public class ControladorCadastrarMedico implements ActionListener {
 	            System.out.println("Falha ao criar o diretório 'dados'. Verifique permissões.");
 	            return;
 	        }
-	    }*/
+	    }
 
 	    // Gravação no arquivo
 	    try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
 	        writer.write(medico.toString());
 	        writer.newLine();
-	        System.out.println("Dados gravados com sucesso em dadosPaciente.txt:");
+	        System.out.println("Dados gravados com sucesso em dadosMedico.txt:");
 	        System.out.println(medico.toString());
 	    } catch (IOException e) {
 	        System.out.println("Erro ao gravar os dados no arquivo:");
 	        e.printStackTrace();
 	    }
 	}
+
 
 	
 	

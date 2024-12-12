@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -87,20 +89,30 @@ public class ControladorExame implements ActionListener {
 		}
 	}
 	
-	
-	
 	private void carregarMedicos() {
 	    try {
-	        File arquivo = new File("src/dados/dadosMedicos.txt");
-	        if (!arquivo.exists()) {
-	            JOptionPane.showMessageDialog(panelExame, "Arquivo de médicos não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+	        // Obtendo o caminho do arquivo como recurso no classpath
+	        String resourcePath = "/dados/dadosMedico.txt";
+	        URL resourceUrl = getClass().getResource(resourcePath);
+
+	        if (resourceUrl == null) {
+	            JOptionPane.showMessageDialog(panelExame, "Arquivo de médico não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+	            return;
+	        }
+
+	        // Convertendo o recurso em um arquivo
+	        File arquivo;
+	        try {
+	            arquivo = new File(resourceUrl.toURI());
+	        } catch (URISyntaxException e) {
+	            JOptionPane.showMessageDialog(panelExame, "Erro ao acessar o arquivo de médicos!", "Erro", JOptionPane.ERROR_MESSAGE);
+	            e.printStackTrace();
 	            return;
 	        }
 
 	        BufferedReader br = new BufferedReader(new FileReader(arquivo));
 	        String linha;
 	        panelExame.getMedico().removeAllItems(); 
-	        //panelExame.getMedico().addItem("Selecione um médico"); 
 
 	        while ((linha = br.readLine()) != null) {
 	            String[] dados = linha.split(";");
@@ -117,10 +129,6 @@ public class ControladorExame implements ActionListener {
 	        JOptionPane.showMessageDialog(panelExame, "Erro ao carregar médicos: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 	    }
 	}
-
-	
-	
-
 	private void limparCampos() {
 		panelExame.getTextFieldNomeExame().setText("");
 		panelExame.getTextAreaDescricao().setText("");
@@ -128,7 +136,5 @@ public class ControladorExame implements ActionListener {
 		panelExame.getTextFieldValorParticular().setText("");
 		panelExame.getTextAreaMateriaisUtilizados().setText("");
 		panelExame.getMedico().setSelectedIndex(0);
-
 	}
-
 }
