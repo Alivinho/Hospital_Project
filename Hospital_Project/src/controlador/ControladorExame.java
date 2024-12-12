@@ -73,13 +73,15 @@ public class ControladorExame implements ActionListener {
 			if (valorParticular <= 0) {
 				throw new Exception("O valor particular deve ser um valor maior que 0.");
 			}
+			
+			if (panelExame.getMedico().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um médico.");
+			}
+		
 
 			Exame exame = new Exame(nomeExame, descricao, tipoExame, valorParticular, materiaisUtilizados, medico);
 			examesCadastrados.add(exame);
 			
-			
-			// *************************** Gravação do exame no arquivo
-			// ***************************
 			gravarDados(exame);
 
 			JOptionPane.showMessageDialog(panelExame, "[SUCESSO ✅ ]: Exame cadastrado com sucesso!", "Sucesso!",

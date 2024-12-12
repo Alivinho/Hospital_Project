@@ -73,11 +73,14 @@ public class ControladorAgendamentoExame implements ActionListener {
 	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
 	        }
 			
-
 	            
 			if(panelAgendamentoExame.getComboBoxTipoExame().getSelectedIndex() == 0) {
             	throw new Exception("Selecione um tipo de exame.");
             }
+			
+			if (panelAgendamentoExame.getPaciente().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um paciente.");
+			}
 			
 			Agendamento agendamento = new Agendamento("",paciente, tipoExame, data, hora);
 			examesAgendados.add(agendamento);

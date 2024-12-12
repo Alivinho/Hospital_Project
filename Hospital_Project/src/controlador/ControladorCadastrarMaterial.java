@@ -80,9 +80,6 @@ public class ControladorCadastrarMaterial implements ActionListener {
 			Material material = new Material(nomeMaterial, quantEstoque, quantMinimaEstoque, fornecedor, preco);
 			materiaisCadastrados.add(material);
 			
-			
-			// *************************** Gravação do médico no arquivo
-			// ***************************
 			gravarDados(material);
 
 			JOptionPane.showMessageDialog(panelCadastrarMaterial, "[SUCESSO ✅ ]: Material cadastrado com sucesso!",

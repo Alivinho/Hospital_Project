@@ -50,9 +50,9 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 			if (!data.matches("\\d{2}/\\d{2}/\\d{4}")) {
 				throw new IllegalArgumentException("Data deve estar no formato DD/MM/AAAA.");
 			}
-
-			if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-				throw new Exception("O nome do médico deve conter apenas letras e espaços.");
+			
+			if (panelVisualizacaoAgenda.getMedico().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um médico.");
 			}
 
 			JOptionPane.showMessageDialog(panelVisualizacaoAgenda, "[SUCESSO ✅ ]: Visualizando com sucesso!",

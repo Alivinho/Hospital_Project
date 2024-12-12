@@ -1,2 +1,3 @@
 Teste;Teste;Patologia e análise clínica;45.0;Teste;Mateus - CRM: pediada (as1234);
 Biospsia;Teste;Biópsia;458.0;nenhum;Livinho - CRM: Enfermeiro (SP12345);
+d;aa;Exames físicos;1.0;a;Selecionar Paciente;

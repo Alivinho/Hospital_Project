@@ -76,6 +76,14 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 			if (anoInformado == anoAtual && mesInformado < mesAtual) {
 	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
 	        }
+			
+			if (panelAgendamentoConsulta.getMedico().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um médico.");
+			}
+			
+			if (panelAgendamentoConsulta.getPaciente().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um paciente.");
+			}
 	        
 	        Agendamento agendamento = new Agendamento(data, hora, medico, paciente, null);
 	        consultasAgendadas.add(agendamento);
@@ -98,6 +106,7 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
 			String linha;
 			panelAgendamentoConsulta.getMedico().removeAllItems();
+			panelAgendamentoConsulta.getMedico().addItem("Selecionar Médico");
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");
@@ -121,6 +130,7 @@ public class ControladorAgendamentoConsulta implements ActionListener {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosPaciente.txt"));
 			String linha;
 			panelAgendamentoConsulta.getPaciente().removeAllItems();
+			panelAgendamentoConsulta.getPaciente().addItem("Selecionar Paciente");
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");

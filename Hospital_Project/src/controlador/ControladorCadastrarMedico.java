@@ -116,8 +116,6 @@ public class ControladorCadastrarMedico implements ActionListener {
 			Medico medico = new Medico(nome, especialidade, crm, contato, horarioAtendimento, valorConsulta, endereco);
 			medicosCadastrados.add(medico);
 
-			// *************************** Gravação do médico no arquivo
-			// ***************************
 			gravarDados(medico);
 
 			JOptionPane.showMessageDialog(panelCadastrarMedico, "[SUCESSO ✅ ]: Medico cadastrado com sucesso!",

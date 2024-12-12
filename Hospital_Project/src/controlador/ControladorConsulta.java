@@ -78,6 +78,14 @@ public class ControladorConsulta implements ActionListener {
 				throw new IllegalArgumentException(
 						"Data ou horário em formato inválido. Data: DD/MM/AAAA; Hora: HH:MM.");
 			}
+			
+			if (panelConsulta.getMedico().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um médico.");
+			}
+			
+			if (panelConsulta.getPaciente().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um paciente.");
+			}
 
 			String[] dataParts = data.split("/");
 			int anoInformado = Integer.parseInt(dataParts[2]);
@@ -116,6 +124,7 @@ public class ControladorConsulta implements ActionListener {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
 			String linha;
 			panelConsulta.getMedico().removeAllItems();
+			panelConsulta.getMedico().addItem("Selecionar Médico");
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");
@@ -139,6 +148,7 @@ public class ControladorConsulta implements ActionListener {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosPaciente.txt"));
 			String linha;
 			panelConsulta.getPaciente().removeAllItems();
+			panelConsulta.getPaciente().addItem("Selecionar Paciente");
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");

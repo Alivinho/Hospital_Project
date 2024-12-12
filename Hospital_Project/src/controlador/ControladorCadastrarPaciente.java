@@ -118,8 +118,6 @@ public class ControladorCadastrarPaciente implements ActionListener {
 
 			pacientesCadastrados.add(paciente);
 
-			// *************************** Gravação do paciente no arquivo
-			// ***************************
 			gravarDados(paciente);
 
 			JOptionPane.showMessageDialog(panelCadastrarPaciente, "[SUCESSO ✅ ]: Paciente cadastrado.", "Sucesso!",

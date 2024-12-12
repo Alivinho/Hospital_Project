@@ -49,8 +49,8 @@ public class ControladorPesquisaHorario implements ActionListener {
 				throw new IllegalArgumentException("Selecione um tipo de exame.");
 			}
 
-			if (!medico.matches("^[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ0-9\\s]*$")) {
-				throw new Exception("O nome do medico deve conter apenas letras e espaços.");
+			if (panelPesquisaHorario.getMedico().getSelectedIndex() == 0) {
+				throw new Exception("Selecione um médico.");
 			}
 
 			if (panelPesquisaHorario.getComboBoxTipoExame().getSelectedIndex() == 0) {
