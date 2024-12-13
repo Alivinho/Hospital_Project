@@ -1,7 +1,1 @@
-Data;Hora;Médico;Paciente;Queixa;Tipo de Consulta;Convênio;Observações;Materiais;
-Data;Hora;Médico;Paciente;Queixa;Tipo de Consulta;Convênio;Observações;Materiais;
-<<<<<<< HEAD
-Data;Hora;Médico;Paciente;Queixa;Tipo de Consulta;Convênio;Observações;Materiais;
-Data: 12/12/2030, Hora: 11:11, Médico: Livinho - CRM: Enfermeiro (SP12345), Paciente: Julia - Data de nascimento: 14/12/2024, Queixa: anksddnxknjns, Tipo de Consulta: Consulta 3, Convênio: Plano Ouro, Observações: s, Materiais: ss
-=======
->>>>>>> refs/remotes/origin/main
+Data: 11/11/2031; Hora: 11:11; Médico: Livinho - CRM: Enfermeiro (SP12345); Paciente: Julia - Data de nascimento: 14/12/2024; Queixa: ass; Tipo de Consulta: Consulta 2; Convênio: Plano Bronze; Observações: a; Materiais: a;
