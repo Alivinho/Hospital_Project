@@ -48,10 +48,6 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 				throw new IllegalArgumentException("Todos os campos devem ser preenchidos.");
 			}
 
-			if (!data.matches("\\d{2}/\\d{2}/\\d{4}")) {
-				throw new IllegalArgumentException("Data deve estar no formato DD/MM/AAAA.");
-			}
-			
 			if (panelVisualizacaoAgenda.getMedico().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um médico.");
 			}
