@@ -29,12 +29,12 @@ public class ControladorConsulta implements ActionListener {
 
 		carregarMedicos();
 		carregarPacientes();
+		carregarMateriais();
 	}
 
 	private void addEventos() {
 		panelConsulta.getBtnCadastrar().addActionListener(this);
 		panelConsulta.getBtnLimpar().addActionListener(this);
-		panelConsulta.getCheckBoxMateriais().addActionListener(this);
 
 	}
 
@@ -43,9 +43,7 @@ public class ControladorConsulta implements ActionListener {
 			cadastrarConsulta();
 		} else if (e.getSource() == panelConsulta.getBtnLimpar()) {
 			limparCampos();
-		} else if (e.getSource() == panelConsulta.getCheckBoxMateriais()) {
-			toggleMateriais();
-		}
+		} 
 	}
 
 	public void cadastrarConsulta() {
@@ -168,7 +166,33 @@ public class ControladorConsulta implements ActionListener {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
+	
+	private void carregarMateriais() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMaterial.txt"));
+			String linha;
+			panelConsulta.getComboBoxMateriaisUtilizados().removeAllItems();
+			panelConsulta.getComboBoxMateriaisUtilizados().addItem("Selecionar Material");
 
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 3) {
+					String nome = dados[0].trim();
+					
+					String materialFormatado = nome;
+					panelConsulta.getComboBoxMateriaisUtilizados().addItem(materialFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelConsulta, "Erro ao carregar materiais: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+	
+	
 	private void gravarDados(Consulta consulta) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosConsulta.txt", true))) {
 			writer.write(consulta.toString());
@@ -181,15 +205,7 @@ public class ControladorConsulta implements ActionListener {
 		}
 	}
 
-	private void toggleMateriais() {
-
-		if (panelConsulta.getCheckBoxMateriais().isSelected()) {
-			panelConsulta.getTextAreaMateriaisUtilizados().setVisible(true);
-		} else {
-			panelConsulta.getTextAreaMateriaisUtilizados().setVisible(false);
-		}
-	}
-
+	
 	private void limparCampos() {
 		panelConsulta.getTextFieldData().setText("");
 		panelConsulta.getTextFieldHora().setText("");
@@ -197,9 +213,8 @@ public class ControladorConsulta implements ActionListener {
 		panelConsulta.getPaciente().setSelectedIndex(0);
 		panelConsulta.getTextFieldQueixaPaciente().setText("");
 		panelConsulta.getComboBoxTipoConsulta().setSelectedIndex(0);
-		;
+		panelConsulta.getComboBoxMateriaisUtilizados().setSelectedIndex(0);
 		panelConsulta.getComboBoxTipoConvenio().setSelectedIndex(0);
 		panelConsulta.getTextAreaObservacoes().setText("");
-		panelConsulta.getTextAreaMateriaisUtilizados().setText("");
 	}
 }

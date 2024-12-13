@@ -37,11 +37,11 @@ public class PanelConsulta extends JPanel {
 	private JTextField textFieldHora;
 	private JLabel lblHora;
 	
-	private JCheckBox checkBoxMateriais;
 	
 	private JComboBox<String> Medico;
 	private JComboBox<String> Paciente;
-	
+	private JComboBox<String> comboBoxMateriaisUtilizados;
+
 
 	public PanelConsulta() {
 		setBackground(new Color(83, 169, 255));
@@ -94,7 +94,7 @@ public class PanelConsulta extends JPanel {
 			panelDadosPessoais.add(getLblData());
 			panelDadosPessoais.add(getTextFieldHora());
 			panelDadosPessoais.add(getLblHora());
-			panelDadosPessoais.add(getCheckBoxMateriais());
+	        panelDadosPessoais.add(getComboBoxMateriaisUtilizados());
 			panelDadosPessoais.add(getTextAreaObservacoes());
 			
 
@@ -278,17 +278,18 @@ public class PanelConsulta extends JPanel {
 		return lblHora;
 	}
 	
-	
-	public JCheckBox getCheckBoxMateriais() {
-		if (checkBoxMateriais == null) {
-			checkBoxMateriais = new JCheckBox("Utilizou materiais?");
-			checkBoxMateriais.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			checkBoxMateriais.setBounds(393, 254, 200, 32); 
+	public JComboBox<String> getComboBoxMateriaisUtilizados() {
+		if (comboBoxMateriaisUtilizados == null) {
+			comboBoxMateriaisUtilizados = new JComboBox();
+			comboBoxMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxMateriaisUtilizados.setModel(new DefaultComboBoxModel(new String[] {"Selecione um material"}));
+			comboBoxMateriaisUtilizados.setBounds(420, 189, 298, 32);
+			comboBoxMateriaisUtilizados.setBackground(Color.WHITE);
 
+			
 		}
-	    return checkBoxMateriais;
+		return comboBoxMateriaisUtilizados;
 	}
-	
 	
 	
 }
