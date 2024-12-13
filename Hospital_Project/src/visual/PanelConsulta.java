@@ -283,7 +283,7 @@ public class PanelConsulta extends JPanel {
 			comboBoxMateriaisUtilizados = new JComboBox();
 			comboBoxMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxMateriaisUtilizados.setModel(new DefaultComboBoxModel(new String[] {"Selecione um material"}));
-			comboBoxMateriaisUtilizados.setBounds(420, 189, 298, 32);
+			comboBoxMateriaisUtilizados.setBounds(284, 183, 298, 32);
 			comboBoxMateriaisUtilizados.setBackground(Color.WHITE);
 
 			
