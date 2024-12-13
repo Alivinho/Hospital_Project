@@ -2,8 +2,12 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
 
 import visual.PanelRelatorioMaterial;
 
@@ -24,6 +28,7 @@ public class ControladorRelatorioMaterial implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == panelRelatorioMaterial.getBtnGerar()) {
 			gerarRelatorioConsulta();
+			listarMateriais(panelRelatorioMaterial.getTextPainelMaterial());
 		} else if (e.getSource() == panelRelatorioMaterial.getBtnLimpar()) {
 			limparCampos();
 		}
@@ -66,11 +71,60 @@ public class ControladorRelatorioMaterial implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+	
+	
+	
+	private void listarMateriais(JTextPane textPane) {
+		try {
+			
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMaterial.txt"));
+			
+			StringBuilder conteudo = new StringBuilder();
+			String linha;
+			
+
+			while ((linha = br.readLine()) != null) {
+				String[] dadosMaterial = linha.split(";");
+
+				if (dadosMaterial.length >= 4) {
+					String nomeMaterial = dadosMaterial[0].trim();
+					int quantEstoque =  Integer.parseInt(dadosMaterial[1].trim());
+					int quantMinimaEstoque = Integer.parseInt(dadosMaterial[2].trim());
+					String fornecedor = dadosMaterial[3].trim();
+					
+
+					
+					String statusEstoque = quantEstoque < quantMinimaEstoque 
+							? " Estoque Baixo"
+                            : " Estoque Adequado";
+					
+					String materialFormatado = "Material: " + nomeMaterial + " - Quantidade Estoque: " + quantEstoque + " - Fornecedor:"
+							+ fornecedor + " - Status:" + statusEstoque;
+					conteudo.append(materialFormatado).append("\n");
+				}
+
+			}
+			
+			// Atualizar o texto no JTextPane
+			textPane.setText(conteudo.toString());
+			
+			br.close(); 
+			
+
+			
+		}catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erro ao carregar materiais: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+			
+		
+	}
 
 	public void limparCampos() {
 		panelRelatorioMaterial.getComboBoxPeriodo().setSelectedIndex(0);
 		panelRelatorioMaterial.getComboBoxTipoMaterial().setSelectedIndex(0);
 		panelRelatorioMaterial.getTextFieldData().setText("");
 		panelRelatorioMaterial.getComboBoxTipoFormato().setSelectedIndex(0);
+		panelRelatorioMaterial.getTextPainelMaterial().setText("");
 	}
 }

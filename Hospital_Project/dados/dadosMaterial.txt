@@ -1,3 +1,3 @@
-Agulha;50;25;LTDA;35.0;
+Agulha;15;25;LTDA;35.0;
 Pinça;435;100;Pinça;76.0;
 Remedio;1211;1;Remedio LTDA;12.0;
