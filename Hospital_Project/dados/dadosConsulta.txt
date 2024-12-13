@@ -1,10 +1,1 @@
-modelo.Consulta@469b30c8
-modelo.Consulta@70dd3771
-Data: 11/12/2024, Hora: 11:11, Médico: WILLIAM - CRM: PEDIATRA (AA1234), Paciente: Jubileu - Data de nascimento: 22/12/2024, Queixa: garganata, Tipo de Consulta: null, Convênio: Plano Prata, Observações: a, Materiais: aa
-Data: 11/12/2024, Hora: 11:11, Médico: Alisson - CRM: Dentista (SP123456), Paciente: a - Data de nascimento: 11/11/2024, Queixa: dor, Tipo de Consulta: null, Convênio: Plano Bronze, Observações: aa, Materiais: aa
-Data: 11/12/2024, Hora: 11:11, Médico: Mateus - CRM: pediada (as1234), Paciente: a - Data de nascimento: 11/11/2024, Queixa: d, Tipo de Consulta: null, Convênio: Plano Ouro, Observações: a, Materiais: a
-Data: 11/12/2024, Hora: 11:11, Médico: Mateus - CRM: pediada (as1234), Paciente: a - Data de nascimento: 11/11/2024, Queixa: dor, Tipo de Consulta: null, Convênio: Plano Bronze, Observações: a, Materiais: a
-Data: 11/12/2024, Hora: 11:11, Médico: Livinho - CRM: Enfermeiro (SP12345), Paciente: a - Data de nascimento: 11/11/2024, Queixa: assssssssss, Tipo de Consulta: Consulta 3, Convênio: Plano Bronze, Observações: aa, Materiais: a
-Data: 11/12/2024, Hora: 11:11, Médico: Selecionar Médico, Paciente: Selecionar Paciente, Queixa: a, Tipo de Consulta: Consulta 3, Convênio: Plano Básico, Observações: a, Materiais: aa
-Data: 12/12/2024, Hora: 12:11, Médico: Selecionar Médico, Paciente: Selecionar Paciente, Queixa: s, Tipo de Consulta: Consulta 2, Convênio: Plano Bronze, Observações: q, Materiais: 
-Data: 12/12/2024, Hora: 11:11, Médico: Livinho - CRM: Enfermeiro (SP12345), Paciente: teste - Data de nascimento: 20/03/2005, Queixa: a, Tipo de Consulta: Consulta 2, Convênio: Plano Básico, Observações: a, Materiais: 
+Data;Hora;Médico;Paciente;Queixa;Tipo de Consulta;Convênio;Observações;Materiais;

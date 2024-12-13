@@ -96,47 +96,63 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	private void inserirDadosNoTextPane(JTextPane textPane) {
 	    try {
 	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosAgendamentoConsulta.txt"));
-	        BufferedReader br2 = new BufferedReader(new FileReader("./dados/dadosAgendamentoExame.txt"));
+	        BufferedReader br2 = new BufferedReader(new FileReader("./dados/dadosConsulta.txt"));
+	        BufferedReader br3 = new BufferedReader(new FileReader("./dados/dadosAgendamentoExame.txt"));
+	        
 
 	        StringBuilder conteudo = new StringBuilder();
 	        
-	        String linhaConsulta;
-	        String linhaExame;
+	        String linhaConsultaAgendada;
+	        String linhaConsultaCadastrada;
+	        //String linhaExameCadastrado;
 	        
 
 	        // Exibição de Consultas 
-			conteudo.append("========================> CONSULTAS <========================\n").append("\n");
-	        while ((linhaConsulta = br.readLine()) != null) {
-	            String[] dadosConsultasAgendadas = linhaConsulta.split(";");
+			conteudo.append("========================> CONSULTAS AGENDADAS <========================\n").append("\n");
+	        while ((linhaConsultaAgendada = br.readLine()) != null) {
+	            String[] dadosConsultasAgendadas = linhaConsultaAgendada.split(";");
 	            
 	            if(dadosConsultasAgendadas[0].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
 	            	if (dadosConsultasAgendadas.length >= 3) {
 	            		String paciente = dadosConsultasAgendadas[1].trim();
 	            		String data = dadosConsultasAgendadas[2].trim();
 	            		String hora = dadosConsultasAgendadas[3].trim();
-	            		String consultaAgendadaFormatada = " Consulta - Paciente: " + paciente + " - Data:" + data + " - Hora: " + hora;
+	            		String consultaAgendadaFormatada = "Paciente: " + paciente + " - Data:" + data + " - Hora: " + hora;
 	            		conteudo.append(consultaAgendadaFormatada).append("\n");
 	            	}	            	
 	            }
-	        }
+	        }    
 	        
+	     // Exibição de Consultas 
+	     			conteudo.append("\n========================> CONSULTAS CASTRADAS <========================\n").append("\n");
+	     	        while ((linhaConsultaCadastrada = br2.readLine()) != null) {
+	     	            String[] dadosConsultasCadastradas = linhaConsultaCadastrada.split(";");
+	     	          
+	     	            if(dadosConsultasCadastradas[2].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+	     	            	if (dadosConsultasCadastradas.length >= 3) {
+	     	            		String paciente = dadosConsultasCadastradas[3].trim();
+	     	            		String data = dadosConsultasCadastradas[0].trim();
+	     	            		String hora = dadosConsultasCadastradas[1].trim();
+	     	            		String consultaCadastradaFormatada = "Paciente: " + paciente + " - Data:" + data + " - Hora: " + hora;
+	     	            		conteudo.append(consultaCadastradaFormatada).append("\n");
+	     	            	}	            	
+	     	            }
+	     	        }  
 	        
-	        
-	        // Exibição de Exames 
-			conteudo.append("\n========================> EXAMES <========================\n").append("\n");
-	        while ((linhaExame = br2.readLine()) != null) {
-	            String[] dadosExamesAgendados = linhaExame.split(";");
-	            
-	            if(dadosExamesAgendados[0].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
-	            	if (dadosExamesAgendados.length >= 3) {
-	            		String paciente = dadosExamesAgendados[1].trim();
-	            		String data = dadosExamesAgendados[2].trim();
-	            		String hora = dadosExamesAgendados[3].trim();
-	            		String exameAgendadoFormatado = "Exame - Paciente: " + paciente + " - Data:" + data + " - Hora: " + hora;
-	            		conteudo.append(exameAgendadoFormatado).append("\n");
-	            	}	            	
-	            }
-	        }
+//	        // Exibição de Exames 
+//			conteudo.append("\n========================> EXAMES CADASTRADOS <========================\n").append("\n");
+//	        while ((linhaExame = br3.readLine()) != null) {
+//	            String[] dadosExamesCadastrados = linhaExame.split(";");
+//	            
+//	            if(dadosExamesCadastrados[5].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+//	            	if (dadosExamesCadastrados.length >= 2) {
+//	            		String nomeExame = dadosExamesCadastrados[0].trim();
+//	            		String tipoExame = dadosExamesCadastrados[2].trim();
+//	            		String exameCadastradoFormatado = "Nome do exame: " + nomeExame + " - Tipo do exame: " + tipoExame;
+//	            		conteudo.append(exameCadastradoFormatado).append("\n");
+//	            	}	            	
+//	            }
+//	        }
 
 	        // Atualizar o texto no JTextPane
 	        textPane.setText(conteudo.toString());

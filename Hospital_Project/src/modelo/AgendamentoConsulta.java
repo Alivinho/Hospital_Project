@@ -11,7 +11,6 @@ public class AgendamentoConsulta {
 			   paciente + ";" +
 			   data + ";" +
 			   horario + ";";
-
 	}
 	
 	public AgendamentoConsulta(String medico, String paciente, String data, String horario) {

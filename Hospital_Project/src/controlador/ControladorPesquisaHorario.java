@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextPane;
 
 import modelo.Agendamento;
 import visual.PanelPesquisaHorario;
@@ -60,6 +61,8 @@ public class ControladorPesquisaHorario implements ActionListener {
 			if (!data.matches("\\d{2}/\\d{2}/\\d{4}")) {
 				throw new IllegalArgumentException("Data deve estar no formato DD/MM/AAAA.");
 			}
+			
+			inserirDadosNoTextPane(panelPesquisaHorario.getTextPainelHorario());
 
 			JOptionPane.showMessageDialog(panelPesquisaHorario, "[SUCESSO ✅ ]: Pesquisado com sucesso!", "Sucesso!",
 					JOptionPane.INFORMATION_MESSAGE);
@@ -94,6 +97,36 @@ public class ControladorPesquisaHorario implements ActionListener {
 			JOptionPane.showMessageDialog(panelPesquisaHorario, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
 					JOptionPane.ERROR_MESSAGE);
 		}
+	}
+	
+	private void inserirDadosNoTextPane(JTextPane textPane) {
+	    try {
+	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosAgendamentoExame.txt"));
+	        StringBuilder conteudo = new StringBuilder();
+	        String linha;
+	        
+	        while ((linha = br.readLine()) != null) {
+	            String[] dadosConsultasAgendadas = linha.split(";");
+	            
+	            if(dadosConsultasAgendadas[0].trim().equals(panelPesquisaHorario.getMedico().getSelectedItem().toString())) {
+	            	if (dadosConsultasAgendadas.length >= 3) {
+	            		String paciente = dadosConsultasAgendadas[1].trim();
+	            		String hora = dadosConsultasAgendadas[3].trim();
+	            		String consultaAgendadaFormatada = "Paciente: " + paciente + " - Hora: " + hora;
+	            		conteudo.append(consultaAgendadaFormatada).append("\n");
+	            	}	            	
+	            }
+	        }
+
+	        // Atualizar o texto no JTextPane
+	        textPane.setText(conteudo.toString());
+	        br.close();
+	    } catch (IOException e) {
+	        JOptionPane.showMessageDialog(null, 
+	            "Erro ao carregar médicos: " + e.getMessage(), 
+	            "Erro", 
+	            JOptionPane.ERROR_MESSAGE);
+	    }
 	}
 
 	public void limparCampos() {

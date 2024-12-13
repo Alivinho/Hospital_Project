@@ -65,9 +65,9 @@ public class ControladorCancelamentoReagendamento implements ActionListener {
 					String tipoExame = dadosExamesAgendados[1].trim();
 					String data = dadosExamesAgendados[2].trim();
 					String hora = dadosExamesAgendados[3].trim();
-					String consultaAgendadaFormatada = "Paciente: " + paciente + " - Tipo exame: " + tipoExame
+					String ExameFormatado = "Paciente: " + paciente + " - Tipo exame: " + tipoExame
 							+ " - Data:" + data + " - Hora: " + hora;
-					conteudo.append(consultaAgendadaFormatada).append("\n");
+					conteudo.append(ExameFormatado).append("\n");
 				}
 
 			}
