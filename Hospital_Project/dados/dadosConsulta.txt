@@ -1,1 +1,2 @@
 Data;Hora;Médico;Paciente;Queixa;Tipo de Consulta;Convênio;Observações;Materiais;
+Data;Hora;Médico;Paciente;Queixa;Tipo de Consulta;Convênio;Observações;Materiais;
