@@ -14,7 +14,7 @@ public class Consulta {
 	@Override
 	public String toString() {
 				return String.format(
-			            "Data: %s; Hora: %s; Médico: %s; Paciente: %s; Queixa: %s; Tipo de Consulta: %s; Convênio: %s; Observações: %s; Materiais: %s;",
+			            "%s;%s;%s;%s;%s;%s;%s;%s;%s;",
 			            data, hora, medico, paciente, queixaPaciente, tipoConsulta, convenio, observacoes, materiais
 			        );
 	}

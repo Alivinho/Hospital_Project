@@ -101,12 +101,22 @@ public class ControladorPesquisaHorario implements ActionListener {
 	
 	private void inserirDadosNoTextPane(JTextPane textPane) {
 	    try {
-	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosAgendamentoExame.txt"));
-	        StringBuilder conteudo = new StringBuilder();
-	        String linha;
+	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosAgendamentoConsulta.txt"));
+	        BufferedReader br2 = new BufferedReader(new FileReader("./dados/dadosConsulta.txt"));
+	        BufferedReader br3 = new BufferedReader(new FileReader("./dados/dadosExame.txt"));
 	        
-	        while ((linha = br.readLine()) != null) {
-	            String[] dadosConsultasAgendadas = linha.split(";");
+
+	        StringBuilder conteudo = new StringBuilder();
+	        
+	        String linhaConsultaAgendada;
+	        String linhaConsultaCadastrada;
+	        String linhaExame;
+	        
+
+	        // Exibição de Consultas 
+			conteudo.append("========================> CONSULTAS AGENDADAS <========================\n").append("\n");
+	        while ((linhaConsultaAgendada = br.readLine()) != null) {
+	            String[] dadosConsultasAgendadas = linhaConsultaAgendada.split(";");
 	            
 	            if(dadosConsultasAgendadas[0].trim().equals(panelPesquisaHorario.getMedico().getSelectedItem().toString())) {
 	            	if (dadosConsultasAgendadas.length >= 3) {
@@ -116,11 +126,45 @@ public class ControladorPesquisaHorario implements ActionListener {
 	            		conteudo.append(consultaAgendadaFormatada).append("\n");
 	            	}	            	
 	            }
+	        }    
+	        
+	     // Exibição de Consultas 
+	     			conteudo.append("\n========================> CONSULTAS CASTRADAS <========================\n").append("\n");
+	     	        while ((linhaConsultaCadastrada = br2.readLine()) != null) {
+	     	            String[] dadosConsultasCadastradas = linhaConsultaCadastrada.split(";");
+	     	          
+	     	            if(dadosConsultasCadastradas[2].trim().equals(panelPesquisaHorario.getMedico().getSelectedItem().toString())) {
+	     	            	System.out.println("SIm");
+	     	            	if (dadosConsultasCadastradas.length >= 3) {
+	     	            		String paciente = dadosConsultasCadastradas[3].trim();
+	     	            		String data = dadosConsultasCadastradas[0].trim();
+	     	            		String hora = dadosConsultasCadastradas[1].trim();
+	     	            		String consultaCadastradaFormatada =  paciente + " - " + data + " - " + hora;
+	     	            		conteudo.append(consultaCadastradaFormatada).append("\n");
+	     	            	}	            	
+	     	            }
+	     	        }  
+	        
+//	         Exibição de Exames 
+			conteudo.append("\n========================> EXAMES CADASTRADOS <========================\n").append("\n");
+	        while ((linhaExame = br3.readLine()) != null) {
+	            String[] dadosExamesCadastrados = linhaExame.split(";");
+	            
+	            if(dadosExamesCadastrados[4].trim().equals(panelPesquisaHorario.getMedico().getSelectedItem().toString())) {
+	            	if (dadosExamesCadastrados.length >= 2) {
+	            		String nomeExame = dadosExamesCadastrados[0].trim();
+	            		String tipoExame = dadosExamesCadastrados[2].trim();
+	            		String exameFormatado = "Nome do exame: " + nomeExame + " - Tipo do exame: " + tipoExame;
+	            		conteudo.append(exameFormatado).append("\n");
+	            	}	            	
+	            }
 	        }
 
 	        // Atualizar o texto no JTextPane
 	        textPane.setText(conteudo.toString());
 	        br.close();
+	        br2.close();
+	        br3.close();
 	    } catch (IOException e) {
 	        JOptionPane.showMessageDialog(null, 
 	            "Erro ao carregar médicos: " + e.getMessage(), 
@@ -128,7 +172,6 @@ public class ControladorPesquisaHorario implements ActionListener {
 	            JOptionPane.ERROR_MESSAGE);
 	    }
 	}
-
 	public void limparCampos() {
 		panelPesquisaHorario.getMedico().setSelectedIndex(0);
 		panelPesquisaHorario.getComboBoxTipoExame().setSelectedIndex(0);
