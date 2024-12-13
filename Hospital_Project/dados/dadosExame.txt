@@ -1,2 +1,3 @@
 Sangue;Dor;Exames físicos;12.0;Agulha;Livinho - CRM: Enfermeiro (SP12345);
 AAAAAAAAAA;BBBBBBBBBBB;Exames físicos;99999.0;CCCCCCCCC;Livinho - CRM: Enfermeiro (SP12345);
+aas;azzzzzz;Exames físicos;111.0;zzzzzz;Mateus - CRM: pediada (as1234);
