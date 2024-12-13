@@ -18,7 +18,7 @@ public class ControladorCancelamentoReagendamento implements ActionListener {
 		this.panelCancelamentoReagendamento = panelCancelamentoReagendamento;
 		addEventos();
 	}
-	
+
 	private void addEventos() {
 		panelCancelamentoReagendamento.getBtnConfirmar().addActionListener(this);
 		panelCancelamentoReagendamento.getBtnLimpar().addActionListener(this);
@@ -29,7 +29,7 @@ public class ControladorCancelamentoReagendamento implements ActionListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == panelCancelamentoReagendamento.getBtnConfirmar()) {
 			inserirDadosNoTextPane(panelCancelamentoReagendamento.getTextPainelCancelamentoReagendamento());
-		} else if(e.getSource() == panelCancelamentoReagendamento.getBtnLimpar()) {
+		} else if (e.getSource() == panelCancelamentoReagendamento.getBtnLimpar()) {
 			limparCampos();
 		}
 	}
@@ -65,8 +65,8 @@ public class ControladorCancelamentoReagendamento implements ActionListener {
 					String tipoExame = dadosExamesAgendados[1].trim();
 					String data = dadosExamesAgendados[2].trim();
 					String hora = dadosExamesAgendados[3].trim();
-					String ExameFormatado = "Paciente: " + paciente + " - Tipo exame: " + tipoExame
-							+ " - Data:" + data + " - Hora: " + hora;
+					String ExameFormatado = "Paciente: " + paciente + " - Tipo exame: " + tipoExame + " - Data:" + data
+							+ " - Hora: " + hora;
 					conteudo.append(ExameFormatado).append("\n");
 				}
 
@@ -82,7 +82,6 @@ public class ControladorCancelamentoReagendamento implements ActionListener {
 		}
 	}
 
-	
 	public void limparCampos() {
 		panelCancelamentoReagendamento.getTextPainelCancelamentoReagendamento().setText("");
 	}

@@ -55,7 +55,7 @@ public class Frame extends JFrame{
 		setBackground(new Color(0, 128, 255));
 		this.setVisible(true);
 		this.setSize(960, 790);
-		//this.setResizable(false); 
+		this.setResizable(false); 
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setJMenuBar(getBarraMenu());

@@ -153,7 +153,7 @@ public class PanelPesquisaHorario extends JPanel {
 			Medico = new JComboBox<String>();
 			Medico.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			Medico.setBackground(Color.WHITE);
-			Medico.setBounds(10, 40, 370, 32);
+			Medico.setBounds(10, 40, 427, 32);
 		}
 		return Medico;
 	}

@@ -89,7 +89,7 @@ public class PanelRelatorioFinanceiro extends JPanel {
 		if (textFieldData == null) {
 			textFieldData = new JTextField();
 			textFieldData.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			textFieldData.setBounds(349, 41, 109, 32);
+			textFieldData.setBounds(319, 40, 109, 32);
 		}
 		return textFieldData;
 	}
@@ -97,7 +97,7 @@ public class PanelRelatorioFinanceiro extends JPanel {
 		if (lblData == null) {
 			lblData = new JLabel("Data");
 			lblData.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblData.setBounds(349, 10, 109, 32);
+			lblData.setBounds(319, 9, 109, 32);
 		}
 		return lblData;
 	}
@@ -123,7 +123,7 @@ public class PanelRelatorioFinanceiro extends JPanel {
 			comboBoxTipoFormato.setModel(new DefaultComboBoxModel(new String[] {"Selelcione um formato", "PDF", "Excel"}));
 			comboBoxTipoFormato.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxTipoFormato.setBackground(Color.WHITE);
-			comboBoxTipoFormato.setBounds(546, 40, 190, 32);
+			comboBoxTipoFormato.setBounds(438, 40, 247, 32);
 		}
 		return comboBoxTipoFormato;
 	}
@@ -131,7 +131,7 @@ public class PanelRelatorioFinanceiro extends JPanel {
 		if (lblTipoFormato == null) {
 			lblTipoFormato = new JLabel("Formato");
 			lblTipoFormato.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblTipoFormato.setBounds(546, 10, 103, 32);
+			lblTipoFormato.setBounds(438, 10, 103, 32);
 		}
 		return lblTipoFormato;
 	}
@@ -173,7 +173,7 @@ public class PanelRelatorioFinanceiro extends JPanel {
 			comboBoxPeriodo.setModel(new DefaultComboBoxModel(new String[] {"Selecione um período", "I semestre", "II semestre"}));
 			comboBoxPeriodo.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			comboBoxPeriodo.setBackground(Color.WHITE);
-			comboBoxPeriodo.setBounds(10, 40, 249, 32);
+			comboBoxPeriodo.setBounds(10, 40, 299, 32);
 		}
 		return comboBoxPeriodo;
 	}

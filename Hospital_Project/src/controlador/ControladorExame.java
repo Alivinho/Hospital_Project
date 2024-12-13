@@ -52,7 +52,7 @@ public class ControladorExame implements ActionListener {
 			String descricao = panelExame.getTextAreaDescricao().getText().trim();
 			String tipoExame = (String) panelExame.getTipoExame().getSelectedItem();
 			String valorParticularText = panelExame.getTextFieldValorParticular().getText().trim();
-			String materiaisUtilizados = panelExame.getTextAreaMateriaisUtilizados().getText().trim();
+			String materiaisUtilizados = (String) panelExame.getComboBoxMateriaisUtilizados().getSelectedItem();
 			String medico = (String) panelExame.getMedico().getSelectedItem();
 
 			if (nomeExame.isEmpty() || descricao.isEmpty() || tipoExame.isEmpty() || valorParticularText.isEmpty()
@@ -73,15 +73,14 @@ public class ControladorExame implements ActionListener {
 			if (valorParticular <= 0) {
 				throw new Exception("O valor particular deve ser um valor maior que 0.");
 			}
-			
+
 			if (panelExame.getMedico().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um médico.");
 			}
-		
 
 			Exame exame = new Exame(nomeExame, descricao, tipoExame, valorParticular, materiaisUtilizados, medico);
 			examesCadastrados.add(exame);
-			
+
 			gravarDados(exame);
 
 			JOptionPane.showMessageDialog(panelExame, "[SUCESSO ✅ ]: Exame cadastrado com sucesso!", "Sucesso!",
@@ -98,8 +97,6 @@ public class ControladorExame implements ActionListener {
 		}
 	}
 
-	
-	
 	private void gravarDados(Exame exame) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosExame.txt", true))) {
 			writer.write(exame.toString());
@@ -111,15 +108,13 @@ public class ControladorExame implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	private void carregarMedicos() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
 			String linha;
 			panelExame.getMedico().removeAllItems();
 			panelExame.getMedico().addItem("Selecionar Paciente");
-
 
 			while ((linha = br.readLine()) != null) {
 				String[] dados = linha.split(";");
@@ -143,7 +138,7 @@ public class ControladorExame implements ActionListener {
 		panelExame.getTextAreaDescricao().setText("");
 		panelExame.getTipoExame().setSelectedIndex(0);
 		panelExame.getTextFieldValorParticular().setText("");
-		panelExame.getTextAreaMateriaisUtilizados().setText("");
+		panelExame.getComboBoxMateriaisUtilizados().setSelectedIndex(0);
 		panelExame.getMedico().setSelectedIndex(0);
 
 	}

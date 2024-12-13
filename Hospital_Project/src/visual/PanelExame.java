@@ -30,13 +30,13 @@ public class PanelExame extends JPanel {
 	private JTextField textFieldNomeExame;
 	private JTextArea textAreaDescricao;
 	private JTextField textFieldValorParticular;
-	private JTextArea textAreaMateriaisUtilizados;
 	//private JTextField textFieldMedico;
 	
 	private JPanel panelDadosExame;
 	
 	private JButton btnLimpar;
 	private JButton btnCadastrar;
+	private JComboBox<String> comboBoxMateriaisUtilizados;
 	
 	
 	public PanelExame() {
@@ -69,8 +69,8 @@ public class PanelExame extends JPanel {
 	        panelDadosExame.add(getTextFieldNomeExame());
 	        panelDadosExame.add(getTextAreaDescricao());
 	        panelDadosExame.add(getTextFieldValorParticular());
-	        panelDadosExame.add(getTextAreaMateriaisUtilizados());
 	        panelDadosExame.add(getMedico());
+	        panelDadosExame.add(getComboBoxMateriaisUtilizados());
 	        //panelDadosExame.add(getTextFieldMedico());
 	    }
 	    return panelDadosExame;
@@ -180,18 +180,6 @@ public class PanelExame extends JPanel {
 	    return textFieldValorParticular;
 	}
 
-	public JTextArea getTextAreaMateriaisUtilizados() {
-	    if (textAreaMateriaisUtilizados == null) {
-	        textAreaMateriaisUtilizados = new JTextArea();
-	        textAreaMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	        textAreaMateriaisUtilizados.setLineWrap(true);
-	        textAreaMateriaisUtilizados.setWrapStyleWord(true);
-	        textAreaMateriaisUtilizados.setBounds(420, 189, 370, 175);
-	        textAreaMateriaisUtilizados.setBorder(BorderFactory.createLineBorder(Color.GRAY));
-	    }
-	    return textAreaMateriaisUtilizados;
-	}
-
 	/*public JTextField getTextFieldMedico() {
 	    if (textFieldMedico == null) {
 	        textFieldMedico = new JTextField();
@@ -245,5 +233,13 @@ public class PanelExame extends JPanel {
 		}
 		return btnCadastrar;
 	}
-	
+	public JComboBox<String> getComboBoxMateriaisUtilizados() {
+		if (comboBoxMateriaisUtilizados == null) {
+			comboBoxMateriaisUtilizados = new JComboBox();
+			comboBoxMateriaisUtilizados.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			comboBoxMateriaisUtilizados.setModel(new DefaultComboBoxModel(new String[] {"Selecione um material"}));
+			comboBoxMateriaisUtilizados.setBounds(420, 189, 298, 32);
+		}
+		return comboBoxMateriaisUtilizados;
+	}
 }

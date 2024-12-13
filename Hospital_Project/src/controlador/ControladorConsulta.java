@@ -26,7 +26,7 @@ public class ControladorConsulta implements ActionListener {
 		this.panelConsulta = panelConsulta;
 		consultasCadastradas = new ArrayList<Consulta>();
 		addEventos();
-		
+
 		carregarMedicos();
 		carregarPacientes();
 	}
@@ -34,7 +34,7 @@ public class ControladorConsulta implements ActionListener {
 	private void addEventos() {
 		panelConsulta.getBtnCadastrar().addActionListener(this);
 		panelConsulta.getBtnLimpar().addActionListener(this);
-        panelConsulta.getCheckBoxMateriais().addActionListener(this);  
+		panelConsulta.getCheckBoxMateriais().addActionListener(this);
 
 	}
 
@@ -43,9 +43,9 @@ public class ControladorConsulta implements ActionListener {
 			cadastrarConsulta();
 		} else if (e.getSource() == panelConsulta.getBtnLimpar()) {
 			limparCampos();
-		}else if (e.getSource() == panelConsulta.getCheckBoxMateriais()) {
-            toggleMateriais();
-        }
+		} else if (e.getSource() == panelConsulta.getCheckBoxMateriais()) {
+			toggleMateriais();
+		}
 	}
 
 	public void cadastrarConsulta() {
@@ -61,17 +61,18 @@ public class ControladorConsulta implements ActionListener {
 			String materiais = panelConsulta.getTextAreaMateriaisUtilizados().getText().trim();
 
 			if (data.isEmpty() || hora.isEmpty() || medico.isEmpty() || paciente.isEmpty() || queixaPaciente.isEmpty()
-					|| tipoConsulta.isEmpty() || tipoConsulta.isEmpty() || convenio.isEmpty() || observacoes.isEmpty()
-					) {
+					|| tipoConsulta.isEmpty() || tipoConsulta.isEmpty() || convenio.isEmpty()
+					|| observacoes.isEmpty()) {
 				throw new Exception("Todos os campos devem ser preenchidos!");
 			}
 
 			if (panelConsulta.getComboBoxTipoConsulta().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um tipo de consulta.");
 			}
-			
+
 			if (!materiais.matches("^[A-Za-z][A-Za-z0-9\\.\\s]*$")) {
-			    throw new IllegalArgumentException("O campo 'materiais' deve começar com uma letra e pode conter números, espaços e pontos.");
+				throw new IllegalArgumentException(
+						"O campo 'materiais' deve começar com uma letra e pode conter números, espaços e pontos.");
 			}
 
 			if (panelConsulta.getComboBoxTipoConvenio().getSelectedIndex() == 0) {
@@ -82,11 +83,11 @@ public class ControladorConsulta implements ActionListener {
 				throw new IllegalArgumentException(
 						"Data ou horário em formato inválido. Data: DD/MM/AAAA; Hora: HH:MM.");
 			}
-			
+
 			if (panelConsulta.getMedico().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um médico.");
 			}
-			
+
 			if (panelConsulta.getPaciente().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um paciente.");
 			}
@@ -94,22 +95,21 @@ public class ControladorConsulta implements ActionListener {
 			String[] dataParts = data.split("/");
 			int anoInformado = Integer.parseInt(dataParts[2]);
 			int anoAtual = java.time.Year.now().getValue();
-	        int mesInformado = Integer.parseInt(dataParts[1]);
-	        
-	        int mesAtual = java.time.Month.from(java.time.LocalDate.now()).getValue();
+			int mesInformado = Integer.parseInt(dataParts[1]);
 
+			int mesAtual = java.time.Month.from(java.time.LocalDate.now()).getValue();
 
 			if (anoInformado < anoAtual) {
 				throw new IllegalArgumentException("O ano da data não pode ser menor que o ano atual.");
 			}
 			if (anoInformado == anoAtual && mesInformado < mesAtual) {
-	            throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
-	        }
-			
+				throw new IllegalArgumentException("O mês da consulta não pode ser menor que o mês atual.");
+			}
+
 			Consulta consulta = new Consulta(data, hora, medico, paciente, queixaPaciente, tipoConsulta, convenio,
 					observacoes, materiais);
 			consultasCadastradas.add(consulta);
-			
+
 			gravarDados(consulta);
 
 			JOptionPane.showMessageDialog(panelConsulta, "[SUCESSO ✅ ]: Consulta cadastrada com sucesso!", "Sucesso!",
@@ -121,8 +121,7 @@ public class ControladorConsulta implements ActionListener {
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
-	
-	
+
 	private void carregarMedicos() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
@@ -146,7 +145,7 @@ public class ControladorConsulta implements ActionListener {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
+
 	private void carregarPacientes() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosPaciente.txt"));
@@ -169,7 +168,7 @@ public class ControladorConsulta implements ActionListener {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-	
+
 	private void gravarDados(Consulta consulta) {
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter("./dados/dadosConsulta.txt", true))) {
 			writer.write(consulta.toString());
@@ -181,15 +180,15 @@ public class ControladorConsulta implements ActionListener {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void toggleMateriais() {
-        
-        if (panelConsulta.getCheckBoxMateriais().isSelected()) {
-            panelConsulta.getTextAreaMateriaisUtilizados().setVisible(true);  
-        } else {
-            panelConsulta.getTextAreaMateriaisUtilizados().setVisible(false);  
-        }
-    }
+
+		if (panelConsulta.getCheckBoxMateriais().isSelected()) {
+			panelConsulta.getTextAreaMateriaisUtilizados().setVisible(true);
+		} else {
+			panelConsulta.getTextAreaMateriaisUtilizados().setVisible(false);
+		}
+	}
 
 	private void limparCampos() {
 		panelConsulta.getTextFieldData().setText("");
