@@ -56,11 +56,11 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 				throw new Exception("Selecione um médico.");
 			}
 
-//			inserirDadosNoTextPane(panelVisualizacaoAgenda.getTextPainelAgenda());
+			inserirDadosNoTextPane(panelVisualizacaoAgenda.getTextPainelAgenda());
 			
 			JOptionPane.showMessageDialog(panelVisualizacaoAgenda, "[SUCESSO ✅ ]: Visualizando com sucesso!",
 					"Sucesso!", JOptionPane.INFORMATION_MESSAGE);
-			limparCampos();
+//			limparCampos();
 			
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(panelVisualizacaoAgenda, "[ERRO ❌ ]: " + e.getMessage(), "Erro",
@@ -93,37 +93,40 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 		}
 	}
 	
-//	private void inserirDadosNoTextPane(JTextPane textPane) {
-//	    try {
-//	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMedico.txt"));
-//	        StringBuilder conteudo = new StringBuilder();
-//	        String linha;
-//
-//	        while ((linha = br.readLine()) != null) {
-//	            String[] dadosConsultasAgendadas = linha.split(";");
-//	            if (dadosConsultasAgendadas.length >= 4) {
-//	                String medico = dadosConsultasAgendadas[0].trim();
-//	                String paciente = dadosConsultasAgendadas[1].trim();
-//	                String data = dadosConsultasAgendadas[2].trim();
-//	                String hora = dadosConsultasAgendadas[3].trim();
-//	                String medicoFormatado = nome + " - CRM: " + crm + " (" + especialidade + ")";
-//	                conteudo.append(medicoFormatado).append("\n");
-//	            }
-//	        }
-//
-//	        // Atualizar o texto no JTextPane
-//	        textPane.setText(conteudo.toString());
-//	        br.close();
-//	    } catch (IOException e) {
-//	        JOptionPane.showMessageDialog(null, 
-//	            "Erro ao carregar médicos: " + e.getMessage(), 
-//	            "Erro", 
-//	            JOptionPane.ERROR_MESSAGE);
-//	    }
-//	}
+	private void inserirDadosNoTextPane(JTextPane textPane) {
+	    try {
+	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosAgendamentoConsulta.txt"));
+	        StringBuilder conteudo = new StringBuilder();
+	        String linha;
+	        
+	        while ((linha = br.readLine()) != null) {
+	            String[] dadosConsultasAgendadas = linha.split(";");
+	            
+	            if(dadosConsultasAgendadas[0].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+	            	if (dadosConsultasAgendadas.length >= 3) {
+	            		String paciente = dadosConsultasAgendadas[1].trim();
+	            		String data = dadosConsultasAgendadas[2].trim();
+	            		String hora = dadosConsultasAgendadas[3].trim();
+	            		String consultaAgendadaFormatada = "Paciente: " + paciente + " - Data:" + data + " - Hora: " + hora;
+	            		conteudo.append(consultaAgendadaFormatada).append("\n");
+	            	}	            	
+	            }
+	        }
+
+	        // Atualizar o texto no JTextPane
+	        textPane.setText(conteudo.toString());
+	        br.close();
+	    } catch (IOException e) {
+	        JOptionPane.showMessageDialog(null, 
+	            "Erro ao carregar médicos: " + e.getMessage(), 
+	            "Erro", 
+	            JOptionPane.ERROR_MESSAGE);
+	    }
+	}
 
 	public void limparCampos() {
 		panelVisualizacaoAgenda.getTextFieldPesquisarData().setText("");
 		panelVisualizacaoAgenda.getMedico().setSelectedIndex(0);
+		panelVisualizacaoAgenda.getTextPainelAgenda().setText("");
 	}
 }
