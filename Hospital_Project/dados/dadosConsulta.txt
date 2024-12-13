@@ -1,1 +1,1 @@
-Data: 11/11/2031; Hora: 11:11; Médico: Livinho - CRM: Enfermeiro (SP12345); Paciente: Julia - Data de nascimento: 14/12/2024; Queixa: ass; Tipo de Consulta: Consulta 2; Convênio: Plano Bronze; Observações: a; Materiais: a;
+Data: 11/11/2031;Hora: 11:11;Médico: Livinho - CRM: Enfermeiro (SP12345);Paciente: Julia - Data de nascimento: 14/12/2024;Queixa: ass; Tipo de Consulta: Consulta 2;Convênio: Plano Bronze;Observações: a;Materiais: a;

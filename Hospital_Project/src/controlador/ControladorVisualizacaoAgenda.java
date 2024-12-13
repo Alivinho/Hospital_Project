@@ -124,22 +124,23 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	        }    
 	        
 	     // Exibição de Consultas 
-	     			conteudo.append("\n========================> CONSULTAS CASTRADAS <========================\n").append("\n");
-	     	        while ((linhaConsultaCadastrada = br2.readLine()) != null) {
-	     	            String[] dadosConsultasCadastradas = linhaConsultaCadastrada.split(";");
-	     	          
-	     	            if(dadosConsultasCadastradas[2].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
-	     	            	if (dadosConsultasCadastradas.length >= 3) {
-	     	            		String paciente = dadosConsultasCadastradas[3].trim();
-	     	            		String data = dadosConsultasCadastradas[0].trim();
-	     	            		String hora = dadosConsultasCadastradas[1].trim();
-	     	            		String consultaCadastradaFormatada = "Paciente: " + paciente + " - Data:" + data + " - Hora: " + hora;
-	     	            		conteudo.append(consultaCadastradaFormatada).append("\n");
-	     	            	}	            	
-	     	            }
-	     	        }  
+//	     			conteudo.append("\n========================> CONSULTAS CASTRADAS <========================\n").append("\n");
+//	     	        while ((linhaConsultaCadastrada = br2.readLine()) != null) {
+//	     	            String[] dadosConsultasCadastradas = linhaConsultaCadastrada.split(";");
+//	     	          
+//	     	            if(dadosConsultasCadastradas[2].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+//	     	            	System.out.println("SIm");
+//	     	            	if (dadosConsultasCadastradas.length >= 3) {
+//	     	            		String paciente = dadosConsultasCadastradas[3].trim();
+//	     	            		String data = dadosConsultasCadastradas[0].trim();
+//	     	            		String hora = dadosConsultasCadastradas[1].trim();
+//	     	            		String consultaCadastradaFormatada =  paciente + " - " + data + " - " + hora;
+//	     	            		conteudo.append(consultaCadastradaFormatada).append("\n");
+//	     	            	}	            	
+//	     	            }
+//	     	        }  
 	        
-	        // Exibição de Exames 
+//	         Exibição de Exames 
 			conteudo.append("\n========================> EXAMES CADASTRADOS <========================\n").append("\n");
 	        while ((linhaExame = br3.readLine()) != null) {
 	            String[] dadosExamesCadastrados = linhaExame.split(";");
