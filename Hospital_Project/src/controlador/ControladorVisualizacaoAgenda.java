@@ -113,8 +113,11 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	            String[] dadosConsultasAgendadas = linhaConsultaAgendada.split(";");
 
 	            System.err.println("A: "+dadosConsultasAgendadas[0].trim());
+	            System.err.println("Y: "+dadosConsultasAgendadas[2].trim());
 	            
-	            if(dadosConsultasAgendadas[0].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+	            if(dadosConsultasAgendadas[0].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString()) &&
+	            	dadosConsultasAgendadas[2].trim().equals(panelVisualizacaoAgenda.getTextFieldPesquisarData().getText())
+	            		) {
 	            	if (dadosConsultasAgendadas.length >= 3) {
 	            		String paciente = dadosConsultasAgendadas[1].trim();
 	            		String data = dadosConsultasAgendadas[2].trim();
@@ -132,7 +135,9 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	     	            
 	     	           System.err.println("B: "+dadosConsultasCadastradas[2].trim());
 	     	            
-	     	            if(dadosConsultasCadastradas[2].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+	     	            if(dadosConsultasCadastradas[2].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString()
+	     	               
+	     	            	)) {
 	     	            	System.out.println("SIm");
 	     	            	if (dadosConsultasCadastradas.length >= 3) {
 	     	            		String paciente = dadosConsultasCadastradas[3].trim();
