@@ -1,7 +1,6 @@
 package modelo;
 
 public class Consulta {
-	
 	private String data;
 	private String hora;
 	private String medico;
@@ -11,6 +10,14 @@ public class Consulta {
 	private String convenio;
 	private String observacoes;
 	private String materiais;
+	
+	@Override
+	public String toString() {
+				return String.format(
+			            "Data: %s, Hora: %s, Médico: %s, Paciente: %s, Queixa: %s, Tipo de Consulta: %s, Convênio: %s, Observações: %s, Materiais: %s",
+			            data, hora, medico, paciente, queixaPaciente, tipoConsulta, convenio, observacoes, materiais
+			        );
+	}
 	
 	public Consulta(String data, String hora, String medico, String paciente, String queixaPaciente,
 					String tipoConsulta, String convenio, String observacoes, String materiais) {
@@ -25,19 +32,6 @@ public class Consulta {
 		this.materiais = materiais;
 	}
 	
-	@Override
-    public String toString() {
-        return
-            "Data"+";"+
-            "Hora"+";"+ 
-            "Médico"+";"+
-            "Paciente"+";"+
-            "Queixa"+";" +
-            "Tipo de Consulta"+";"+
-            "Convênio"+";"+
-            "Observações"+";"+
-            "Materiais"+";";
-    }
 
 	public String getData() {
 		return data;

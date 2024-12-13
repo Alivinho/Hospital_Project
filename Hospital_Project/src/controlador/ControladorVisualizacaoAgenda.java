@@ -97,14 +97,14 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	    try {
 	        BufferedReader br = new BufferedReader(new FileReader("./dados/dadosAgendamentoConsulta.txt"));
 	        BufferedReader br2 = new BufferedReader(new FileReader("./dados/dadosConsulta.txt"));
-	        BufferedReader br3 = new BufferedReader(new FileReader("./dados/dadosAgendamentoExame.txt"));
+	        BufferedReader br3 = new BufferedReader(new FileReader("./dados/dadosExame.txt"));
 	        
 
 	        StringBuilder conteudo = new StringBuilder();
 	        
 	        String linhaConsultaAgendada;
 	        String linhaConsultaCadastrada;
-	        //String linhaExameCadastrado;
+	        String linhaExame;
 	        
 
 	        // Exibição de Consultas 
@@ -139,26 +139,26 @@ public class ControladorVisualizacaoAgenda implements ActionListener {
 	     	            }
 	     	        }  
 	        
-//	        // Exibição de Exames 
-//			conteudo.append("\n========================> EXAMES CADASTRADOS <========================\n").append("\n");
-//	        while ((linhaExame = br3.readLine()) != null) {
-//	            String[] dadosExamesCadastrados = linhaExame.split(";");
-//	            
-//	            if(dadosExamesCadastrados[5].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
-//	            	if (dadosExamesCadastrados.length >= 2) {
-//	            		String nomeExame = dadosExamesCadastrados[0].trim();
-//	            		String tipoExame = dadosExamesCadastrados[2].trim();
-//	            		String exameCadastradoFormatado = "Nome do exame: " + nomeExame + " - Tipo do exame: " + tipoExame;
-//	            		conteudo.append(exameCadastradoFormatado).append("\n");
-//	            	}	            	
-//	            }
-//	        }
+	        // Exibição de Exames 
+			conteudo.append("\n========================> EXAMES CADASTRADOS <========================\n").append("\n");
+	        while ((linhaExame = br3.readLine()) != null) {
+	            String[] dadosExamesCadastrados = linhaExame.split(";");
+	            
+	            if(dadosExamesCadastrados[4].trim().equals(panelVisualizacaoAgenda.getMedico().getSelectedItem().toString())) {
+	            	if (dadosExamesCadastrados.length >= 2) {
+	            		String nomeExame = dadosExamesCadastrados[0].trim();
+	            		String tipoExame = dadosExamesCadastrados[2].trim();
+	            		String exameFormatado = "Nome do exame: " + nomeExame + " - Tipo do exame: " + tipoExame;
+	            		conteudo.append(exameFormatado).append("\n");
+	            	}	            	
+	            }
+	        }
 
 	        // Atualizar o texto no JTextPane
 	        textPane.setText(conteudo.toString());
 	        br.close();
 	        br2.close();
-	        
+	        br3.close();
 	    } catch (IOException e) {
 	        JOptionPane.showMessageDialog(null, 
 	            "Erro ao carregar médicos: " + e.getMessage(), 
