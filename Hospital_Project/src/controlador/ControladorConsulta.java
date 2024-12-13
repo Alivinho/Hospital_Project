@@ -69,6 +69,10 @@ public class ControladorConsulta implements ActionListener {
 			if (panelConsulta.getComboBoxTipoConsulta().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um tipo de consulta.");
 			}
+			
+			if (!materiais.matches("^[A-Za-z][A-Za-z0-9\\.\\s]*$")) {
+			    throw new IllegalArgumentException("O campo 'materiais' deve começar com uma letra e pode conter números, espaços e pontos.");
+			}
 
 			if (panelConsulta.getComboBoxTipoConvenio().getSelectedIndex() == 0) {
 				throw new Exception("Selecione um tipo de convênio.");
