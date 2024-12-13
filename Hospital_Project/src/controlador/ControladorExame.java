@@ -31,6 +31,7 @@ public class ControladorExame implements ActionListener {
 		addEventos();
 
 		carregarMedicos();
+		carregarMateriais();
 	}
 
 	private void addEventos() {
@@ -129,6 +130,30 @@ public class ControladorExame implements ActionListener {
 			br.close();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(panelExame, "Erro ao carregar médicos: " + e.getMessage(), "Erro",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+	
+	
+	private void carregarMateriais() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("./dados/dadosMaterial.txt"));
+			String linha;
+			panelExame.getComboBoxMateriaisUtilizados().removeAllItems();
+			panelExame.getComboBoxMateriaisUtilizados().addItem("Selecionar Material");
+
+			while ((linha = br.readLine()) != null) {
+				String[] dados = linha.split(";");
+				if (dados.length >= 3) {
+					String nome = dados[0].trim();
+					
+					String materialFormatado = nome;
+					panelExame.getComboBoxMateriaisUtilizados().addItem(materialFormatado);
+				}
+			}
+			br.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(panelExame, "Erro ao carregar materiais: " + e.getMessage(), "Erro",
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
